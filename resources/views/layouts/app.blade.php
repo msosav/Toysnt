@@ -29,7 +29,6 @@
             </div>
         </div>
     </nav>
-
     <!-- header -->
 
     <div class="container my-4">
