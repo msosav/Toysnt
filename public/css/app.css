@@ -1,51 +1,12 @@
-:root {
-    --primaryColor: #da4a05;
-    --secondaryColor: #fe931e;
-    --terciaryColor: #ffdb94;
-    --cuaternaryColor: #e07a5f;
-    --titleColor: #da4a05;
-    --textColor: white;
-}
-
-nav {
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
 .logo {
     width: 60px;
     height: 60px;
 }
 
-.bg-primary {
-    background-color: var(--primaryColor) !important;
+.background-navbar {
+    background-color: #e15506;
 }
 
 .copyright {
-    background-color: var(--cuaternaryColor);
-}
-
-.bar {
-    color: var(--primaryColor) !important;
-}
-
-.active-tab {
-    color: var(--textColor) !important;
-    background-color: var(--primaryColor) !important;
-}
-
-.btn-outline {
-    border-color: var(--primaryColor);
-    color: var(--textColor);
-    background-color: var(--cuaternaryColor);
-}
-
-.btn-outline:hover {
-    background-color: var(--primaryColor);
-    color: var(--textColor);
-}
-
-.title {
-    color: var(--primaryColor);
-    font-weight: bold;
+    background-color: #1a252f;
 }
