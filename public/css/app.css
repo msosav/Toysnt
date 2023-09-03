@@ -49,3 +49,7 @@ nav {
     color: var(--primaryColor);
     font-weight: bold;
 }
+
+.col-1 {
+    background-color: var(--cuaternaryColor);
+}
