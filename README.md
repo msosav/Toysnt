@@ -33,7 +33,13 @@
 
     Esto instalará los paquetes necesarios para que el proyecto pueda ejecutarse con normalidad
 
-9. En la misma consola, ejecutar el siguiente comando
+9. En la consola ejecutar el siguiente comando
+
+    ```cmd
+    php artisan key:generate
+    ```
+
+11. En la misma consola, ejecutar el siguiente comando
 
     ```cmd
     php artisan migrate
@@ -41,7 +47,7 @@
 
     Si sale un aviso que indique que la tabla toysnt no existe en la conexión mysql, lo que debes escribir es 'Si'
 
-10. Por último, ejecutar el siguiente comando
+12. Por último, ejecutar el siguiente comando
 
     ```cmd
     php artisan serve
