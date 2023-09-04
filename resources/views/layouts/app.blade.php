@@ -42,14 +42,14 @@
                                     <a class="nav-link bar" aria-current="page" href="{{ route('home.index') }}">@lang('navbar.toys')</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active-tab" href="#">@lang('navbar.techniques')</a>
+                                    <a class="nav-link active-tab" href="{{ route('technique.index') }}">@lang('navbar.techniques')</a>
                                 </li>
                             @else
                                 <li class="nav-item">
                                     <a class="nav-link active-tab" aria-current="page" href="{{ route('home.index') }}">@lang('navbar.toys')</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link bar" href="#">@lang('navbar.techniques')</a>
+                                    <a class="nav-link bar" href="{{ route('technique.index') }}">@lang('navbar.techniques')</a>
                                 </li>
                             @endif
                         </div>
