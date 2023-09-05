@@ -35,7 +35,7 @@ nav {
 }
 
 .btn-outline {
-    border-color: var(--primaryColor);
+    border-color: transparent;
     color: var(--textColor);
     background-color: var(--cuaternaryColor);
 }
@@ -43,9 +43,19 @@ nav {
 .btn-outline:hover {
     background-color: var(--primaryColor);
     color: var(--textColor);
+    border-color: transparent;
 }
 
 .title {
     color: var(--primaryColor);
     font-weight: bold;
 }
+
+.card-header-format{
+    background-color: var(--primaryColor);
+    color: var(--textColor);
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+}
+
