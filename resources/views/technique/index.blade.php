@@ -2,7 +2,7 @@
 @section('title', $viewData['title'])
 @section('content')
 @foreach ($viewData['technique'] as $technique) 
-<div class="col-md-4 col-lg-3 mb-2"> 
+<div class="col-md-4 col-lg-3 mb-2" style="margin: 15px;"> 
     <div class="card" style="width: 18rem;"> 
         <img src="{{ $technique['image'] }}" class="card-img-top" alt="{{ $technique['model'] }}"> 
         <div class="card-body"> 

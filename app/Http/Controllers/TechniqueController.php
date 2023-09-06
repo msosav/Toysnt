@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Technique;
+use App\Models\Review;
 use Illuminate\View\View;
 
 class TechniqueController extends Controller
@@ -24,6 +25,7 @@ class TechniqueController extends Controller
         $viewData['title'] = $technique->getModel();
         $viewData['technique'] = $technique;
         $viewData['selected'] = 'techniques';
+        $viewData['review'] = Review::all()->where('technique_id', $id);
 
         return view('technique.show')->with('viewData', $viewData);
     }
