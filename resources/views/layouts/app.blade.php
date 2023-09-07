@@ -11,10 +11,10 @@
 
 <body>
     <!-- header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-1">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-0">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home.index') }}">
-                <img src="{{ url('/images/Logo.svg') }}" alt="Logo" class="logo">
+                <img src="{{ url('/images/Logo.svg') }}" alt="Logo" class="logo navbar-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
