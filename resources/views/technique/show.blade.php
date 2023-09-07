@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-<div class="col-md-4 col-lg-3 mb-2" style="margin: 15px;"> 
+<div class="col-md-4 col-lg-3 mb-2"> 
     <div class="card" style="width: 18rem;"> 
         <div class="row">
             <div class="col-sm">

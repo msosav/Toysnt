@@ -2,25 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Technique extends Model
 {
-    use HasFactory;
-
     /**
      * Technique ATTRIBUTES
-     * $this->attributes['id'] - int - contains the pet primary key (id)
+     * $this->attributes['id'] - string - contains the pet primary key (id)
      * $this->attributes['model'] - string - contains the technique model
      * $this->attributes['image'] - string - contains the technique image path
      * $this->attributes['description'] - string - contains the technique description
      * $this->attributes['price'] - float - contains the technique price
+     * $this->attributes['created_at'] - date - contains when the technique was created
+     * $this->attributes['updated_at'] - float - contains when the technique was updated
      */
 
     protected $fillable = ['model', 'image', 'description', 'price'];
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->attributes['id'];
     }
@@ -30,7 +29,7 @@ class Technique extends Model
         return $this->attributes['model'];
     }
 
-    public function setModel($model): void
+    public function setModel(string $model): void
     {
         $this->attributes['model'] = $model;
     }
@@ -40,7 +39,7 @@ class Technique extends Model
         return $this->attributes['image'];
     }
 
-    public function setImage($image): void
+    public function setImage(string $image): void
     {
         $this->attributes['image'] = $image;
     }
@@ -50,7 +49,7 @@ class Technique extends Model
         return $this->attributes['description'];
     }
 
-    public function setDescription($description): void
+    public function setDescription(string $description): void
     {
         $this->attributes['description'] = $description;
     }
@@ -60,8 +59,18 @@ class Technique extends Model
         return $this->attributes['price'];
     }
 
-    public function setPrice($price): void
+    public function setPrice(float $price): void
     {
         $this->attributes['price'] = $price;
+    }
+
+    public function getCreated_at(): float
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdated_at(): float
+    {
+        return $this->attributes['updated_at'];
     }
 }
