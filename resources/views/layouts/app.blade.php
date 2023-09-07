@@ -29,7 +29,7 @@
                     <a class="nav-link active nav-text" href="{{ route('register') }}">@lang('navbar.register')</a>
                     @else 
                     <form id="logout" action="{{ route('logout') }}" method="POST">
-                        <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">Logout</a>
+                        <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">@lang('navbar.logout')</a>
                         @csrf
                     </form>
                     @endguest

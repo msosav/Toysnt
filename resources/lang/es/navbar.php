@@ -7,4 +7,5 @@ return [
     'register' => 'Registrarse',
     'toys' => 'Juguetes',
     'techniques' => 'Técnicas',
+    'logout' => 'Cerrar sesión',
 ];
