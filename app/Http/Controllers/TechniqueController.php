@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Technique;
 use App\Models\Review;
+use App\Models\Technique;
 use Illuminate\View\View;
 
 class TechniqueController extends Controller
