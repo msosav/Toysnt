@@ -64,6 +64,16 @@ class Toy extends Model
         $this->attributes['price'] = $price;
     }
 
+    public function getStock(): int
+    {
+        return $this->attributes['stock'];
+    }
+
+    public function setStock(int $stock): void
+    {
+        $this->attributes['stock'] = $stock;
+    }
+
     public function getCreated_at(): float
     {
         return $this->attributes['created_at'];
