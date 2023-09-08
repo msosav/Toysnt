@@ -35,7 +35,7 @@ nav {
 }
 
 .btn-outline {
-    border-color: var(--primaryColor);
+    border-color: transparent;
     color: var(--textColor);
     background-color: var(--cuaternaryColor);
 }
@@ -43,11 +43,20 @@ nav {
 .btn-outline:hover {
     background-color: var(--primaryColor);
     color: var(--textColor);
+    border-color: transparent;
 }
 
 .title {
     color: var(--primaryColor);
     font-weight: bold;
+}
+
+.card-header-format{
+    background-color: var(--primaryColor);
+    color: var(--textColor);
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
 }
 
 .col-1 {
@@ -94,8 +103,11 @@ hr.h-color {
     width: 100px;
     height: 100px;
 }
+<<<<<<< HEAD
 
 .navbar-logo {
     width: 70px;
     height: 70px;
 }
+=======
+>>>>>>> d354b94192fc7800b25fa6d87a0464a093b906fa
