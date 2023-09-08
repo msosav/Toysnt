@@ -19,6 +19,10 @@ class User extends Authenticatable
      * $this->attributes['address'] - string - contains the user's address.
      * $this->attributes['balance'] - int - contains the user's balance (available and spendable money).
      * $this->attributes['role'] - string - contains the user's role in the app.
+     * $this->attributes['created_at'] - datetime - contains the date when the user was created.
+     * $this->attributes['updated_at'] - datetime - contains the last date when the user was modified.
+     * $this->attributes['email_verified_at'] - datetime - contains the date when the user's email was verified.
+     * $this->attributes['remember_token'] - string - contains the user's remember token.
      */
 
     /**
