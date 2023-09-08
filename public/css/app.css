@@ -82,7 +82,8 @@ hr.h-color {
     border-radius: 10px;
 }
 
-.sidebar li.active a, .sidebar li.active a:hover {
+.sidebar li.active a,
+.sidebar li.active a:hover {
     color: var(--textColor) !important;
 }
 
@@ -98,4 +99,14 @@ hr.h-color {
 .navbar-logo {
     width: 70px;
     height: 70px;
+}
+
+#model-card {
+    color: inherit;
+    text-decoration: none;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
 }

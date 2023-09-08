@@ -9,3 +9,6 @@ Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin.
 //Rutas de Technique.
 Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index');
 Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show');
+
+//Rutas de Toy.
+Route::get('/toys', 'App\Http\Controllers\ToyController@index')->name('toy.index');
