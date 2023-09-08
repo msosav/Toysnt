@@ -13,6 +13,7 @@ class Toy extends Model
      * $this->attributes['image'] - string - contains the toy image path
      * $this->attributes['description'] - string - contains the toy description
      * $this->attributes['price'] - float - contains the toy price
+     * $this->attributes['stock'] - int - contains the toy stock
      * $this->attributes['created_at'] - date - contains when the toy was created
      * $this->attributes['updated_at'] - float - contains when the toy was updated
      */
