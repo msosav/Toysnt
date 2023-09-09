@@ -135,3 +135,30 @@ hr.h-color {
 #toy-information {
     border: none;
 }
+
+#admin-delete {
+    color: var(--primaryColor);
+    text-decoration: none;
+}
+
+#admin-delete:hover {
+    color: var(--cuaternaryColor);
+}
+
+#admin-edit {
+    color: var(--secondaryColor);
+    text-decoration: none;
+}
+
+#admin-edit:hover {
+    color: var(--terciaryColor);
+}
+
+#admin-show {
+    color: black;
+    text-decoration: none;
+}
+
+#admin-show:hover {
+    color: gray;
+}
