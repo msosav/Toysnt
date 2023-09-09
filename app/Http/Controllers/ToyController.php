@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Toy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use App\Models\Toy;
 
 class ToyController extends Controller
 {
-    public function index() : View
+    public function index(): View
     {
         $viewData = [];
         $viewData['title'] = trans('titles.home');
@@ -25,6 +25,7 @@ class ToyController extends Controller
             $viewData = [];
             $viewData['toy'] = Toy::find($id);
             $viewData['title'] = 'Toys';
+
             return view('toy.show')->with('viewData', $viewData);
         }
     }
