@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminsOnly
+class BasicUsersOnly
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,8 @@ class AdminsOnly
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()?->role != 'admin') {
+        if (auth()->user()?->role != 'basic_user') {
+            #abort(Response::HTTP_FORBIDDEN);
             return back();
         }
 
