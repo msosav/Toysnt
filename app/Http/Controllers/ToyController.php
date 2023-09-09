@@ -17,7 +17,7 @@ class ToyController extends Controller
         return view('toy.index')->with('viewData', $viewData);
     }
 
-    public function show(int $id): View|RedirectResponse
+    public function show(string $id): View|RedirectResponse
     {
         if (Toy::find($id) === null) {
             return redirect()->route('toy.index');
