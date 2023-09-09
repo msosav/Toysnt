@@ -82,7 +82,8 @@ hr.h-color {
     border-radius: 10px;
 }
 
-.sidebar li.active a, .sidebar li.active a:hover {
+.sidebar li.active a,
+.sidebar li.active a:hover {
     color: var(--textColor) !important;
 }
 
@@ -98,4 +99,39 @@ hr.h-color {
 .navbar-logo {
     width: 70px;
     height: 70px;
+}
+
+#card-title {
+    color: var(--primaryColor);
+    text-decoration: none;
+}
+
+#card-title:hover {
+    color: var(--cuaternaryColor);
+}
+
+#card-price {
+    color: var(--secondaryColor);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#show-title {
+    color: var(--primaryColor);
+}
+
+#terms-and-conditions {
+    color: var(--cuaternaryColor);
+}
+
+#show-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#toy-information {
+    border: none;
 }
