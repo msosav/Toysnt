@@ -7,11 +7,11 @@
         <div class="card" style="width: 18rem;">
             <img src="{{ $toy->getImage() }}" class="card-img-top" alt="{{ $toy->getModel() }}">
             <div class="card-body">
-                <h5 class="card-title"><a href="" id="model-card">{{ $toy->getModel() }}</a></h5>
+                <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy['id']]) }}" id="card-title">{{ $toy->getModel() }}</a></h5>
                 <div class="row">
                     <div class="col d-block">
-                        <h6 class="card-subtitle">${{ $toy->getPrice() }}</h6>
-                        <h7 class="card-subtitle"><small>Stock: {{ $toy->getStock() }}</small></h6>
+                        <h6 class="card-subtitle" id="card-price">${{ $toy->getPrice() }}</h6>
+                        <h7 class="card-subtitle"><small>@lang('toy.stock'): {{ $toy->getStock() }}</small></h6>
                     </div>
                     <div class="d-flex col justify-content-end">
                         <a href="" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>

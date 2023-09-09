@@ -12,3 +12,4 @@ Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->
 
 //Rutas de Toy.
 Route::get('/toys', 'App\Http\Controllers\ToyController@index')->name('toy.index');
+Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show');
