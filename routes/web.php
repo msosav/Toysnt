@@ -7,7 +7,8 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')
 //Rutas de Admin.
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin.index');
 //Rutas de AdminToy.
-Route::get('/admin/toy', 'App\Http\Controllers\AdminToyController@index')->name('admin.toy.index');
+Route::get('/admin/toys', 'App\Http\Controllers\AdminToyController@index')->name('admin.toy.index');
+Route::get('/admin/toys/{id}', 'App\Http\Controllers\AdminToyController@show')->name('admin.toy.show');
 
 //Rutas de Technique.
 Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index');

@@ -15,5 +15,16 @@ class AdminToyController extends Controller {
         return view('admin.toy.index')->with('viewData', $viewData);
     }
 
-    
+    public function show(string $id): View 
+    {
+        if (Toy::find($id) === null) {
+            return redirect()->route('admin.toy.index');
+        } else {
+            $viewData = [];
+            $viewData['toy'] = Toy::find($id);
+            $viewData['title'] = $viewData['toy']->getModel();
+
+            return view('admin.toy.show')->with('viewData', $viewData);
+        }
+    }
 }
