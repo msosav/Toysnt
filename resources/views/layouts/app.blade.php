@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/be50e46cfb.js" crossorigin="anonymous"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
     <title>@yield('title')</title>
 </head>
@@ -13,7 +14,7 @@
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-0">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home.index') }}">
+            <a class="navbar-brand" href="{{ route('toy.index') }}">
                 <img src="{{ url('/images/Logo.svg') }}" alt="Logo" class="logo navbar-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +22,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link active nav-text" href="">@lang('navbar.home')</a>
+                    <a class="nav-link active nav-text" href="{{ route('toy.index') }}">@lang('navbar.home')</a>
                     <a class="nav-link active nav-text" href="">@lang('navbar.cart')</a>
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     @guest

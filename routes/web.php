@@ -9,3 +9,7 @@ Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin.
 //Rutas de Technique.
 Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index')->middleware('basic.users');
 Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show')->middleware('basic.users');
+
+//Rutas de Toy.
+Route::get('/toys', 'App\Http\Controllers\ToyController@index')->name('toy.index');
+Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show');

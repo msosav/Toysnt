@@ -7,7 +7,7 @@
                 <div class="col-5">
                     <div class="nav nav-tabs">
                         <li class="nav-item">
-                            <a @if (Request::segment(1)=='' ) class="nav-link active-tab" @else class="nav-link bar" @endif href="{{ route('home.index') }}">
+                            <a @if (Request::segment(1)=='toys' ) class="nav-link active-tab" @else class="nav-link bar" @endif href="{{ route('toy.index') }}">
                                 @lang('navbar.toys')
                             </a>
                         </li>
@@ -23,7 +23,7 @@
                         @if (Request::segment(1)=='techniques')
                         <form class="d-flex" role="search">
                             <input class="form-control me-2" type="search" placeholder="@lang('search.technique')" aria-label="Search-Technique">
-                            <button class="btn" type="submit">@lang('search.search')</button>
+                            <button class="btn btn-outline" type="submit">@lang('search.search')</button>
                         </form>
                         @else
                         <form class="d-flex" role="search">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            @yield('contentTabs')
+            @yield('content_tabs')
         </div>
         <div class="col-3">
             <h2 class="title">@lang('titles.stats')</h2>
