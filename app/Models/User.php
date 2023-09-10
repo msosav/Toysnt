@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTime;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -13,11 +14,11 @@ class User extends Authenticatable
     /**
      * User Attributes
 
-     * $this->attributes['id'] - int - contains the user primary key (id).
+     * $this->attributes['id'] - string - contains the user primary key (id).
      * $this->attributes['name'] - string - contains the user's name.
      * $this->attributes['password'] - string - contains the password set by user.
      * $this->attributes['address'] - string - contains the user's address.
-     * $this->attributes['balance'] - int - contains the user's balance (available and spendable money).
+     * $this->attributes['balance'] - float - contains the user's balance (available and spendable money).
      * $this->attributes['role'] - string - contains the user's role in the app.
      * $this->attributes['created_at'] - datetime - contains the date when the user was created.
      * $this->attributes['updated_at'] - datetime - contains the last date when the user was modified.
@@ -41,7 +42,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->attributes['id'];
     }
@@ -86,12 +87,12 @@ class User extends Authenticatable
         $this->attributes['address'] = $address;
     }
 
-    public function getBalance(): int
+    public function getBalance(): float
     {
         return $this->attributes['balance'];
     }
 
-    public function setBalance(int $balance): void
+    public function setBalance(float $balance): void
     {
         $this->attributes['balance'] = $balance;
     }
@@ -104,5 +105,25 @@ class User extends Authenticatable
     public function setRole(string $role): void
     {
         $this->attributes['role'] = $role;
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function getEmailVerifiedAt(): DateTime
+    {
+        return $this->attributes['email_verified_at'];
+    }
+
+    public function getRemember_token(): string
+    {
+        return $this->attributes['remember_token'];
     }
 }
