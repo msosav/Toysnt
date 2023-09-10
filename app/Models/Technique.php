@@ -16,7 +16,6 @@ class Technique extends Model
      * $this->attributes['created_at'] - date - contains when the technique was created
      * $this->attributes['updated_at'] - float - contains when the technique was updated
      */
-
     protected $fillable = ['model', 'image', 'description', 'price'];
 
     public function getId(): string

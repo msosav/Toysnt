@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
+Auth::routes();
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')->middleware('landing.page');
+Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin.index')->middleware('admin');
 
-//Rutas de Admin.
-Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin.index');
 //Rutas de AdminToy.
 Route::get('/admin/toys', 'App\Http\Controllers\AdminToyController@index')->name('admin.toy.index');
 Route::get('/admin/toys/create', 'App\Http\Controllers\AdminToyController@create')->name('admin.toy.create');
@@ -16,8 +16,8 @@ Route::get('/admin/toys/delete/{id}', 'App\Http\Controllers\AdminToyController@d
 Route::get('/admin/toys/{id}', 'App\Http\Controllers\AdminToyController@show')->name('admin.toy.show');
 
 //Rutas de Technique.
-Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index');
-Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show');
+Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index')->middleware('basic.users');
+Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show')->middleware('basic.users');
 
 //Rutas de Toy.
 Route::get('/toys', 'App\Http\Controllers\ToyController@index')->name('toy.index');
