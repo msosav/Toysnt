@@ -24,12 +24,6 @@ class User extends Authenticatable
      * $this->attributes['email_verified_at'] - datetime - contains the date when the user's email was verified.
      * $this->attributes['remember_token'] - string - contains the user's remember token.
      */
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'email',
@@ -37,21 +31,11 @@ class User extends Authenticatable
         'address',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
