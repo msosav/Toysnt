@@ -17,9 +17,8 @@
         {{ session('deleted') }}
     </div>
     @endif
-    <div class="card shadow-0 border" style="background-color: #f0f2f5;">
         @foreach ($viewData['toys'] as $toy)
-        <div class="card-body p-4">
+        <div class="card-body p-2">
             <div class="card">
                 <div class="card-body">
                     <div class="row d-flex justify-content-between">
@@ -29,7 +28,7 @@
                         <div class="col-4">
                             <div class="d-flex justify-content-around">
                                 <a href="{{ route('admin.toy.show', ['id'=> $toy['id']]) }}" id="admin-show"><i class="fa-solid fa-eye"></i> @lang('admin.toys.show')</a>
-                                <a href="" id="admin-edit"><i class="fa-solid fa-pen"></i> @lang('admin.toys.edit')</a>
+                                <a href="{{ route('admin.toy.edit', ['id'=> $toy['id']]) }}" id="admin-edit"><i class="fa-solid fa-pen"></i> @lang('admin.toys.edit')</a>
                                 <a href="" id="admin-delete"><i class="fa-solid fa-trash"></i> @lang('admin.toys.delete')</a>
                             </div>
                         </div>
@@ -38,6 +37,5 @@
             </div>
         </div>
         @endforeach
-    </div>
 </div>
 @endsection

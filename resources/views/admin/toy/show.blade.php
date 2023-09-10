@@ -13,7 +13,7 @@
                 <p class="card-text">{{ $viewData['toy']->getDescription() }}</p>
                 <p class="card-text"><small class="text-muted">@lang('toy.stock'): {{ $viewData['toy']->getStock() }}</small></p>
                 <div class="sub_div py-2 flex justify-content-around">
-                    <a href="" class="btn btn-outline"><i class="fa-solid fa-pen"></i> @lang('admin.toys.edit')</a>
+                    <a href="{{ route('admin.toy.edit', ['id' => $viewData['toy']->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-pen"></i> @lang('admin.toys.edit')</a>
                     <a href="" class="btn btn-outline"><i class="fa-solid fa-trash"></i> @lang('admin.toys.delete')</a>
                 </div>
             </div>

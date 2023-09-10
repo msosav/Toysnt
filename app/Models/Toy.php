@@ -15,8 +15,8 @@ class Toy extends Model
      * $this->attributes['description'] - string - contains the toy description
      * $this->attributes['price'] - float - contains the toy price
      * $this->attributes['stock'] - int - contains the toy stock
-     * $this->attributes['created_at'] - date - contains when the toy was created
-     * $this->attributes['updated_at'] - float - contains when the toy was updated
+     * $this->attributes['created_at'] - string - contains when the toy was created
+     * $this->attributes['updated_at'] - string - contains when the toy was updated
      */
     protected $fillable = ['model', 'image', 'description', 'price'];
 
@@ -90,6 +90,17 @@ class Toy extends Model
         $request->validate([
             'model' => 'required|string|max:255',
             'toy_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'stock' => 'required|numeric',
+        ]);
+    }
+
+    public static function validateUpdate(Request $request): void
+    {
+        $request->validate([
+            'model' => 'required|string|max:255',
+            'toy_image' => 'image|mimes:jpeg,png,jpg|max:2048',
             'description' => 'required|string|max:255',
             'price' => 'required|numeric',
             'stock' => 'required|numeric',
