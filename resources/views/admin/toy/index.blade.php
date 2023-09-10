@@ -4,10 +4,19 @@
 <div class="d-flex flex-row py3 justify-content-between">
     <h1 class="title">@lang('admin.toys.index')</h1>
     <div class="my-2">
-        <a href="" class="btn btn-outline">@lang('admin.toys.create')</a>
+        <a href="{{ route('admin.toy.create') }}" class="btn btn-outline">@lang('admin.toys.create')</a>
     </div>
 </div>
 <div class="row d-flex justify-content-center py-2 px-2">
+    @if (session('success'))
+    <div class="alert alert-success" role="alert">
+        {{ session('success') }}
+    </div>
+    @elseif (session('deleted'))
+    <div class="alert alert-danger" role="alert">
+        {{ session('deleted') }}
+    </div>
+    @endif
     <div class="card shadow-0 border" style="background-color: #f0f2f5;">
         @foreach ($viewData['toys'] as $toy)
         <div class="card-body p-4">

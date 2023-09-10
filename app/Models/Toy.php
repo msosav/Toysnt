@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Toy extends Model
 {
@@ -74,13 +75,24 @@ class Toy extends Model
         $this->attributes['stock'] = $stock;
     }
 
-    public function getCreated_at(): float
+    public function getCreated_at(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdated_at(): float
+    public function getUpdated_at(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'model' => 'required|string|max:255',
+            'toy_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'stock' => 'required|numeric',
+        ]);
     }
 }

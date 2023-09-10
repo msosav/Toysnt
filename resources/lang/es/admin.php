@@ -14,5 +14,12 @@ return [
         'edit' => 'Editar',
         'show' => 'Mostrar',
         'delete' => 'Eliminar',
+        'model' => 'Modelo',
+        'description' => 'Descripción',
+        'price' => 'Precio',
+        'stock' => 'Stock',
+        'image' => 'Imagen',
+        'add' => 'Añadir',
+        'added' => '¡Juguete añadido con éxito!',
     ],
 ];

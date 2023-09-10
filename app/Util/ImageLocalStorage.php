@@ -8,13 +8,22 @@ use Illuminate\Support\Facades\Storage;
 
 class ImageLocalStorage implements ImageStorage
 {
-    public function store(Request $request, string $image_type, string $id): void
+    private string $image_path;
+
+    public function store(Request $request, string $image_type, string $model): void
     {
         if ($request->hasFile($image_type)) {
             Storage::disk('public')->put(
-                $image_type .  $id . '.jpg',
+                $model . '.jpg',
                 file_get_contents($request->file($image_type)->getRealPath())
             );
         }
+
+        $this->image_path = $model . '.jpg';
+    }
+
+    public function getImagePath(): string
+    {
+        return $this->image_path;
     }
 }

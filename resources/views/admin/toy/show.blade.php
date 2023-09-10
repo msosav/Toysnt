@@ -4,7 +4,7 @@
 <div class="card md-5 my-4 mx-4">
     <div class="row g-3">
         <div class="col-md-7">
-            <img src="{{ $viewData['toy']->getImage() }}" class="img-fluid rounded-start ">
+            <img src="{{ URL::asset('storage/'.$viewData['toy']->getImage()) }}" class="img-fluid rounded-start" id="card-image">
         </div>
         <div class="col-md-3 my-5">
             <h1 id="show-title" class="py-1">{{ $viewData['toy']->getModel() }}</h1>
