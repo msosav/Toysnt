@@ -54,7 +54,7 @@ class AdminToyController extends Controller
         $toy->setDescription($request->input('description'));
         $toy->save();
 
-        return redirect()->route('admin.toy.index')->with('success', trans('admin.toys.added'));
+        return redirect()->route('admin.toy.index')->with('created', trans('admin.toys.added'));
     }
 
     public function edit(string $id): View | RedirectResponse
@@ -92,6 +92,15 @@ class AdminToyController extends Controller
 
         $toy->update();
 
-        return redirect()->route('admin.toy.show', ['id' => $toy->getId()])->with('edited', 'admin.toys.edited');
+        return redirect()->route('admin.toy.show', ['id' => $toy->getId()])->with('edited', trans('admin.toys.edited'));
+    }
+
+    public function delete(string $id): RedirectResponse
+    {
+        if (Toy::find($id) !== null) {
+            Toy::destroy($id);
+        }
+
+        return redirect()->route('admin.toy.index')->with('deleted', trans('admin.toys.deleted'));
     }
 }

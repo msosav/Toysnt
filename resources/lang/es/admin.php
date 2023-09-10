@@ -21,5 +21,7 @@ return [
         'image' => 'Imagen',
         'add' => 'Añadir',
         'added' => '¡Juguete añadido con éxito!',
+        'edited' => '¡Juguete editado con éxito!',
+        'deleted' => '¡Juguete eliminado con éxito!',
     ],
 ];

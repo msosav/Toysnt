@@ -12,6 +12,7 @@ Route::get('/admin/toys/create', 'App\Http\Controllers\AdminToyController@create
 Route::post('/admin/toys/save', 'App\Http\Controllers\AdminToyController@save')->name('admin.toy.save');
 Route::get('/admin/toys/edit/{id}', 'App\Http\Controllers\AdminToyController@edit')->name('admin.toy.edit');
 Route::post('/admin/toys/update/{id}', 'App\Http\Controllers\AdminToyController@update')->name('admin.toy.update');
+Route::get('/admin/toys/delete/{id}', 'App\Http\Controllers\AdminToyController@delete')->name('admin.toy.delete');
 Route::get('/admin/toys/{id}', 'App\Http\Controllers\AdminToyController@show')->name('admin.toy.show');
 
 //Rutas de Technique.

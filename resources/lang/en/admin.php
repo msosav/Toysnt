@@ -21,5 +21,7 @@ return [
         'image' => 'Image',
         'add' => 'Add',
         'added' => 'Toy added successfully!',
+        'edited' => 'Toy edited successfully!',
+        'deleted' => 'Toy deleted successfully!',
     ],
 ];
