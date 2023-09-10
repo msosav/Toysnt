@@ -22,7 +22,7 @@
                     <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-users"></i> @lang('adminNavbar.users')</a>
                 </li>
                 <li @if (Request::segment(2)=='toys' ) class="active" @endif>
-                    <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-horse"></i> @lang('adminNavbar.toys')</a>
+                    <a href="{{ route('admin.toy.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-horse"></i> @lang('adminNavbar.toys')</a>
                 </li>
                 <li @if (Request::segment(2)=='techniques' ) class="active" @endif>
                     <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-explosion"></i> @lang('adminNavbar.techniques')</a>
