@@ -14,12 +14,12 @@ class ImageLocalStorage implements ImageStorage
     {
         if ($request->hasFile($image_type)) {
             Storage::disk('public')->put(
-                $model . '.jpg',
+                $model.'.jpg',
                 file_get_contents($request->file($image_type)->getRealPath())
             );
         }
 
-        $this->image_path = $model . '.jpg';
+        $this->image_path = $model.'.jpg';
     }
 
     public function getImagePath(): string

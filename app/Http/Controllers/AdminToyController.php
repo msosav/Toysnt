@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Interfaces\ImageStorage;
-use Illuminate\View\View;
 use App\Models\Toy;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class AdminToyController extends Controller
 {
@@ -19,7 +19,7 @@ class AdminToyController extends Controller
         return view('admin.toy.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View | RedirectResponse
+    public function show(string $id): View|RedirectResponse
     {
         if (Toy::find($id) === null) {
             return redirect()->route('admin.toy.index');
@@ -57,7 +57,7 @@ class AdminToyController extends Controller
         return redirect()->route('admin.toy.index')->with('created', trans('admin.toys.added'));
     }
 
-    public function edit(string $id): View | RedirectResponse
+    public function edit(string $id): View|RedirectResponse
     {
         if (Toy::find($id) === null) {
             return redirect()->route('admin.toy.index');
