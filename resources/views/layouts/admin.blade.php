@@ -22,7 +22,7 @@
                     <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-users"></i> @lang('adminNavbar.users')</a>
                 </li>
                 <li @if (Request::segment(2)=='toys' ) class="active" @endif>
-                    <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-horse"></i> @lang('adminNavbar.toys')</a>
+                    <a href="{{ route('admin.toy.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-horse"></i> @lang('adminNavbar.toys')</a>
                 </li>
                 <li @if (Request::segment(2)=='techniques' ) class="active" @endif>
                     <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-explosion"></i> @lang('adminNavbar.techniques')</a>
@@ -38,10 +38,18 @@
         <div class="content">
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid">
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse justify-content-end px-2" id="navbarSupportedContent">
                         <ul class="navbar-nav mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href=""><i class="fa-solid fa-user"></i> @yield('profileName', 'Profile')</a>
+                            <li class="nav-item dropdown px-4">
+                                <a class="nav-link dropdown-toggle" aria-current="page" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-user"></i> @yield('profileName', 'Profile')
+                                </a>
+                                <ul class="dropdown-menu md-5">
+                                    <form id="logout" action="{{ route('logout') }}" method="POST">
+                                        <li><a class="dropdown-item" onclick="document.getElementById('logout').submit();">@lang('navbar.logout')</a></li>
+                                        @csrf
+                                    </form>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -52,7 +60,6 @@
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 

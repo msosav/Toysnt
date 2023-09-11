@@ -1,11 +1,11 @@
 @extends('layouts.tabs')
 @section('title', $viewData['title'])
 @section('content_tabs')
-<div class="container my-2 px-0">
-    @foreach ($viewData['toys'] as $toy)
-    <div class="col-md-4 col-lg-3 mb-2">
-        <div class="card" style="width: 18rem;">
-            <img src="{{ $toy->getImage() }}" class="card-img-top" alt="{{ $toy->getModel() }}">
+<div class="container row g-3 my-2 px-0">
+    <div class="col d-flex justify-content-start">
+        @foreach ($viewData['toys'] as $toy)
+        <div class="card me-2" style="width: 18rem;">
+            <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top" alt="{{ $toy->getModel() }}" id="index-card-image">
             <div class="card-body">
                 <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy['id']]) }}" id="card-title">{{ $toy->getModel() }}</a></h5>
                 <div class="row">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
-    @endforeach
 </div>
 @endsection

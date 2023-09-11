@@ -2,44 +2,128 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use DateTime;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * User Attributes
+
+     * $this->attributes['id'] - string - contains the user primary key (id).
+     * $this->attributes['name'] - string - contains the user's name.
+     * $this->attributes['password'] - string - contains the password set by user.
+     * $this->attributes['address'] - string - contains the user's address.
+     * $this->attributes['balance'] - float - contains the user's balance (available and spendable money).
+     * $this->attributes['role'] - string - contains the user's role in the app.
+     * $this->attributes['created_at'] - datetime - contains the date when the user was created.
+     * $this->attributes['updated_at'] - datetime - contains the last date when the user was modified.
+     * $this->attributes['email_verified_at'] - datetime - contains the date when the user's email was verified.
+     * $this->attributes['remember_token'] - string - contains the user's remember token.
      */
     protected $fillable = [
         'name',
         'email',
         'password',
+        'address',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getId(): string
+    {
+        return $this->attributes['id'];
+    }
+
+    public function getName(): string
+    {
+        return $this->attributes['name'];
+    }
+
+    public function setName(string $name): void
+    {
+        $this->attributes['name'] = $name;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->attributes['email'];
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->attributes['email'] = $email;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->attributes['password'];
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->attributes['password'] = $password;
+    }
+
+    public function getAddress(): string
+    {
+        return $this->attributes['address'];
+    }
+
+    public function setAddress(string $address): void
+    {
+        $this->attributes['address'] = $address;
+    }
+
+    public function getBalance(): float
+    {
+        return $this->attributes['balance'];
+    }
+
+    public function setBalance(float $balance): void
+    {
+        $this->attributes['balance'] = $balance;
+    }
+
+    public function getRole(): string
+    {
+        return $this->attributes['role'];
+    }
+
+    public function setRole(string $role): void
+    {
+        $this->attributes['role'] = $role;
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function getEmailVerifiedAt(): DateTime
+    {
+        return $this->attributes['email_verified_at'];
+    }
+
+    public function getRemember_token(): string
+    {
+        return $this->attributes['remember_token'];
+    }
 }

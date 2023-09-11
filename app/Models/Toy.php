@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Toy extends Model
 {
@@ -14,8 +15,8 @@ class Toy extends Model
      * $this->attributes['description'] - string - contains the toy description
      * $this->attributes['price'] - float - contains the toy price
      * $this->attributes['stock'] - int - contains the toy stock
-     * $this->attributes['created_at'] - date - contains when the toy was created
-     * $this->attributes['updated_at'] - float - contains when the toy was updated
+     * $this->attributes['created_at'] - string - contains when the toy was created
+     * $this->attributes['updated_at'] - string - contains when the toy was updated
      */
     protected $fillable = ['model', 'image', 'description', 'price'];
 
@@ -74,13 +75,35 @@ class Toy extends Model
         $this->attributes['stock'] = $stock;
     }
 
-    public function getCreated_at(): float
+    public function getCreated_at(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdated_at(): float
+    public function getUpdated_at(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'model' => 'required|string|max:255',
+            'toy_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'stock' => 'required|numeric',
+        ]);
+    }
+
+    public static function validateUpdate(Request $request): void
+    {
+        $request->validate([
+            'model' => 'required|string|max:255',
+            'toy_image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'stock' => 'required|numeric',
+        ]);
     }
 }

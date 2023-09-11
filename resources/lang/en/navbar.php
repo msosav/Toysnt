@@ -7,4 +7,5 @@ return [
     'register' => 'Register',
     'toys' => 'Toys',
     'techniques' => 'Techniques',
+    'logout' => 'Logout',
 ];
