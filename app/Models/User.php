@@ -4,9 +4,9 @@ namespace App\Models;
 
 use DateTime;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Http\Request;
 
 class User extends Authenticatable
 {
@@ -129,18 +129,6 @@ class User extends Authenticatable
     }
 
     public static function validate(Request $request): void
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'password' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'role' => 'required|string',
-            'balance' => 'required|numeric',
-        ]);
-    }
-
-    public static function validateUpdate(Request $request): void
     {
         $request->validate([
             'name' => 'required|string|max:255',

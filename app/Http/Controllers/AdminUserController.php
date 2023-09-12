@@ -78,7 +78,7 @@ class AdminUserController extends Controller
             return redirect()->route('admin.user.index');
         }
 
-        User::validateUpdate($request);
+        User::validate($request);
 
         $user = User::find($id);
 
@@ -89,7 +89,7 @@ class AdminUserController extends Controller
         $user->setRole($request->input('role'));
         $user->setBalance($request->input('balance'));
         $user->update();
-        
+
         return redirect()->route('admin.user.show', ['id' => $user->getId()])->with('edited', trans('admin.users.edited'));
     }
 
