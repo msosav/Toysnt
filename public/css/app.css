@@ -130,6 +130,7 @@ hr.h-color {
 
 #show-title {
     color: var(--primaryColor);
+    margin-left: 0.16em;
 }
 
 #terms-and-conditions {
@@ -186,4 +187,9 @@ hr.h-color {
     width: 100%;
     height: 200px;
 }
+
+.card-padding {
+    padding-left: 2em;
+    padding-bottom: 1.5em;
+ }
 
