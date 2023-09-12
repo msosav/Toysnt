@@ -8,13 +8,13 @@ class Technique extends Model
 {
     /**
      * Technique ATTRIBUTES
-     * $this->attributes['id'] - string - contains the pet primary key (id)
+     * $this->attributes['id'] - string - contains the technique primary key (id)
      * $this->attributes['model'] - string - contains the technique model
      * $this->attributes['image'] - string - contains the technique image path
      * $this->attributes['description'] - string - contains the technique description
      * $this->attributes['price'] - float - contains the technique price
-     * $this->attributes['created_at'] - date - contains when the technique was created
-     * $this->attributes['updated_at'] - float - contains when the technique was updated
+     * $this->attributes['created_at'] - string - contains when the technique was created
+     * $this->attributes['updated_at'] - string - contains when the technique was updated
      */
     protected $fillable = ['model', 'image', 'description', 'price'];
 
@@ -63,12 +63,12 @@ class Technique extends Model
         $this->attributes['price'] = $price;
     }
 
-    public function getCreated_at(): float
+    public function getCreated_at(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdated_at(): float
+    public function getUpdated_at(): string
     {
         return $this->attributes['updated_at'];
     }

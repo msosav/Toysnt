@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('comment');
             $table->string('rating');
+            $table->unsignedBigInteger('technique_id');
+            $table->foreign('technique_id')->references('id')->on('techniques');
             $table->timestamps();
         });
     }

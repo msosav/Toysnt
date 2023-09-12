@@ -13,7 +13,7 @@ class TechniqueController extends Controller
         $viewData = [];
         $viewData['title'] = trans('titles.home');
         $viewData['selected'] = 'techniques';
-        $viewData['techniques'] = Technique::all($columns = ['*']);
+        $viewData['techniques'] = Technique::all();
 
         return view('technique.index')->with('viewData', $viewData);
     }
