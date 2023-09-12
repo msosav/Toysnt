@@ -6,8 +6,8 @@ use DateTime;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -134,6 +134,17 @@ class User extends Authenticatable
         $request->validate([
             'name' => 'required|string|max:255',
             'password' => 'required|string|min:8',
+            'email' => 'required|string|email|max:255',
+            'address' => 'required|string|max:255',
+            'role' => 'required|string',
+            'balance' => 'required|numeric',
+        ]);
+    }
+
+    public static function validateUpdate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'address' => 'required|string|max:255',
             'role' => 'required|string',
