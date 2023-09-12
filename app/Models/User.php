@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -75,7 +76,7 @@ class User extends Authenticatable
 
     public function setPassword(string $password): void
     {
-        $this->attributes['password'] = hash('sha512', $password);
+        $this->attributes['password'] = Hash::make($password);
     }
 
     public function getAddress(): string
@@ -132,8 +133,8 @@ class User extends Authenticatable
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'password' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
+            'password' => 'required|string|min:8',
+            'email' => 'required|string|email|max:255',
             'address' => 'required|string|max:255',
             'role' => 'required|string',
             'balance' => 'required|numeric',
