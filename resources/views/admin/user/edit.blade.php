@@ -20,7 +20,6 @@
                         @csrf
                         <input type="text" class="form-control mb-2" placeholder=@lang('admin.users.name') name="name" value="{{ $viewData['user']->getName() }}" required />
                         <input type="text" class="form-control mb-2" placeholder=@lang('admin.users.email') name="email" value="{{ $viewData['user']->getEmail() }}" required />
-                        <input type="password" class="form-control mb-2" placeholder=@lang('admin.users.password') name="password" value="{{ $viewData['user']->getPassword() }}" required />
                         <select type="text" class="form-select mb-2" name="role" required>
                             @if($viewData['user']->getRole() == 'basic_user')
                             <option selected value="basic_user">@lang('admin.users.basic_user')</option>

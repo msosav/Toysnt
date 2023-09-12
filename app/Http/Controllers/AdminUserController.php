@@ -78,12 +78,11 @@ class AdminUserController extends Controller
             return redirect()->route('admin.user.index');
         }
 
-        User::validate($request);
+        User::validateUpdate($request);
 
         $user = User::find($id);
 
         $user->setName($request->input('name'));
-        $user->setPassword($request->input('password'));
         $user->setEmail($request->input('email'));
         $user->setAddress($request->input('address'));
         $user->setRole($request->input('role'));
