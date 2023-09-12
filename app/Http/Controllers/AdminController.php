@@ -10,6 +10,7 @@ class AdminController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('titles.home');
+        $viewData['auth_user'] = auth()->user();
 
         return view('admin.index')->with('viewData', $viewData);
     }
