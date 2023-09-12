@@ -43,5 +43,5 @@ return [
         'added' => '¡Usuario añadido con éxito!',
         'edited' => '¡Usuario editado con éxito!',
         'deleted' => '¡Usuario eliminado con éxito!',
-    ],    
+    ],
 ];
