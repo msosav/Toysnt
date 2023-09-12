@@ -140,4 +140,15 @@ class User extends Authenticatable
             'balance' => 'required|numeric',
         ]);
     }
+
+    public static function validateUpdate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'address' => 'required|string|max:255',
+            'role' => 'required|string',
+            'balance' => 'required|numeric',
+        ]);
+    }
 }
