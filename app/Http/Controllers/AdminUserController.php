@@ -81,7 +81,6 @@ class AdminUserController extends Controller
         User::validateUpdate($request);
 
         $user = User::find($id);
-
         $user->setName($request->input('name'));
         $user->setEmail($request->input('email'));
         $user->setAddress($request->input('address'));
