@@ -14,7 +14,7 @@
                 <p class="card-text"><small class="text-muted">@lang('toy.stock'): {{ $viewData['toy']->getStock() }}</small></p>
                 <a href="" class="btn btn-outline">@lang('toy.cart')</a>
             </div>
-            <a id="terms-and-conditions" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms and conditions</a>
+            <a id="terms-and-conditions" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">@lang('app.terms_and_conditions')</a>
         </div>
     </div>
 </div>
