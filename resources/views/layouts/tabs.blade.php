@@ -7,7 +7,7 @@
                 <div class="col-5">
                     <div class="nav nav-tabs">
                         <li class="nav-item">
-                            <a @if (Request::segment(1)=='toys' ) class="nav-link active-tab" @else class="nav-link bar" @endif href="{{ route('toy.index') }}">
+                            <a @if (Request::segment(1)=='' ) class="nav-link active-tab" @else class="nav-link bar" @endif href="{{ route('toy.index') }}">
                                 @lang('navbar.toys')
                             </a>
                         </li>
