@@ -1,33 +1,33 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 Route::get('/', 'App\Http\Controllers\ToyController@index')->name('toy.index')->middleware('landing.page');
-Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin.index')->middleware('admin');
+Route::get('/admin', 'App\Http\Controllers\Admin\AdminController@index')->name('admin.index')->middleware('admin');
 
 //Rutas de AdminToy.
-Route::get('/admin/toys', 'App\Http\Controllers\AdminToyController@index')->name('admin.toy.index')->middleware('admin');
-Route::get('/admin/toys/create', 'App\Http\Controllers\AdminToyController@create')->name('admin.toy.create')->middleware('admin');
-Route::post('/admin/toys/save', 'App\Http\Controllers\AdminToyController@save')->name('admin.toy.save')->middleware('admin');
-Route::get('/admin/toys/edit/{id}', 'App\Http\Controllers\AdminToyController@edit')->name('admin.toy.edit')->middleware('admin');
-Route::post('/admin/toys/update/{id}', 'App\Http\Controllers\AdminToyController@update')->name('admin.toy.update')->middleware('admin');
-Route::get('/admin/toys/delete/{id}', 'App\Http\Controllers\AdminToyController@delete')->name('admin.toy.delete')->middleware('admin');
-Route::get('/admin/toys/{id}', 'App\Http\Controllers\AdminToyController@show')->name('admin.toy.show')->middleware('admin');
+Route::get('/admin/toys', 'App\Http\Controllers\Admin\AdminToyController@index')->name('admin.toy.index')->middleware('admin');
+Route::get('/admin/toys/create', 'App\Http\Controllers\Admin\AdminToyController@create')->name('admin.toy.create')->middleware('admin');
+Route::post('/admin/toys/save', 'App\Http\Controllers\Admin\AdminToyController@save')->name('admin.toy.save')->middleware('admin');
+Route::get('/admin/toys/edit/{id}', 'App\Http\Controllers\Admin\AdminToyController@edit')->name('admin.toy.edit')->middleware('admin');
+Route::post('/admin/toys/update/{id}', 'App\Http\Controllers\Admin\AdminToyController@update')->name('admin.toy.update')->middleware('admin');
+Route::get('/admin/toys/delete/{id}', 'App\Http\Controllers\Admin\AdminToyController@delete')->name('admin.toy.delete')->middleware('admin');
+Route::get('/admin/toys/{id}', 'App\Http\Controllers\Admin\AdminToyController@show')->name('admin.toy.show')->middleware('admin');
 
 //Rutas de AdminUser.
-Route::get('/admin/users', 'App\Http\Controllers\AdminUserController@index')->name('admin.user.index')->middleware('admin');
-Route::get('/admin/users/create', 'App\Http\Controllers\AdminUserController@create')->name('admin.user.create')->middleware('admin');
-Route::post('/admin/user/save', 'App\Http\Controllers\AdminUserController@save')->name('admin.user.save')->middleware('admin');
-Route::get('/admin/users/edit/{id}', 'App\Http\Controllers\AdminUserController@edit')->name('admin.user.edit')->middleware('admin');
-Route::post('/admin/users/update/{id}', 'App\Http\Controllers\AdminUserController@update')->name('admin.user.update')->middleware('admin');
-Route::get('/admin/users/delete/{id}', 'App\Http\Controllers\AdminUserController@delete')->name('admin.user.delete')->middleware('admin');
-Route::get('/admin/users/{id}', 'App\Http\Controllers\AdminUserController@show')->name('admin.user.show')->middleware('admin');
+Route::get('/admin/users', 'App\Http\Controllers\Admin\AdminUserController@index')->name('admin.user.index')->middleware('admin');
+Route::get('/admin/users/create', 'App\Http\Controllers\Admin\AdminUserController@create')->name('admin.user.create')->middleware('admin');
+Route::post('/admin/user/save', 'App\Http\Controllers\Admin\AdminUserController@save')->name('admin.user.save')->middleware('admin');
+Route::get('/admin/users/edit/{id}', 'App\Http\Controllers\Admin\AdminUserController@edit')->name('admin.user.edit')->middleware('admin');
+Route::post('/admin/users/update/{id}', 'App\Http\Controllers\Admin\AdminUserController@update')->name('admin.user.update')->middleware('admin');
+Route::get('/admin/users/delete/{id}', 'App\Http\Controllers\Admin\AdminUserController@delete')->name('admin.user.delete')->middleware('admin');
+Route::get('/admin/users/{id}', 'App\Http\Controllers\Admin\AdminUserController@show')->name('admin.user.show')->middleware('admin');
 
 //Rutas de Technique.
 Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index')->middleware('basic.users');
 Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show')->middleware('basic.users');
 
 //Rutas de Toy.
-#Route::get('/toys', 'App\Http\Controllers\ToyController@index')->name('toy.index')->middleware('basic.users');
 Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show')->middleware('basic.users');
