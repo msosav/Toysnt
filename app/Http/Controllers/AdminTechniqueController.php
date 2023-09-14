@@ -58,27 +58,27 @@ class AdminTechniqueController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-        if (Technique::find($id) === null) {
-            return redirect()->route('admin.technique.index');
-        } else {
+        $technique = Technique::find($id);
+        if ($technique) {
             $viewData = [];
             $viewData['technique'] = Technique::find($id);
             $viewData['title'] = $viewData['technique']->getModel();
-
             return view('admin.technique.edit')->with('viewData', $viewData);
+        } else {
+            
+            return redirect()->route('admin.technique.index');
+            
         }
     }
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        if (Technique::find($id) === null) {
+        $technique = Technique::find($id);
+        if ($technique === null) {
             return redirect()->route('admin.technique.index');
         }
 
         Technique::validateUpdate($request);
-
-        $technique = Technique::find($id);
-
         $technique->setModel($request->input('model'));
         if ($request->input('technique_image') != null) {
             $image = app(ImageStorage::class);
@@ -95,10 +95,10 @@ class AdminTechniqueController extends Controller
 
     public function delete(string $id): RedirectResponse
     {
-        if (Technique::find($id) !== null) {
+        $technique = Technique::find($id);
+        if ($technique !== null) {
             Technique::destroy($id);
         }
-
         return redirect()->route('admin.technique.index')->with('deleted', trans('admin.techniques.deleted'));
     }
 }

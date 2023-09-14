@@ -13,7 +13,6 @@ class ImageLocalStorage implements ImageStorage
     public function store(Request $request, string $image_type, string $model): void
     {
         if ($request->hasFile($image_type)) {
-            //$request->technique_image->move(public_path('images/'), $model.'.jpg');
             Storage::disk('public')->put(
                 $model.'.jpg',
                 file_get_contents($request->file($image_type)->getRealPath())
