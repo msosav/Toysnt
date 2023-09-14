@@ -47,7 +47,13 @@
 
     Si sale un aviso que indique que la tabla toysnt no existe en la conexión mysql, lo que debes escribir es 'Si'
 
-12. Por último, ejecutar el siguiente comando
+12. Ejecutar este comando
+
+    ```cmd
+    php artisan storage:link
+    ```
+
+13. Por último, ejecutar el siguiente comando
 
     ```cmd
     php artisan serve

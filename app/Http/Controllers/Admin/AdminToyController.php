@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Interfaces\ImageStorage;
 use App\Models\Toy;
 use Illuminate\Http\RedirectResponse;
@@ -21,11 +22,13 @@ class AdminToyController extends Controller
 
     public function show(string $id): View|RedirectResponse
     {
-        if (Toy::find($id) === null) {
+        $toy = Toy::find($id);
+
+        if ($toy === null) {
             return redirect()->route('admin.toy.index');
         } else {
             $viewData = [];
-            $viewData['toy'] = Toy::find($id);
+            $viewData['toy'] = $toy;
             $viewData['title'] = $viewData['toy']->getModel();
 
             return view('admin.toy.show')->with('viewData', $viewData);
@@ -42,28 +45,33 @@ class AdminToyController extends Controller
 
     public function save(Request $request): View|RedirectResponse
     {
-        Toy::validate($request);
+        Toy::validate($request, [], ['toy_image']);
 
         $toy = new Toy();
         $toy->setModel($request->input('model'));
-        $image = app(ImageStorage::class);
-        $image->store($request, 'toy_image', $toy->getModel());
-        $toy->setImage($image->getImagePath());
         $toy->setPrice($request->input('price'));
         $toy->setStock($request->input('stock'));
         $toy->setDescription($request->input('description'));
         $toy->save();
+
+        Toy::validate($request, ['toy_image'], []);
+        $image = app(ImageStorage::class);
+        $image->store($request, 'toy_image', $toy->getModel());
+        $toy->setImage($image);
+        $toy->update();
 
         return redirect()->route('admin.toy.index')->with('created', trans('admin.toys.added'));
     }
 
     public function edit(string $id): View|RedirectResponse
     {
-        if (Toy::find($id) === null) {
+        $toy = Toy::find($id);
+
+        if ($toy === null) {
             return redirect()->route('admin.toy.index');
         } else {
             $viewData = [];
-            $viewData['toy'] = Toy::find($id);
+            $viewData['toy'] = $toy;
             $viewData['title'] = $viewData['toy']->getModel();
 
             return view('admin.toy.edit')->with('viewData', $viewData);
@@ -72,13 +80,13 @@ class AdminToyController extends Controller
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        if (Toy::find($id) === null) {
+        $toy = Toy::find($id);
+
+        if ($toy === null) {
             return redirect()->route('admin.toy.index');
         }
 
-        Toy::validateUpdate($request);
-
-        $toy = Toy::find($id);
+        Toy::validate($request, [], ['toy_image']);
 
         $toy->setModel($request->input('model'));
         if ($request->input('toy_image') != null) {
@@ -97,8 +105,10 @@ class AdminToyController extends Controller
 
     public function delete(string $id): RedirectResponse
     {
-        if (Toy::find($id) !== null) {
-            Toy::destroy($id);
+        $toy = Toy::find($id);
+
+        if ($toy !== null) {
+            $toy->delete();
         }
 
         return redirect()->route('admin.toy.index')->with('deleted', trans('admin.toys.deleted'));
