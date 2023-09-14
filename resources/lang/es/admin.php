@@ -7,6 +7,7 @@ return [
         'techniques' => 'Técnicas',
         'reviews' => 'Reseñas',
         'orders' => 'Pedidos',
+        'logout' => 'Salir',
     ],
     'toys' => [
         'index' => 'Juguetes',
@@ -23,6 +24,22 @@ return [
         'added' => '¡Juguete añadido con éxito!',
         'edited' => '¡Juguete editado con éxito!',
         'deleted' => '¡Juguete eliminado con éxito!',
+    ],
+
+    'techniques' => [
+        'index' => 'Técnicas',
+        'create' => 'Crear técnica',
+        'edit' => 'Editar',
+        'show' => 'Mostrar',
+        'delete' => 'Eliminar',
+        'model' => 'Modelo',
+        'description' => 'Descripción',
+        'price' => 'Precio',
+        'image' => 'Imagen',
+        'add' => 'Añadir',
+        'added' => '¡Técnica añadida con éxito!',
+        'edited' => '¡Técnica editada con éxito!',
+        'deleted' => '¡Técnica eliminada con éxito!',
     ],
     'users' => [
         'index' => 'Usuarios',

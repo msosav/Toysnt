@@ -7,6 +7,7 @@ return [
         'techniques' => 'Techniques',
         'reviews' => 'Reviews',
         'orders' => 'Orders',
+        'logout' => 'Logout',
     ],
     'toys' => [
         'index' => 'Toys',
@@ -23,6 +24,22 @@ return [
         'added' => 'Toy added successfully!',
         'edited' => 'Toy edited successfully!',
         'deleted' => 'Toy deleted successfully!',
+    ],
+
+    'techniques' => [
+        'index' => 'Technique',
+        'create' => 'Create Technique',
+        'edit' => 'Edit',
+        'show' => 'Show',
+        'delete' => 'Delete',
+        'model' => 'Model',
+        'description' => 'Description',
+        'price' => 'Price',
+        'image' => 'Image',
+        'add' => 'Add',
+        'added' => 'Technique added successfully!',
+        'edited' => 'Technique edited successfully!',
+        'deleted' => 'Technique deleted successfully!',
     ],
     'users' => [
         'index' => 'Users',

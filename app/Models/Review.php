@@ -12,8 +12,8 @@ class Review extends Model
      * $this->attributes['comment'] - string - contains the review´s comment
      * $this->attributes['rating'] - string - contains the review´s technique
      * $this->attributes['technique_id'] - string - contains the review´s technique association
-     * $this->attributes['created_at'] - string - contains when the technique was created
-     * $this->attributes['updated_at'] - string - contains when the technique was updated
+     * $this->attributes['created_at'] - string - contains when the review was created
+     * $this->attributes['updated_at'] - string - contains when the review was updated
      */
     protected $fillable = ['model', 'image', 'description', 'price'];
 
