@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col d-block">
                         <h6 class="card-subtitle" id="card-price">${{ $toy->getPrice() }}</h6>
-                        <h7 class="card-subtitle"><small>@lang('toy.stock'): {{ $toy->getStock() }}</small></h6>
+                        <h7 class="card-subtitle"><small>@lang('app.toy.stock'): {{ $toy->getStock() }}</small></h6>
                     </div>
                     <div class="d-flex col justify-content-end">
                         <a href="" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
