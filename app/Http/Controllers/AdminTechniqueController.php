@@ -22,13 +22,13 @@ class AdminTechniqueController extends Controller
     public function show(string $id): View|RedirectResponse
     {
         $technique = Technique::find($id);
-        if ($technique){
+        if ($technique) {
             $viewData = [];
             $viewData['technique'] = $technique;
             $viewData['title'] = $viewData['technique']->getModel();
+
             return view('admin.technique.show')->with('viewData', $viewData);
-        }
-        else{
+        } else {
             return redirect()->route('admin.technique.index');
         }
     }
@@ -37,6 +37,7 @@ class AdminTechniqueController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('admin.techniques.create');
+
         return view('admin.technique.create')->with('viewData', $viewData);
     }
 
@@ -51,6 +52,7 @@ class AdminTechniqueController extends Controller
         $technique->setPrice($request->input('price'));
         $technique->setDescription($request->input('description'));
         $technique->save();
+
         return redirect()->route('admin.technique.index')->with('created', trans('admin.techniques.added'));
     }
 
