@@ -12,11 +12,11 @@ class ImageLocalStorage implements ImageStorage
     {
         if ($request->hasFile($image_type)) {
             Storage::disk('public')->put(
-                $image_type . '_' . $id . '.jpg',
+                $image_type.'_'.$id.'.jpg',
                 file_get_contents($request->file($image_type)->getRealPath())
             );
         }
 
-        return ($image_type.'_'.$id.'.jpg');
+        return $image_type.'_'.$id.'.jpg';
     }
 }
