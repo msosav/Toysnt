@@ -43,15 +43,18 @@ class AdminTechniqueController extends Controller
 
     public function save(Request $request): View|RedirectResponse
     {
-        Technique::validate($request);
         $technique = new Technique();
         $technique->setModel($request->input('model'));
-        $image = app(ImageStorage::class);
-        $image->store($request, 'technique_image', $technique->getModel());
-        $technique->setImage($image->getImagePath());
         $technique->setPrice($request->input('price'));
         $technique->setDescription($request->input('description'));
+        $technique->setImage('default');
         $technique->save();
+
+        Technique::validate($request, ['technique_image'], []);
+        $image = app(ImageStorage::class);
+        $image = $image->store($request, 'technique_image', $technique->getModel());
+        $technique->setImage($image);
+        $technique->update();
 
         return redirect()->route('admin.technique.index')->with('created', trans('admin.techniques.added'));
     }
@@ -78,7 +81,7 @@ class AdminTechniqueController extends Controller
             return redirect()->route('admin.technique.index');
         }
 
-        Technique::validateUpdate($request);
+        Technique::validate($request, [], ['technique_image']);
         $technique->setModel($request->input('model'));
         if ($request->input('technique_image') != null) {
             $image = app(ImageStorage::class);

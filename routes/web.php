@@ -30,13 +30,13 @@ Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->nam
 Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show')->middleware('basic.users');
 
 //Rutas de AdminTechnique
-Route::get('/admin/technique', 'App\Http\Controllers\AdminTechniqueController@index')->name('admin.technique.index');
-Route::get('/admin/technique/create', 'App\Http\Controllers\AdminTechniqueController@create')->name('admin.technique.create');
-Route::post('/admin/technique/save', 'App\Http\Controllers\AdminTechniqueController@save')->name('admin.technique.save');
-Route::get('/admin/technique/edit/{id}', 'App\Http\Controllers\AdminTechniqueController@edit')->name('admin.technique.edit');
-Route::post('/admin/technique/update/{id}', 'App\Http\Controllers\AdminTechniqueController@update')->name('admin.technique.update');
-Route::get('/admin/technique/delete/{id}', 'App\Http\Controllers\AdminTechniqueController@delete')->name('admin.technique.delete');
-Route::get('/admin/technique/{id}', 'App\Http\Controllers\AdminTechniqueController@show')->name('admin.technique.show');
+Route::get('/admin/technique', 'App\Http\Controllers\AdminTechniqueController@index')->name('admin.technique.index')->middleware('admin');
+Route::get('/admin/technique/create', 'App\Http\Controllers\AdminTechniqueController@create')->name('admin.technique.create')->middleware('admin');
+Route::post('/admin/technique/save', 'App\Http\Controllers\AdminTechniqueController@save')->name('admin.technique.save')->middleware('admin');
+Route::get('/admin/technique/edit/{id}', 'App\Http\Controllers\AdminTechniqueController@edit')->name('admin.technique.edit')->middleware('admin');
+Route::post('/admin/technique/update/{id}', 'App\Http\Controllers\AdminTechniqueController@update')->name('admin.technique.update')->middleware('admin');
+Route::get('/admin/technique/delete/{id}', 'App\Http\Controllers\AdminTechniqueController@delete')->name('admin.technique.delete')->middleware('admin');
+Route::get('/admin/technique/{id}', 'App\Http\Controllers\AdminTechniqueController@show')->name('admin.technique.show')->middleware('admin');
 
 //Rutas de Toy.
 Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show')->middleware('basic.users');

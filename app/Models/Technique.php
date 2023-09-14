@@ -74,23 +74,46 @@ class Technique extends Model
         return $this->attributes['updated_at'];
     }
 
-    public static function validate(Request $request): void
+    public static function validate(Request $request, array $include, array $exclude): void
     {
-        $request->validate([
-            'model' => 'required|string|max:255',
-            'technique_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'description' => 'required|string|max:255',
-            'price' => 'required|numeric',
-        ]);
-    }
+        if (in_array('model', $include) or ! in_array('model', $exclude)) {
+            $request->validate([
+                'model' => 'required|string|max:255',
+            ]);
+        } else {
+            $request->validate([
+                'model' => 'string|max:255',
+            ]);
+        }
 
-    public static function validateUpdate(Request $request): void
-    {
-        $request->validate([
-            'model' => 'required|string|max:255',
-            'technique_image' => 'image|mimes:jpeg,png,jpg|max:2048',
-            'description' => 'required|string|max:255',
-            'price' => 'required|numeric',
-        ]);
+        if (in_array('technique_image', $include) or ! in_array('technique_image', $exclude)) {
+            $request->validate([
+                'technique_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            ]);
+        } else {
+            $request->validate([
+                'technique_image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            ]);
+        }
+
+        if (in_array('description', $include) or ! in_array('description', $exclude)) {
+            $request->validate([
+                'description' => 'required|string|max:255',
+            ]);
+        } else {
+            $request->validate([
+                'description' => 'string|max:255',
+            ]);
+        }
+
+        if (in_array('price', $include) or ! in_array('price', $exclude)) {
+            $request->validate([
+                'price' => 'required|numeric',
+            ]);
+        } else {
+            $request->validate([
+                'price' => 'numeric',
+            ]);
+        }
     }
 }

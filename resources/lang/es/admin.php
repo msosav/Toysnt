@@ -7,6 +7,7 @@ return [
         'techniques' => 'Técnicas',
         'reviews' => 'Reseñas',
         'orders' => 'Pedidos',
+        'logout' => 'Salir',
     ],
     'toys' => [
         'index' => 'Juguetes',

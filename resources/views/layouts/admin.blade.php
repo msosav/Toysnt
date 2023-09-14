@@ -20,19 +20,19 @@
             </div>
             <ul class="list-unstyled px-2">
                 <li @if (Request::segment(2)=='users' ) class="active" @endif>
-                    <a href="{{ route('admin.user.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-users"></i> @lang('adminNavbar.users')</a>
+                    <a href="{{ route('admin.user.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-users"></i> @lang('admin.navbar.users')</a>
                 </li>
                 <li @if (Request::segment(2)=='toys' ) class="active" @endif>
-                    <a href="{{ route('admin.toy.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-horse"></i> @lang('adminNavbar.toys')</a>
+                    <a href="{{ route('admin.toy.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-horse"></i> @lang('admin.navbar.toys')</a>
                 </li>
                 <li @if (Request::segment(2)=='techniques' ) class="active" @endif>
-                    <a href="{{ route('admin.technique.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-explosion"></i> @lang('adminNavbar.techniques')</a>
+                    <a href="{{ route('admin.technique.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-explosion"></i> @lang('admin.navbar.techniques')</a>
                 </li>
                 <li @if (Request::segment(2)=='reviews' ) class="active" @endif>
-                    <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-comment"></i> @lang('adminNavbar.reviews')</a>
+                    <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-comment"></i> @lang('admin.navbar.reviews')</a>
                 </li>
                 <li @if (Request::segment(2)=='orders' ) class="active" @endif>
-                    <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-receipt"></i> @lang('adminNavbar.orders')</a>
+                    <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-receipt"></i> @lang('admin.navbar.orders')</a>
                 </li>
             </ul>
         </div>
@@ -47,7 +47,7 @@
                                 </a>
                                 <ul class="dropdown-menu md-5">
                                     <form id="logout" action="{{ route('logout') }}" method="POST">
-                                        <li><a class="dropdown-item" onclick="document.getElementById('logout').submit();">@lang('navbar.logout')</a></li>
+                                        <li><a class="dropdown-item" onclick="document.getElementById('logout').submit();">@lang('admin.navbar.logout')</a></li>
                                         @csrf
                                     </form>
                                 </ul>

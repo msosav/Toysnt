@@ -7,6 +7,7 @@ return [
         'techniques' => 'Techniques',
         'reviews' => 'Reviews',
         'orders' => 'Orders',
+        'logout' => 'Logout',
     ],
     'toys' => [
         'index' => 'Toys',
