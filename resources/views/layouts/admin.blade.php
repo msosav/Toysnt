@@ -25,7 +25,7 @@
                     <a href="{{ route('admin.toy.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-horse"></i> @lang('adminNavbar.toys')</a>
                 </li>
                 <li @if (Request::segment(2)=='techniques' ) class="active" @endif>
-                    <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-explosion"></i> @lang('adminNavbar.techniques')</a>
+                    <a href="{{ route('admin.technique.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-explosion"></i> @lang('adminNavbar.techniques')</a>
                 </li>
                 <li @if (Request::segment(2)=='reviews' ) class="active" @endif>
                     <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-comment"></i> @lang('adminNavbar.reviews')</a>

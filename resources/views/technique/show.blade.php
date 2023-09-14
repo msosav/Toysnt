@@ -10,7 +10,6 @@
             <div class="col-sm"> 
                 <div class="row-sm">
                     <b><h5 class="card-title">{{ $viewData['technique']->getModel() }}</h5></b>
-                    <h6 class="card-subtitle">id: {{ $viewData['technique']->getId() }}</h6> 
                     <p class="card-text">{{ $viewData['technique']->getDescription() }}</p>
                 </div>
                 <div class="row-sm">

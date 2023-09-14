@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Technique extends Model
 {
@@ -71,5 +72,25 @@ class Technique extends Model
     public function getUpdated_at(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'model' => 'required|string|max:255',
+            'technique_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric',
+        ]);
+    }
+
+    public static function validateUpdate(Request $request): void
+    {
+        $request->validate([
+            'model' => 'required|string|max:255',
+            'technique_image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric',
+        ]);
     }
 }
