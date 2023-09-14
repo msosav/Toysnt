@@ -56,4 +56,5 @@ return [
         'stock' => 'In stock',
         'cart' => 'Add to cart',
     ],
+    'terms_and_conditions' => 'Terms and conditions',
 ];

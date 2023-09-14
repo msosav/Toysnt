@@ -66,3 +66,12 @@ nav {
 .flex-column {
     background-color: var(--cuaternaryColor);
 }
+
+#terms-and-conditions {
+    color: var(--cuaternaryColor);
+}
+
+#show-title {
+    color: var(--primaryColor);
+    margin-left: 0.16em;
+}

@@ -11,7 +11,7 @@ class ToyController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = trans('titles.home');
+        $viewData['title'] = trans('app.titles.home');
         $viewData['toys'] = Toy::all();
 
         return view('toy.index')->with('viewData', $viewData);
@@ -19,11 +19,13 @@ class ToyController extends Controller
 
     public function show(string $id): View|RedirectResponse
     {
-        if (Toy::find($id) === null) {
+        $toy = Toy::find($id);
+
+        if ($toy === null) {
             return redirect()->route('toy.index');
         } else {
             $viewData = [];
-            $viewData['toy'] = Toy::find($id);
+            $viewData['toy'] = $toy;
             $viewData['title'] = $viewData['toy']->getModel();
 
             return view('toy.show')->with('viewData', $viewData);

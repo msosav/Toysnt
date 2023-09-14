@@ -63,10 +63,6 @@ hr.h-color {
     margin-left: 0.16em;
 }
 
-#terms-and-conditions {
-    color: var(--cuaternaryColor);
-}
-
 #admin-delete {
     color: var(--primaryColor);
     text-decoration: none;

@@ -55,5 +55,6 @@ return [
     'toy' => [
         'stock' => 'En inventario',
         'cart' => 'Añadir al carrito',
-    ]
+    ],
+    'terms_and_conditions' => 'Términos y condiciones',
 ];
