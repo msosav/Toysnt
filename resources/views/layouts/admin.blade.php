@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/be50e46cfb.js" crossorigin="anonymous"></script>
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/cards.css') }}" rel="stylesheet" />
     <title>@yield('title')</title>
 </head>
 
