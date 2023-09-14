@@ -4,7 +4,9 @@ namespace App\Models;
 
 use DateTime;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -74,7 +76,7 @@ class User extends Authenticatable
 
     public function setPassword(string $password): void
     {
-        $this->attributes['password'] = $password;
+        $this->attributes['password'] = Hash::make($password);
     }
 
     public function getAddress(): string
@@ -125,5 +127,28 @@ class User extends Authenticatable
     public function getRemember_token(): string
     {
         return $this->attributes['remember_token'];
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:8',
+            'email' => 'required|string|email|max:255',
+            'address' => 'required|string|max:255',
+            'role' => 'required|string',
+            'balance' => 'required|numeric',
+        ]);
+    }
+
+    public static function validateUpdate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'address' => 'required|string|max:255',
+            'role' => 'required|string',
+            'balance' => 'required|numeric',
+        ]);
     }
 }

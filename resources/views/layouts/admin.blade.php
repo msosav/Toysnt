@@ -19,7 +19,7 @@
             </div>
             <ul class="list-unstyled px-2">
                 <li @if (Request::segment(2)=='users' ) class="active" @endif>
-                    <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-users"></i> @lang('adminNavbar.users')</a>
+                    <a href="{{ route('admin.user.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-users"></i> @lang('adminNavbar.users')</a>
                 </li>
                 <li @if (Request::segment(2)=='toys' ) class="active" @endif>
                     <a href="{{ route('admin.toy.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-horse"></i> @lang('adminNavbar.toys')</a>
