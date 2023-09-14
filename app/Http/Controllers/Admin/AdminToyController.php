@@ -43,17 +43,20 @@ class AdminToyController extends Controller
 
     public function save(Request $request): View|RedirectResponse
     {
-        Toy::validate($request);
+        Toy::validate($request, [], ['toy_image']);
 
         $toy = new Toy();
         $toy->setModel($request->input('model'));
-        $image = app(ImageStorage::class);
-        $image->store($request, 'toy_image', $toy->getModel());
-        $toy->setImage($image->getImagePath());
         $toy->setPrice($request->input('price'));
         $toy->setStock($request->input('stock'));
         $toy->setDescription($request->input('description'));
         $toy->save();
+
+        Toy::validate($request, ['toy_image'], []);
+        $image = app(ImageStorage::class);
+        $image->store($request, 'toy_image', $toy->getModel());
+        $toy->setImage($image);
+        $toy->update();
 
         return redirect()->route('admin.toy.index')->with('created', trans('admin.toys.added'));
     }
@@ -77,7 +80,7 @@ class AdminToyController extends Controller
             return redirect()->route('admin.toy.index');
         }
 
-        Toy::validateUpdate($request);
+        Toy::validate($request, [], ['toy_image']);
 
         $toy = Toy::find($id);
 
