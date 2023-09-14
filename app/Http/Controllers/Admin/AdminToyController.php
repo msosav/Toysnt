@@ -22,11 +22,13 @@ class AdminToyController extends Controller
 
     public function show(string $id): View|RedirectResponse
     {
-        if (Toy::find($id) === null) {
+        $toy = Toy::find($id);
+
+        if ($toy === null) {
             return redirect()->route('admin.toy.index');
         } else {
             $viewData = [];
-            $viewData['toy'] = Toy::find($id);
+            $viewData['toy'] = $toy;
             $viewData['title'] = $viewData['toy']->getModel();
 
             return view('admin.toy.show')->with('viewData', $viewData);
@@ -63,11 +65,13 @@ class AdminToyController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-        if (Toy::find($id) === null) {
+        $toy = Toy::find($id);
+
+        if ($toy === null) {
             return redirect()->route('admin.toy.index');
         } else {
             $viewData = [];
-            $viewData['toy'] = Toy::find($id);
+            $viewData['toy'] = $toy;
             $viewData['title'] = $viewData['toy']->getModel();
 
             return view('admin.toy.edit')->with('viewData', $viewData);
@@ -76,13 +80,13 @@ class AdminToyController extends Controller
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        if (Toy::find($id) === null) {
+        $toy = Toy::find($id);
+
+        if ($toy === null) {
             return redirect()->route('admin.toy.index');
         }
 
         Toy::validate($request, [], ['toy_image']);
-
-        $toy = Toy::find($id);
 
         $toy->setModel($request->input('model'));
         if ($request->input('toy_image') != null) {
@@ -101,8 +105,10 @@ class AdminToyController extends Controller
 
     public function delete(string $id): RedirectResponse
     {
-        if (Toy::find($id) !== null) {
-            Toy::destroy($id);
+        $toy = Toy::find($id);
+
+        if ($toy !== null) {
+            $toy->delete();
         }
 
         return redirect()->route('admin.toy.index')->with('deleted', trans('admin.toys.deleted'));
