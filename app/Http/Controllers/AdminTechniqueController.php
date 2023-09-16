@@ -100,6 +100,8 @@ class AdminTechniqueController extends Controller
     {
         $technique = Technique::find($id);
         if ($technique !== null) {
+            $image = app(ImageStorage::class);
+            $image = $image->delete('technique_image', $technique->getModel());
             Technique::destroy($id);
         }
         return redirect()->route('admin.technique.index')->with('deleted', trans('admin.techniques.deleted'));
