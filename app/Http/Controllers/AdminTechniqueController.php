@@ -66,11 +66,12 @@ class AdminTechniqueController extends Controller
             $viewData = [];
             $viewData['technique'] = Technique::find($id);
             $viewData['title'] = $viewData['technique']->getModel();
+
             return view('admin.technique.edit')->with('viewData', $viewData);
         } else {
-            
+
             return redirect()->route('admin.technique.index');
-            
+
         }
     }
 
@@ -104,6 +105,7 @@ class AdminTechniqueController extends Controller
             $image = $image->delete('technique_image', $technique->getModel());
             Technique::destroy($id);
         }
+
         return redirect()->route('admin.technique.index')->with('deleted', trans('admin.techniques.deleted'));
     }
 }
