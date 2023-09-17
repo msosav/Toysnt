@@ -22,12 +22,12 @@
                     <div class="input-group flex-nowrap">
                         @if (Request::segment(1)=='techniques')
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="@lang('app.search.technique')" aria-label="Search-Technique">
+                            <input class="form-control me-2" type="search" placeholder="@lang('app.search.technique')" aria-label="Search-Technique" name="search">
                             <button class="btn btn-outline" type="submit">@lang('app.search.search')</button>
                         </form>
                         @else
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="@lang('app.search.toy')" aria-label="Search-Toy">
+                        <form class="d-flex" method="POST" action="{{ route('toy.search') }}">
+                            <input class="form-control me-2" type="search" placeholder="@lang('app.search.toy')" aria-label="Search-Toy" name="search">
                             <button class="btn btn-outline" type="submit">@lang('app.search.search')</button>
                         </form>
                         @endif

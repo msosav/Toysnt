@@ -18,6 +18,7 @@ return [
         'toy' => 'Search toy',
         'technique' => 'Search technique',
         'search' => 'Search',
+        'result' => 'Search results for',
     ],
     'login' => [
         'login' => 'Login',

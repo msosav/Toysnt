@@ -75,3 +75,8 @@ nav {
     color: var(--primaryColor);
     margin-left: 0.16em;
 }
+
+#search-title {
+    color: black;
+    margin-left: 0.16em;
+}

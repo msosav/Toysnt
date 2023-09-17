@@ -26,8 +26,8 @@ Route::get('/admin/users/delete/{id}', 'App\Http\Controllers\Admin\AdminUserCont
 Route::get('/admin/users/{id}', 'App\Http\Controllers\Admin\AdminUserController@show')->name('admin.user.show')->middleware('admin');
 
 //Rutas de Technique.
-Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index')->middleware('basic.users');
-Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show')->middleware('basic.users');
+Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index');
+Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show');
 
 //Rutas de AdminTechnique
 Route::get('/admin/technique', 'App\Http\Controllers\Admin\AdminTechniqueController@index')->name('admin.technique.index')->middleware('admin');
@@ -48,4 +48,5 @@ Route::get('/admin/review/delete/{id}', 'App\Http\Controllers\Admin\AdminReviewC
 Route::get('/admin/review/{id}', 'App\Http\Controllers\Admin\AdminReviewController@show')->name('admin.review.show')->middleware('admin');
 
 //Rutas de Toy.
-Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show')->middleware('basic.users');
+Route::post('/toy/search', 'App\Http\Controllers\ToyController@find')->name('toy.search');
+Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show');

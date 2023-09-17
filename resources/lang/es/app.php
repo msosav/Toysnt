@@ -18,6 +18,7 @@ return [
         'toy' => 'Buscar juguete',
         'technique' => 'Buscar técnica',
         'search' => 'Buscar',
+        'result' => 'Resultados de búsqueda para',
     ],
     'login' => [
         'login' => 'Iniciar sesión',
