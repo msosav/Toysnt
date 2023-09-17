@@ -6,6 +6,10 @@
     <div class="alert alert-success" role="alert">
         {{ session('added') }}
     </div>
+    @elseif (session('already_added'))
+    <div class="alert alert-danger" role="alert">
+        {{ session('already_added') }}
+    </div>
     @endif
     @foreach ($viewData['toys'] as $toy)
     <div class="col-4 d-flex justify-content-start">
