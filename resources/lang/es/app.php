@@ -19,6 +19,7 @@ return [
         'technique' => 'Buscar técnica',
         'search' => 'Buscar',
         'result' => 'Resultados de búsqueda para',
+        'no_results' => 'No se encontraron resultados',
     ],
     'login' => [
         'login' => 'Iniciar sesión',

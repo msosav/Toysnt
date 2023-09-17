@@ -25,6 +25,10 @@
     </div>
 </div>
 @else
-<p>oops</p>
+<div class="m-4">
+    <p class="text-center" id="no_results">
+        @lang('app.search.no_results')
+    </p>
+</div>
 @endif
 @endsection

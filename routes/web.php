@@ -48,5 +48,6 @@ Route::get('/admin/review/delete/{id}', 'App\Http\Controllers\Admin\AdminReviewC
 Route::get('/admin/review/{id}', 'App\Http\Controllers\Admin\AdminReviewController@show')->name('admin.review.show')->middleware('admin');
 
 //Rutas de Toy.
-Route::post('/toy/search', 'App\Http\Controllers\ToyController@find')->name('toy.search');
+Route::post('/toys/search', 'App\Http\Controllers\ToyController@search')->name('toy.search');
+Route::get('/toys/results/{model}', 'App\Http\Controllers\ToyController@results')->name('toy.results');
 Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show');

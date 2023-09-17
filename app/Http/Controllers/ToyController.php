@@ -33,7 +33,7 @@ class ToyController extends Controller
         }
     }
 
-    public function find(Request $request): View
+    public function search(Request $request): RedirectResponse
     {
         $search = $request->input('search');
 
@@ -41,19 +41,10 @@ class ToyController extends Controller
             return redirect()->route('toy.index');
         }
 
-        $toys = Toy::query()
-            ->where('model', 'LIKE', "%{$search}%")
-            ->get();
-
-        $viewData = [];
-        $viewData['toys'] = $toys;
-        $viewData['search'] = $search;
-        $viewData['title'] = $search;
-
-        return view('toy.results')->with('viewData', $viewData);
+        return redirect()->route('toy.results', ['model' => $search]);
     }
 
-    public function search(string $model): View
+    public function results(string $model): View|RedirectResponse
     {
         if ($model == null) {
             return redirect()->route('toy.index');
@@ -64,9 +55,14 @@ class ToyController extends Controller
             ->get();
 
         $viewData = [];
-        $viewData['toys'] = $toys;
+        if ($toys->isEmpty()) {
+            $viewData['toys'] = null;
+        } else {
+            $viewData['toys'] = $toys;
+        }
         $viewData['search'] = $model;
-        
-        return view('toy.search')->with('viewData', $viewData);
+        $viewData['title'] = $model;
+
+        return view('toy.results')->with('viewData', $viewData);
     }
 }
