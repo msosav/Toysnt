@@ -64,5 +64,7 @@ return [
         'toy_added' => 'Toy added successfully!',
         'toy_removed' => 'Toy deleted successfully!',
         'toys_removed' => 'Shopping cart emptied successfully!',
+        'already_removed' => 'Shopping cart was already empty!',
+
     ],
 ];
