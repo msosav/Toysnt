@@ -65,6 +65,7 @@ return [
         'toy_removed' => 'Toy deleted successfully!',
         'toys_removed' => 'Shopping cart emptied successfully!',
         'already_removed' => 'Shopping cart was already empty!',
+        'already_added' => 'This toy is already in the shopping cart!',
 
     ],
 ];

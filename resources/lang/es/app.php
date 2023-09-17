@@ -65,5 +65,6 @@ return [
         'toy_removed' => '¡Juguete eliminado con éxito!',
         'toys_removed' => '¡Carrito vaciado con éxito!',
         'already_removed' => '¡El carrito ya estaba vacío!',
+        'already_added' => '¡Este juguete ya está en el carrito!',
     ],
 ];
