@@ -9,7 +9,7 @@
         </div>
         <div>
             @if (session('removed'))
-            <div class="alert alert-danger" role="alert"> 
+            <div class="alert alert-danger" role="alert">
                 {{ session('removed') }}
             </div>
             @elseif (session('toys_removed'))
@@ -31,9 +31,12 @@
                     <div class="row">
                         <div class="col d-block">
                             <h6 class="card-subtitle" id="card-price">${{ $toy->getPrice() }}</h6>
-                            <h7 class="card-subtitle"><small>@lang('app.toy.stock'): {{ $toy->getStock() }}</small></h6>
+                            <h7 class="card-subtitle"><b>@lang('app.cart.quantity'):</b></h7>
                         </div>
-                        <div class="d-flex col justify-content-end">
+                        <div class="col mt-2">
+                            <input type="number" class="form-control mb-2 field-width" placeholder="1" min="1" max="{{ $toy->getStock() }}" name="quantity" value="{{ old('quantity') }}" />
+                        </div>
+                        <div class="d-flex col justify-content-end mt-5">
                             <a href="{{ route('cart.remove', ['id'=> $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
                         </div>
                     </div>
