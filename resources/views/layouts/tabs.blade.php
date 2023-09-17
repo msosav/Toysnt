@@ -7,7 +7,7 @@
                 <div class="col-5">
                     <div class="nav nav-tabs">
                         <li class="nav-item">
-                            <a @if (Request::segment(1)=='' ) class="nav-link active-tab" @else class="nav-link bar" @endif href="{{ route('toy.index') }}">
+                            <a @if (Request::segment(1)=='' or Request::segment(1)=='toys' ) class="nav-link active-tab" @else class="nav-link bar" @endif href="{{ route('toy.index') }}">
                                 @lang('app.navbar.toys')
                             </a>
                         </li>
@@ -22,12 +22,14 @@
                     <div class="input-group flex-nowrap">
                         @if (Request::segment(1)=='techniques')
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="@lang('app.search.technique')" aria-label="Search-Technique">
+                            @csrf
+                            <input class="form-control me-2" type="search" placeholder="@lang('app.search.technique')" aria-label="Search-Technique" name="search">
                             <button class="btn btn-outline" type="submit">@lang('app.search.search')</button>
                         </form>
                         @else
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="@lang('app.search.toy')" aria-label="Search-Toy">
+                        <form class="d-flex" method="POST" action="{{ route('toy.search') }}">
+                            @csrf
+                            <input class="form-control me-2" type="search" placeholder="@lang('app.search.toy')" aria-label="Search-Toy" name="search">
                             <button class="btn btn-outline" type="submit">@lang('app.search.search')</button>
                         </form>
                         @endif

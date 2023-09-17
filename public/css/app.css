@@ -75,3 +75,13 @@ nav {
     color: var(--primaryColor);
     margin-left: 0.16em;
 }
+
+#search-title {
+    color: var(--primaryColor);
+    margin-left: 0.16em;
+}
+
+#no_results {
+    color: var(--cuaternaryColor);
+    margin-left: 0.16em;
+}
