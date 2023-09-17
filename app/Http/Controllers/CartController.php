@@ -51,8 +51,11 @@ class CartController extends Controller
 
     public function removeAll(Request $request): RedirectResponse
     {
-        $request->session()->forget('cart_toy_data');
-
-        return back()->with('toys_removed', trans('app.cart.toys_removed'));
+        if ($request->session()->get('cart_toy_data') == []) {
+            return back()->with('already_removed', trans('app.cart.already_removed'));
+        }else{
+            $request->session()->forget('cart_toy_data');
+            return back()->with('toys_removed', trans('app.cart.toys_removed'));
+        }
     }
 }
