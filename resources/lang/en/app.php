@@ -57,4 +57,12 @@ return [
         'cart' => 'Add to cart',
     ],
     'terms_and_conditions' => 'Terms and conditions',
+    'cart' => [
+        'cart' => 'Shopping cart',
+        'empty' => 'Empty shopping cart',
+        'technique_removed' => 'Technique deleted successfully!',
+        'toy_added' => 'Toy added successfully!',
+        'toy_removed' => 'Toy deleted successfully!',
+        'toys_removed' => 'Shopping cart emptied successfully!',
+    ],
 ];
