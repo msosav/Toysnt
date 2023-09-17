@@ -19,7 +19,6 @@ class Item extends Model
      * $this->attributes['created_at'] - string - contains when the review was created
      * $this->attributes['updated_at'] - string - contains when the review was updated
      */
-
     protected $fillable = ['quantity', 'method', 'price', 'order_id', 'toy_id', 'technique_id'];
 
     public function getId(): string
@@ -57,7 +56,7 @@ class Item extends Model
         $this->attributes['price'] = $price;
     }
 
-    function order(): BelongsTo
+    public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
     }
@@ -69,32 +68,32 @@ class Item extends Model
     }
     */
 
-    function toy(): BelongsTo
+    public function toy(): BelongsTo
     {
         return $this->belongsTo(Toy::class);
     }
 
-    function getToy(): Toy
+    public function getToy(): Toy
     {
         return $this->toy;
     }
 
-    function setToy(Toy $toy): void
+    public function setToy(Toy $toy): void
     {
         $this->toy = $toy;
     }
 
-    function technique(): BelongsTo
+    public function technique(): BelongsTo
     {
         return $this->belongsTo(Technique::class);
     }
 
-    function getTechnique(): Technique
+    public function getTechnique(): Technique
     {
         return $this->technique;
     }
 
-    function setTechnique(Technique $technique): void
+    public function setTechnique(Technique $technique): void
     {
         $this->technique = $technique;
     }
