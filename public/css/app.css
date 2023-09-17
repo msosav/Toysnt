@@ -75,3 +75,8 @@ nav {
     color: var(--primaryColor);
     margin-left: 0.16em;
 }
+
+.field-width{
+    text-align: center;
+    width: 55px !important;
+}
