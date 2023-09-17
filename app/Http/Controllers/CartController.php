@@ -6,6 +6,7 @@ use App\Models\Toy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Exception;
 
 class CartController extends Controller
 {
@@ -34,10 +35,16 @@ class CartController extends Controller
     public function add(string $id, Request $request): RedirectResponse
     {
         $cartToyData = $request->session()->get('cart_toy_data');
-        $cartToyData[$id] = $id;
-        $request->session()->put('cart_toy_data', $cartToyData);
 
-        return back()->with('added', trans('app.cart.toy_added'));
+        try {
+            if ($cartToyData[$id] != null) {
+                return back()->with('already_added', trans('app.cart.already_added'));
+            }
+        } catch (Exception $e) {
+            $cartToyData[$id] = $id;
+            $request->session()->put('cart_toy_data', $cartToyData);
+            return back()->with('added', trans('app.cart.toy_added'));
+        }
     }
 
     public function remove(string $id, Request $request): RedirectResponse
@@ -53,7 +60,7 @@ class CartController extends Controller
     {
         if ($request->session()->get('cart_toy_data') == []) {
             return back()->with('already_removed', trans('app.cart.already_removed'));
-        }else{
+        } else {
             $request->session()->forget('cart_toy_data');
             return back()->with('toys_removed', trans('app.cart.toys_removed'));
         }
