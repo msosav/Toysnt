@@ -9,12 +9,16 @@
         </div>
         <div>
             @if (session('removed'))
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-danger" role="alert"> 
                 {{ session('removed') }}
             </div>
             @elseif (session('toys_removed'))
             <div class="alert alert-danger" role="alert">
                 {{ session('toys_removed') }}
+            </div>
+            @elseif (session('already_removed'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('already_removed') }}
             </div>
             @endif
         </div>
