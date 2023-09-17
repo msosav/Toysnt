@@ -9,7 +9,7 @@
         </div>
         @foreach ($viewData['cartToys'] as $toy)
         <div class="col-4 d-flex">
-            <div class="card me-2" style="width: 18rem;">
+            <div class="card me-2 mb-4" style="width: 18rem;">
                 <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top" alt="{{ $toy->getModel() }}" id="index-card-image">
                 <div class="card-body">
                     <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}" id="card-title">{{ $toy->getModel() }}</a></h5>
