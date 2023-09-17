@@ -40,3 +40,9 @@ Route::get('/admin/technique/{id}', 'App\Http\Controllers\AdminTechniqueControll
 
 //Rutas de Toy.
 Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show')->middleware('basic.users');
+
+//Rutas de Cart.
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index')->middleware('basic.users');
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add')->middleware('basic.users');
+Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove')->middleware('basic.users');
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll')->middleware('basic.users');
