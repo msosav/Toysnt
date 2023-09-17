@@ -3,9 +3,20 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <h1 class="title">Shopping cart</h1>
+        <h1 class="title">@lang('app.cart.cart')</h1>
         <div>
-            <a href="{{ route('cart.removeAll') }}" class="btn btn-outline mt-2 mb-5">Empty shopping cart</a>
+            <a href="{{ route('cart.removeAll') }}" class="btn btn-outline mt-2 mb-4">@lang('app.cart.empty')</a>
+        </div>
+        <div>
+            @if (session('removed'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('removed') }}
+            </div>
+            @elseif (session('toys_removed'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('toys_removed') }}
+            </div>
+            @endif
         </div>
         @foreach ($viewData['cartToys'] as $toy)
         <div class="col-4 d-flex">
@@ -26,7 +37,7 @@
             </div>
         </div>
         @endforeach
-        
+
     </div>
 </div>
 @endsection

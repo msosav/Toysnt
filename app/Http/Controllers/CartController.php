@@ -37,7 +37,7 @@ class CartController extends Controller
         $cartToyData[$id] = $id;
         $request->session()->put('cart_toy_data', $cartToyData);
 
-        return back();
+        return back()->with('added', trans('app.cart.toy_added'));
     }
 
     public function remove(string $id, Request $request): RedirectResponse
@@ -46,13 +46,13 @@ class CartController extends Controller
         unset($cartToyData[$id]);
         $request->session()->put('cart_toy_data', $cartToyData);
 
-        return back();
+        return back()->with('removed', trans('app.cart.toy_removed'));
     }
 
     public function removeAll(Request $request): RedirectResponse
     {
         $request->session()->forget('cart_toy_data');
 
-        return back();
+        return back()->with('toys_removed', trans('app.cart.toys_removed'));
     }
 }
