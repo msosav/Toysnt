@@ -97,4 +97,14 @@ class Item extends Model
     {
         $this->technique = $technique;
     }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
 }
