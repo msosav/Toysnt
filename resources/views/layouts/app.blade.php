@@ -31,7 +31,7 @@
                     <a class="nav-link active nav-text" href="{{ route('register') }}">@lang('app.navbar.register')</a>
                     @else
                     <form id="logout" action="{{ route('logout') }}" method="POST">
-                        <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">@lang('app.navbar.logout')</a>
+                        <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">@lang('app.navbar.logout')  <i class="fa-solid fa-right-from-bracket"></i></a>
                         @csrf
                     </form>
                     @endguest
