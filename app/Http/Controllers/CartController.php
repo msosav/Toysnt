@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Toy;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Exception;
 
 class CartController extends Controller
 {
@@ -43,6 +43,7 @@ class CartController extends Controller
         } catch (Exception $e) {
             $cartToyData[$id] = $id;
             $request->session()->put('cart_toy_data', $cartToyData);
+
             return back()->with('added', trans('app.cart.toy_added'));
         }
     }
@@ -62,6 +63,7 @@ class CartController extends Controller
             return back()->with('already_removed', trans('app.cart.already_removed'));
         } else {
             $request->session()->forget('cart_toy_data');
+
             return back()->with('toys_removed', trans('app.cart.toys_removed'));
         }
     }
