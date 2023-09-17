@@ -2,8 +2,8 @@
 @section('title', $viewData['title'])
 @section('content_tabs')
 <div class="container row g-3 my-2 px-0">
-    <div class="col d-flex justify-content-start">
-        @foreach ($viewData['toys'] as $toy)
+    @foreach ($viewData['toys'] as $toy)
+    <div class="col-4 d-flex justify-content-start">
         <div class="card me-2" style="width: 18rem;">
             <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top" alt="{{ $toy->getModel() }}" id="index-card-image">
             <div class="card-body">
@@ -14,12 +14,12 @@
                         <h7 class="card-subtitle"><small>@lang('app.toy.stock'): {{ $toy->getStock() }}</small></h6>
                     </div>
                     <div class="d-flex col justify-content-end">
-                        <a href="" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
+                        <a href="{{ route('cart.add', ['id'=> $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-        @endforeach
     </div>
+    @endforeach
 </div>
 @endsection
