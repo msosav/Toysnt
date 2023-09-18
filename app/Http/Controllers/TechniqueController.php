@@ -11,7 +11,7 @@ class TechniqueController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = trans('titles.home');
+        $viewData['title'] = trans('app.titles.home');
         $viewData['selected'] = 'techniques';
         $viewData['techniques'] = Technique::all();
 

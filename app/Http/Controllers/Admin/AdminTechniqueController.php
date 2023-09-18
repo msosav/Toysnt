@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Interfaces\ImageStorage;
 use App\Models\Technique;
 use Illuminate\Http\RedirectResponse;
@@ -101,6 +102,8 @@ class AdminTechniqueController extends Controller
     {
         $technique = Technique::find($id);
         if ($technique !== null) {
+            $image = app(ImageStorage::class);
+            $image = $image->delete('technique_image', $technique->getModel());
             Technique::destroy($id);
         }
 
