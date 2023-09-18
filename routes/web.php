@@ -26,6 +26,8 @@ Route::get('/admin/users/delete/{id}', 'App\Http\Controllers\Admin\AdminUserCont
 Route::get('/admin/users/{id}', 'App\Http\Controllers\Admin\AdminUserController@show')->name('admin.user.show')->middleware('admin');
 
 //Rutas de Technique.
+Route::post('/techniques/search', 'App\Http\Controllers\TechniqueController@search')->name('technique.search');
+Route::get('/techniques/results/{model}', 'App\Http\Controllers\TechniqueController@results')->name('technique.results');
 Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index');
 Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show');
 
