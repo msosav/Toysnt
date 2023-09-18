@@ -21,7 +21,7 @@ class Review extends Model
      * $this->attributes['created_at'] - string - contains when the review was created
      * $this->attributes['updated_at'] - string - contains when the review was updated
      */
-    protected $fillable = ['model', 'image', 'description', 'price'];
+    protected $fillable = ['comment', 'rating', 'technique_id', 'toy_id', 'user_id'];
 
     public function getId(): string
     {
