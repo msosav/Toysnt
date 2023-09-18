@@ -51,3 +51,9 @@ Route::get('/admin/review/{id}', 'App\Http\Controllers\Admin\AdminReviewControll
 Route::post('/toys/search', 'App\Http\Controllers\ToyController@search')->name('toy.search');
 Route::get('/toys/results/{model}', 'App\Http\Controllers\ToyController@results')->name('toy.results');
 Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show');
+
+//Rutas de Cart.
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index')->middleware('basic.users');
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add')->middleware('basic.users');
+Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove')->middleware('basic.users');
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll')->middleware('basic.users');

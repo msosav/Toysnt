@@ -16,6 +16,10 @@
     <div class="alert alert-danger" role="alert">
         {{ session('deleted') }}
     </div>
+    @elseif (session('added'))
+    <div class="alert alert-success" role="alert">
+        {{ session('added') }}
+    </div>
     @endif
     @foreach ($viewData['toys'] as $toy)
     <div class="card-body p-2">

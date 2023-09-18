@@ -59,4 +59,15 @@ return [
         'cart' => 'Añadir al carrito',
     ],
     'terms_and_conditions' => 'Términos y condiciones',
+    'cart' => [
+        'cart' => 'Carrito de compras',
+        'empty' => 'Vaciar el carrito',
+        'technique_removed' => '¡Técnica eliminada con éxito!',
+        'toy_added' => '¡Juguete añadido con éxito!',
+        'toy_removed' => '¡Juguete eliminado con éxito!',
+        'toys_removed' => '¡Carrito vaciado con éxito!',
+        'already_removed' => '¡El carrito ya estaba vacío!',
+        'already_added' => '¡Este juguete ya está en el carrito!',
+        'quantity' => 'Cantidad',
+    ],
 ];
