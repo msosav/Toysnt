@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use App\Models\Technique;
-use Illuminate\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class TechniqueController extends Controller
 {
