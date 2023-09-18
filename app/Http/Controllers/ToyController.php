@@ -27,6 +27,7 @@ class ToyController extends Controller
         } else {
             $viewData = [];
             $viewData['toy'] = $toy;
+            $viewData['reviews'] = $toy->getReviews();
             $viewData['title'] = $viewData['toy']->getModel();
 
             return view('toy.show')->with('viewData', $viewData);
