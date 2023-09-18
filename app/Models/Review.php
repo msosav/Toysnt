@@ -10,7 +10,7 @@ class Review extends Model
      * Review ATTRIBUTES
      * $this->attributes['id'] - string - contains the review´s primary key (id)
      * $this->attributes['comment'] - string - contains the review´s comment
-     * $this->attributes['rating'] - int - contains the review´s technique
+     * $this->attributes['rating'] - float - contains the review´s technique
      * $this->attributes['technique_id'] - string - contains the review´s technique association
      * $this->attributes['created_at'] - string - contains when the review was created
      * $this->attributes['updated_at'] - string - contains when the review was updated
