@@ -70,4 +70,7 @@ return [
         'already_added' => '¡Este juguete ya está en el carrito!',
         'quantity' => 'Cantidad',
     ],
+    'technique' => [
+        'cart' => 'Añadir al carrito',
+    ],
 ];
