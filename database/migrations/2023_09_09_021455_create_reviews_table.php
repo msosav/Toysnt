@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->string('comment');
-            $table->string('rating');
+            $table->float('rating');
             $table->unsignedBigInteger('technique_id');
             $table->foreign('technique_id')->references('id')->on('techniques');
             $table->timestamps();
