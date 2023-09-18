@@ -18,6 +18,7 @@ class Toy extends Model
      * $this->attributes['price'] - float - contains the toy price
      * $this->attributes['stock'] - int - contains the toy stock
      * $this->items - item[] - contains associated items
+     * $this->reviews - review[] - contains associated reviews
      * $this->attributes['created_at'] - string - contains when the toy was created
      * $this->attributes['updated_at'] - string - contains when the toy was updated
      */
@@ -86,6 +87,16 @@ class Toy extends Model
     public function getItems(): Collection
     {
         return $this->items;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
     }
 
     public function getCreated_at(): string
