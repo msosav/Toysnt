@@ -69,6 +69,8 @@ return [
         'already_removed' => 'Shopping cart was already empty!',
         'already_added' => 'This toy is already in the shopping cart!',
         'quantity' => 'Quantity',
-
+    ],
+    'technique' => [
+        'cart' => 'Add to cart',
     ],
 ];
