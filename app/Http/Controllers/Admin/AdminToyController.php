@@ -52,11 +52,12 @@ class AdminToyController extends Controller
         $toy->setPrice($request->input('price'));
         $toy->setStock($request->input('stock'));
         $toy->setDescription($request->input('description'));
+        $toy->setImage('default');
         $toy->save();
 
         Toy::validate($request, ['toy_image'], []);
         $image = app(ImageStorage::class);
-        $image->store($request, 'toy_image', $toy->getModel());
+        $image = $image->store($request, 'toy_image', $toy->getModel());
         $toy->setImage($image);
         $toy->update();
 

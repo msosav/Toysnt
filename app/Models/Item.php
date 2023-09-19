@@ -13,6 +13,7 @@ class Item extends Model
      * $this->attributes['quantity'] - string - contains the method quantity
      * $this->attributes['method'] - string - contains the methods name
      * $this->attributes['price'] - string - contains the methods price
+     * $this->attributes['order_id'] - string - contains the order's id which has the item
      * $this->order - order - contains associated order
      * $this->toy - toy - contains associated toy
      * $this->technique - technique - contains associated technique
@@ -61,12 +62,25 @@ class Item extends Model
         return $this->belongsTo(Order::class);
     }
 
-    /*
-    function getOrder(): Order
+    public function getOrder(): Order
     {
         return $this->order;
     }
-    */
+
+    public function setOrder(Order $order): void
+    {
+        $this->order = $order;
+    }
+
+    public function getOrderId(): string
+    {
+        return $this->attributes['order_id'];
+    }
+
+    public function setOrderId(int $orderId): void
+    {
+        $this->attributes['order_id'] = $orderId;
+    }
 
     public function toy(): BelongsTo
     {

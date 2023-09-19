@@ -26,8 +26,11 @@ Route::get('/admin/users/delete/{id}', 'App\Http\Controllers\Admin\AdminUserCont
 Route::get('/admin/users/{id}', 'App\Http\Controllers\Admin\AdminUserController@show')->name('admin.user.show')->middleware('admin');
 
 //Rutas de Technique.
+Route::post('/techniques/search', 'App\Http\Controllers\TechniqueController@search')->name('technique.search');
+Route::get('/techniques/results/{model}', 'App\Http\Controllers\TechniqueController@results')->name('technique.results');
 Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index');
 Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show');
+
 
 //Rutas de AdminTechnique
 Route::get('/admin/technique', 'App\Http\Controllers\Admin\AdminTechniqueController@index')->name('admin.technique.index')->middleware('admin');
@@ -51,3 +54,11 @@ Route::get('/admin/review/{id}', 'App\Http\Controllers\Admin\AdminReviewControll
 Route::post('/toys/search', 'App\Http\Controllers\ToyController@search')->name('toy.search');
 Route::get('/toys/results/{model}', 'App\Http\Controllers\ToyController@results')->name('toy.results');
 Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show');
+
+//Rutas de Cart.
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index')->middleware('basic.users');
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add')->middleware('basic.users');
+Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove')->middleware('basic.users');
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll')->middleware('basic.users');
+
+//Rutas de compra de juguetes

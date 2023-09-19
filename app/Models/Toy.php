@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 
 class Toy extends Model
@@ -15,6 +17,8 @@ class Toy extends Model
      * $this->attributes['description'] - string - contains the toy description
      * $this->attributes['price'] - float - contains the toy price
      * $this->attributes['stock'] - int - contains the toy stock
+     * $this->items - item[] - contains associated items
+     * $this->reviews - review[] - contains associated reviews
      * $this->attributes['created_at'] - string - contains when the toy was created
      * $this->attributes['updated_at'] - string - contains when the toy was updated
      */
@@ -73,6 +77,26 @@ class Toy extends Model
     public function setStock(int $stock): void
     {
         $this->attributes['stock'] = $stock;
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
     }
 
     public function getCreated_at(): string

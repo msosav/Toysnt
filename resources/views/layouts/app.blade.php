@@ -24,14 +24,14 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link active nav-text" href="{{ route('toy.index') }}">@lang('app.navbar.home')</a>
-                    <a class="nav-link active nav-text" href="">@lang('app.navbar.cart')</a>
+                    <a class="nav-link active nav-text" href="{{ route('cart.index') }}"> <i class="fa-solid fa-cart-shopping"></i></a>
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     @guest
                     <a class="nav-link active nav-text" href="{{ route('login') }}">@lang('app.navbar.login')</a>
                     <a class="nav-link active nav-text" href="{{ route('register') }}">@lang('app.navbar.register')</a>
                     @else
                     <form id="logout" action="{{ route('logout') }}" method="POST">
-                        <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">@lang('app.navbar.logout')</a>
+                        <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">@lang('app.navbar.logout')  <i class="fa-solid fa-right-from-bracket"></i></a>
                         @csrf
                     </form>
                     @endguest

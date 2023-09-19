@@ -21,7 +21,7 @@
                 <div class="col-4">
                     <div class="input-group flex-nowrap">
                         @if (Request::segment(1)=='techniques')
-                        <form class="d-flex" role="search">
+                        <form class="d-flex" method="POST" action="{{ route('technique.search') }}">
                             @csrf
                             <input class="form-control me-2" type="search" placeholder="@lang('app.search.technique')" aria-label="Search-Technique" name="search">
                             <button class="btn btn-outline" type="submit">@lang('app.search.search')</button>

@@ -51,7 +51,7 @@ nav {
     font-weight: bold;
 }
 
-.card-header-format{
+.card-header-format {
     background-color: var(--primaryColor);
     color: var(--textColor);
     font-weight: bold;
@@ -84,4 +84,9 @@ nav {
 #no_results {
     color: var(--cuaternaryColor);
     margin-left: 0.16em;
+}
+
+.field-width {
+    text-align: center;
+    width: 55px !important;
 }
