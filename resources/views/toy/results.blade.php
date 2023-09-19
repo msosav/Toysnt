@@ -4,6 +4,15 @@
 @if ($viewData['toys']!=null)
 <h1 id="search-title" class="py-1">@lang('app.search.result') {{ $viewData['search'] }}</h1>
 <div class="container row g-3 my-2 px-0">
+    @if (session('added'))
+    <div class="alert alert-success" role="alert">
+        {{ session('added') }}
+    </div>
+    @elseif (session('already_added'))
+    <div class="alert alert-danger" role="alert">
+        {{ session('already_added') }}
+    </div>
+    @endif
     @foreach ($viewData['toys'] as $toy)
     <div class="col-4 d-flex justify-content-start">
         <div class="card me-2" id="index-card">
@@ -19,7 +28,7 @@
                         @guest
                         <a href="{{ route('login') }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
                         @else
-                        <a href="{{ route('cart.add', ['id'=> $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
+                        <a href="{{ route('cart.addToy', ['id'=> $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
                         @endguest
                     </div>
                 </div>

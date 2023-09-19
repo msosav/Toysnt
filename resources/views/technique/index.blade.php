@@ -25,7 +25,7 @@
                         @guest
                         <a href="{{ route('login') }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
                         @else
-                        <a href="{{ route('cart.add', ['id'=> $technique->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
+                        <a href="{{ route('cart.addTechnique', ['id'=> $technique->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
                         @endguest
                     </div>
                 </div>
