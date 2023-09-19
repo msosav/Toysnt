@@ -28,6 +28,7 @@ return [
         'address' => 'Dirección',
         'remember_me' => 'Recuérdame',
         'forgot_your_password' => '¿Olvidaste tu contraseña?',
+        'no_account_created' => "¿No tienes una cuenta?",
     ],
     'passwords' => [
         'confirm_password' => 'Confirmar contraseña',

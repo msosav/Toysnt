@@ -28,6 +28,7 @@ return [
         'address' => 'Address',
         'remember_me' => 'Remember me',
         'forgot_your_password' => 'Forgot your password?',
+        'no_account_created' => "Don't have an account?",
     ],
     'passwords' => [
         'confirm_password' => 'Confirm password',
