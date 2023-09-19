@@ -77,4 +77,10 @@ return [
         'technique' => 'technique',
         'reviews' => 'Number of reviews'
     ],
+    'reviews' => [
+        'total' => 'Total reviews',
+        'new' => 'New review',
+        'review' => 'Review',
+        'rating' => 'Rating',
+    ]
 ];

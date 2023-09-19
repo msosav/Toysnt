@@ -31,7 +31,6 @@ Route::get('/techniques/results/{model}', 'App\Http\Controllers\TechniqueControl
 Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index');
 Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show');
 
-
 //Rutas de AdminTechnique
 Route::get('/admin/technique', 'App\Http\Controllers\Admin\AdminTechniqueController@index')->name('admin.technique.index')->middleware('admin');
 Route::get('/admin/technique/create', 'App\Http\Controllers\Admin\AdminTechniqueController@create')->name('admin.technique.create')->middleware('admin');
@@ -56,9 +55,12 @@ Route::get('/toys/results/{model}', 'App\Http\Controllers\ToyController@results'
 Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show');
 
 //Rutas de Cart.
-Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index')->middleware('basic.users');
-Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add')->middleware('basic.users');
-Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove')->middleware('basic.users');
-Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll')->middleware('basic.users');
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
+Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll');
 
-//Rutas de compra de juguetes
+//Rutas de Review.
+Route::get('/review/technique', 'App\Http\Controllers\ReviewController@technique')->name('review.technique');
+Route::get('/review/toy', 'App\Http\Controllers\ReviewController@toy')->name('review.toy');
+Route::post('/review/save', 'App\Http\Controllers\ReviewController@save')->name('review.save');
