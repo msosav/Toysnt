@@ -31,7 +31,6 @@ Route::get('/techniques/results/{model}', 'App\Http\Controllers\TechniqueControl
 Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index');
 Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show');
 
-
 //Rutas de AdminTechnique
 Route::get('/admin/technique', 'App\Http\Controllers\Admin\AdminTechniqueController@index')->name('admin.technique.index')->middleware('admin');
 Route::get('/admin/technique/create', 'App\Http\Controllers\Admin\AdminTechniqueController@create')->name('admin.technique.create')->middleware('admin');

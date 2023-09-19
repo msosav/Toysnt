@@ -49,11 +49,10 @@
                                 <button type="submit" class="btn btn-primary btn-outline">
                                     @lang('app.login.login')
                                 </button>
-                                @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    @lang('app.login.forgot_your_password')
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                    @lang('app.login.no_account_created')
                                 </a>
-                                @endif
+
                             </div>
                         </div>
                     </form>

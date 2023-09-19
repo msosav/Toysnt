@@ -19,7 +19,7 @@ class TechniqueController extends Controller
         $viewData['techniques'] = $techniques;
 
         $reviews = [];
-        foreach($techniques as $technique){
+        foreach ($techniques as $technique) {
             $reviews[$technique->getModel()] = count($technique->getReviews());
         }
         arsort($reviews);
