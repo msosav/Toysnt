@@ -23,11 +23,7 @@
                         <h7 class="card-subtitle"><small><b>@lang('app.toy.stock'):</b> {{ $toy->getStock() }}</small></h6>
                     </div>
                     <div class="d-flex col justify-content-end">
-                        @guest
-                        <a href="{{ route('login') }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
-                        @else
                         <a href="{{ route('cart.addToy', ['id'=> $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
-                        @endguest
                     </div>
                 </div>
             </div>
