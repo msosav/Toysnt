@@ -11,7 +11,7 @@
                 <div class="row-sm">
                     <b><h5 class="card-title">{{ $viewData['technique']->getModel() }}</h5></b>
                     <p class="card-text">{{ $viewData['technique']->getDescription() }}</p>
-                    <a href="" class="btn btn-outline">@lang('app.technique.cart')</a>
+                    <a href="{{ route('cart.addTechnique', ['id'=> $viewData['technique']->getId()]) }}" class="btn btn-outline">@lang('app.technique.cart')</a>
                 </div>
                 <div class="row-sm">
                     <b><h6 class="card-title">Reviews</h6></b>
