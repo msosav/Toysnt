@@ -18,12 +18,12 @@ class TechniqueController extends Controller
         $viewData['selected'] = 'techniques';
         $viewData['techniques'] = $techniques;
 
-        $diccionarioDeReviews = [];
+        $reviews = [];
         foreach($techniques as $technique){
-            $diccionarioDeReviews[$technique->getModel()] = count($technique->getReviews());
+            $reviews[$technique->getModel()] = count($technique->getReviews());
         }
-        arsort($diccionarioDeReviews);
-        $viewData['stats'] = $diccionarioDeReviews;
+        arsort($reviews);
+        $viewData['stats'] = $reviews;
 
         return view('technique.index')->with('viewData', $viewData);
     }
