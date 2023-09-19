@@ -17,7 +17,7 @@
             <div class="class-body px-2 py-2 d-block">
                 <h1 class="card-title" id="show-price">$ {{ $viewData['toy']->getPrice() }}</h1>
                 <p class="card-text">{{ $viewData['toy']->getDescription() }}</p>
-                <p class="card-text"><small class="text-muted">@lang('toy.stock'): {{ $viewData['toy']->getStock() }}</small></p>
+                <p class="card-text"><small class="text-muted">@lang('admin.toys.stock'): {{ $viewData['toy']->getStock() }}</small></p>
                 <div class="sub_div py-2 flex justify-content-around">
                     <a href="{{ route('admin.toy.edit', ['id' => $viewData['toy']->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-pen"></i> @lang('admin.toys.edit')</a>
                     <a href="{{ route('admin.toy.delete', ['id' => $viewData['toy']->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-trash"></i> @lang('admin.toys.delete')</a>
