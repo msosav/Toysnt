@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Collection;
 
 class Technique extends Model
 {
@@ -69,11 +71,28 @@ class Technique extends Model
         return $this->attributes['created_at'];
     }
 
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
     public function getUpdated_at(): string
     {
         return $this->attributes['updated_at'];
     }
 
+    /*public function getTopReviews(array $coleccion): array
+    {   
+        $diccionario = array();
+        foreach($coleccion as $objeto){
+            $diccionario[$objeto.getModel()] = $objeto.getReviews();
+        }
+    }*/
     public static function validate(Request $request, array $include, array $exclude): void
     {
         if (in_array('model', $include) or ! in_array('model', $exclude)) {

@@ -73,4 +73,8 @@ return [
     'technique' => [
         'cart' => 'Add to cart',
     ],
+    'stats' => [
+        'technique' => 'technique',
+        'reviews' => 'Number of reviews'
+    ],
 ];

@@ -12,10 +12,18 @@ class TechniqueController extends Controller
 {
     public function index(): View
     {
+        $techniques = Technique::all();
         $viewData = [];
         $viewData['title'] = trans('app.titles.home');
         $viewData['selected'] = 'techniques';
-        $viewData['techniques'] = Technique::all();
+        $viewData['techniques'] = $techniques;
+
+        $reviews = [];
+        foreach($techniques as $technique){
+            $reviews[$technique->getModel()] = count($technique->getReviews());
+        }
+        arsort($reviews);
+        $viewData['stats'] = $reviews;
 
         return view('technique.index')->with('viewData', $viewData);
     }

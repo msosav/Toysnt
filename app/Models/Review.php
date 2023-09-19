@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Review extends Model
 {
@@ -40,6 +41,16 @@ class Review extends Model
     public function setRating(int $rating): void
     {
         $this->attributes['rating'] = $rating;
+    }
+
+    public function technique(): BelongsTo
+    {
+        return $this->belongsTo(Technique::class);
+    }
+
+    public function getTechnique(): Technique
+    {
+        return $this->technique;
     }
 
     public function getTechniqueId(): string

@@ -35,3 +35,24 @@
     @endforeach
 </div>
 @endsection
+@section('stats')
+<div class="row-4 d-flex justify-content-start">
+        <table class="table table-warning ">
+            <thead>
+                <tr>
+                <th scope="col">@lang('app.stats.technique')</th>
+                <th scope="col">@lang('app.stats.reviews')</th>
+                </tr>
+            </thead>
+            <tbody>
+                    @foreach($viewData['stats'] as $key => $value)
+                    <tr class="table-active">
+                        <td>{{$key}}</td>
+                        <td>{{$value}}</td>
+                    </tr>
+                    @endforeach
+            </tbody>
+        </table>
+    </div>
+
+@endsection

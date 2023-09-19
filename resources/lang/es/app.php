@@ -73,4 +73,8 @@ return [
     'technique' => [
         'cart' => 'Añadir al carrito',
     ],
+    'stats' => [
+        'technique' => 'técnica',
+        'reviews' => 'Número de reseñas'
+    ],
 ];
