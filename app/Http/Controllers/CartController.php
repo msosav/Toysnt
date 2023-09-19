@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Toy;
 use App\Models\Technique;
+use App\Models\Toy;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -53,8 +53,7 @@ class CartController extends Controller
         try {
             if ($cartToyData[$id] != null) {
                 return back()->with('already_added', trans('app.cart.toy_already_added'));
-            }
-            else{
+            } else {
                 return back();
             }
         } catch (Exception $e) {
@@ -72,8 +71,7 @@ class CartController extends Controller
         try {
             if ($cartTechniqueData[$id] != null) {
                 return back()->with('already_added', trans('app.cart.technique_already_added'));
-            }
-            else{
+            } else {
                 return back();
             }
         } catch (Exception $e) {

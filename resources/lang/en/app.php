@@ -79,6 +79,6 @@ return [
     ],
     'stats' => [
         'technique' => 'technique',
-        'reviews' => 'Number of reviews'
+        'reviews' => 'Number of reviews',
     ],
 ];
