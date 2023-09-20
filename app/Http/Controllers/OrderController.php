@@ -83,8 +83,6 @@ class OrderController extends Controller
             return redirect()->route('toy.index')->with('purchase_successful', trans('app.cart.purchase_successful'));
         } else {
             return redirect()->route('toy.index')->with('purchase_failed', trans('app.cart.purchase_failed'));
-
         }
-
     }
 }

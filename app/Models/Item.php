@@ -122,6 +122,11 @@ class Item extends Model
         $this->technique = $technique;
     }
 
+    public function getTechniqueId(): ?string
+    {
+        return $this->attributes['technique_id'];
+    }
+
     public function setTechniqueId(int $techniqueId): void
     {
         $this->attributes['technique_id'] = $techniqueId;

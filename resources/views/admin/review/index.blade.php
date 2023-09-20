@@ -24,8 +24,11 @@
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
                     <div class="col-5">
-                        <h5 class="card-title">{{ $review->getRating() }} @lang('admin.reviews.stars')</h5>
-
+                        @if ($review->getToyId()!=null)
+                        <h5 class="card-title">{{ $review->getToy()->getModel() }}</h5>
+                        @elseif ($review->getTechniqueId()!==null)
+                        <h5 class="card-title">{{ $review->getTechnique()->getModel() }}</h5>
+                        @endif
                     </div>
                     <div class="col-5">
                         <div class="d-flex justify-content-around">

@@ -76,4 +76,8 @@ return [
         'edited' => '¡Reseña editada con éxito!',
         'deleted' => '¡Reseña eliminada con éxito!',
     ],
+    'orders' => [
+        'index' => 'Pedidos',
+        'show' => 'Mostrar',
+    ],
 ];

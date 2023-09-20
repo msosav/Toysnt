@@ -60,7 +60,7 @@ class AdminToyController extends Controller
 
         Toy::validate($request, ['toy_image'], []);
         $image = app(ImageStorage::class);
-        $image = $image->store($request, 'toy_image', $toy->getModel());
+        $image = $image->store($request, 'toy_image', $toy->getId());
         $toy->setImage($image);
         $toy->update();
 

@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/', 'App\Http\Controllers\ToyController@index')->name('toy.index')->middleware('landing.page');
-Route::get('/admin', 'App\Http\Controllers\Admin\AdminController@index')->name('admin.index')->middleware('admin');
+Route::get('/admin', 'App\Http\Controllers\Admin\AdminUserController@index')->name('admin.user.index')->middleware('admin');
 
 //Rutas de AdminToy.
 Route::get('/admin/toys', 'App\Http\Controllers\Admin\AdminToyController@index')->name('admin.toy.index')->middleware('admin');
@@ -17,7 +17,6 @@ Route::get('/admin/toys/delete/{id}', 'App\Http\Controllers\Admin\AdminToyContro
 Route::get('/admin/toys/{id}', 'App\Http\Controllers\Admin\AdminToyController@show')->name('admin.toy.show')->middleware('admin');
 
 //Rutas de AdminUser.
-Route::get('/admin/users', 'App\Http\Controllers\Admin\AdminUserController@index')->name('admin.user.index')->middleware('admin');
 Route::get('/admin/users/create', 'App\Http\Controllers\Admin\AdminUserController@create')->name('admin.user.create')->middleware('admin');
 Route::post('/admin/user/save', 'App\Http\Controllers\Admin\AdminUserController@save')->name('admin.user.save')->middleware('admin');
 Route::get('/admin/users/edit/{id}', 'App\Http\Controllers\Admin\AdminUserController@edit')->name('admin.user.edit')->middleware('admin');
@@ -32,22 +31,26 @@ Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->nam
 Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show');
 
 //Rutas de AdminTechnique
-Route::get('/admin/technique', 'App\Http\Controllers\Admin\AdminTechniqueController@index')->name('admin.technique.index')->middleware('admin');
-Route::get('/admin/technique/create', 'App\Http\Controllers\Admin\AdminTechniqueController@create')->name('admin.technique.create')->middleware('admin');
-Route::post('/admin/technique/save', 'App\Http\Controllers\Admin\AdminTechniqueController@save')->name('admin.technique.save')->middleware('admin');
-Route::get('/admin/technique/edit/{id}', 'App\Http\Controllers\Admin\AdminTechniqueController@edit')->name('admin.technique.edit')->middleware('admin');
-Route::post('/admin/technique/update/{id}', 'App\Http\Controllers\Admin\AdminTechniqueController@update')->name('admin.technique.update')->middleware('admin');
-Route::get('/admin/technique/delete/{id}', 'App\Http\Controllers\Admin\AdminTechniqueController@delete')->name('admin.technique.delete')->middleware('admin');
-Route::get('/admin/technique/{id}', 'App\Http\Controllers\Admin\AdminTechniqueController@show')->name('admin.technique.show')->middleware('admin');
+Route::get('/admin/techniques', 'App\Http\Controllers\Admin\AdminTechniqueController@index')->name('admin.technique.index')->middleware('admin');
+Route::get('/admin/techniques/create', 'App\Http\Controllers\Admin\AdminTechniqueController@create')->name('admin.technique.create')->middleware('admin');
+Route::post('/admin/techniques/save', 'App\Http\Controllers\Admin\AdminTechniqueController@save')->name('admin.technique.save')->middleware('admin');
+Route::get('/admin/techniques/edit/{id}', 'App\Http\Controllers\Admin\AdminTechniqueController@edit')->name('admin.technique.edit')->middleware('admin');
+Route::post('/admin/techniques/update/{id}', 'App\Http\Controllers\Admin\AdminTechniqueController@update')->name('admin.technique.update')->middleware('admin');
+Route::get('/admin/techniques/delete/{id}', 'App\Http\Controllers\Admin\AdminTechniqueController@delete')->name('admin.technique.delete')->middleware('admin');
+Route::get('/admin/techniques/{id}', 'App\Http\Controllers\Admin\AdminTechniqueController@show')->name('admin.technique.show')->middleware('admin');
 
 //Rutas de AdminReview
-Route::get('/admin/review', 'App\Http\Controllers\Admin\AdminReviewController@index')->name('admin.review.index')->middleware('admin');
-Route::get('/admin/review/create', 'App\Http\Controllers\Admin\AdminReviewController@create')->name('admin.review.create')->middleware('admin');
-Route::post('/admin/review/save', 'App\Http\Controllers\Admin\AdminReviewController@save')->name('admin.review.save')->middleware('admin');
-Route::get('/admin/review/edit/{id}', 'App\Http\Controllers\Admin\AdminReviewController@edit')->name('admin.review.edit')->middleware('admin');
-Route::post('/admin/review/update/{id}', 'App\Http\Controllers\Admin\AdminReviewController@update')->name('admin.review.update')->middleware('admin');
-Route::get('/admin/review/delete/{id}', 'App\Http\Controllers\Admin\AdminReviewController@delete')->name('admin.review.delete')->middleware('admin');
-Route::get('/admin/review/{id}', 'App\Http\Controllers\Admin\AdminReviewController@show')->name('admin.review.show')->middleware('admin');
+Route::get('/admin/reviews', 'App\Http\Controllers\Admin\AdminReviewController@index')->name('admin.review.index')->middleware('admin');
+Route::get('/admin/reviews/create', 'App\Http\Controllers\Admin\AdminReviewController@create')->name('admin.review.create')->middleware('admin');
+Route::post('/admin/reviews/save', 'App\Http\Controllers\Admin\AdminReviewController@save')->name('admin.review.save')->middleware('admin');
+Route::get('/admin/reviews/edit/{id}', 'App\Http\Controllers\Admin\AdminReviewController@edit')->name('admin.review.edit')->middleware('admin');
+Route::post('/admin/reviews/update/{id}', 'App\Http\Controllers\Admin\AdminReviewController@update')->name('admin.review.update')->middleware('admin');
+Route::get('/admin/reviews/delete/{id}', 'App\Http\Controllers\Admin\AdminReviewController@delete')->name('admin.review.delete')->middleware('admin');
+Route::get('/admin/reviews/{id}', 'App\Http\Controllers\Admin\AdminReviewController@show')->name('admin.review.show')->middleware('admin');
+
+//Rutas de AdminOrder
+Route::get('/admin/orders', 'App\Http\Controllers\Admin\AdminOrderController@index')->name('admin.order.index')->middleware('admin');
+Route::get('/admin/orders/show', 'App\Http\Controllers\Admin\AdminOrderController@show')->name('admin.order.show')->middleware('admin');
 
 //Rutas de Toy.
 Route::post('/toys/search', 'App\Http\Controllers\ToyController@search')->name('toy.search');

@@ -19,7 +19,7 @@
                 <button class="btn d-md-none d-block close-btn px-1 py0 text-white"><i class="val fa-stream"></i></button>
             </div>
             <ul class="list-unstyled px-2">
-                <li @if (Request::segment(2)=='users' ) class="active" @endif>
+                <li @if (Request::segment(2)=='' ) class="active" @endif>
                     <a href="{{ route('admin.user.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-users"></i> @lang('admin.navbar.users')</a>
                 </li>
                 <li @if (Request::segment(2)=='toys' ) class="active" @endif>
@@ -32,7 +32,7 @@
                     <a href="{{ route('admin.review.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-comment"></i> @lang('admin.navbar.reviews')</a>
                 </li>
                 <li @if (Request::segment(2)=='orders' ) class="active" @endif>
-                    <a href="/admin" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-receipt"></i> @lang('admin.navbar.orders')</a>
+                    <a href="{{ route('admin.order.index') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-receipt"></i> @lang('admin.navbar.orders')</a>
                 </li>
             </ul>
         </div>
