@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('method');
             $table->float('price');
             $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete();
             $table->unsignedBigInteger('toy_id')->nullable();
-            $table->foreign('toy_id')->references('id')->on('toys');
+            $table->foreign('toy_id')->references('id')->on('toys')->cascadeOnDelete();
             $table->unsignedBigInteger('technique_id')->nullable();
-            $table->foreign('technique_id')->references('id')->on('techniques');
+            $table->foreign('technique_id')->references('id')->on('techniques')->cascadeOnDelete();
             $table->timestamps();
         });
     }

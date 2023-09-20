@@ -16,11 +16,11 @@ return new class extends Migration
             $table->string('comment');
             $table->float('rating');
             $table->unsignedBigInteger('technique_id')->nullable();
-            $table->foreign('technique_id')->references('id')->on('techniques');
+            $table->foreign('technique_id')->references('id')->on('techniques')->cascadeOnDelete();
             $table->unsignedBigInteger('toy_id')->nullable();
-            $table->foreign('toy_id')->references('id')->on('toys');
+            $table->foreign('toy_id')->references('id')->on('toys')->cascadeOnDelete();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
