@@ -30,7 +30,7 @@ class AdminReviewController extends Controller
             return redirect()->route('admin.review.index');
         }
 
-        if ($review->getToyId()==null){
+        if ($review->getToyId() == null) {
             $technique = Technique::find($review->getTechniqueId());
             $viewData = [];
             $viewData['review'] = $review;

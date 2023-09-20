@@ -76,4 +76,8 @@ return [
         'edited' => 'Review edited successfully!',
         'deleted' => 'Review deleted successfully!',
     ],
+    'orders' => [
+        'index' => 'Orders',
+        'show' => 'Show',
+    ],
 ];

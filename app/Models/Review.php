@@ -59,7 +59,7 @@ class Review extends Model
         return $this->technique;
     }
 
-    public function getTechniqueId(): string|null
+    public function getTechniqueId(): ?string
     {
         return $this->attributes['technique_id'];
     }
@@ -79,7 +79,7 @@ class Review extends Model
         return $this->toy;
     }
 
-    public function getToyId(): string|null
+    public function getToyId(): ?string
     {
         return $this->attributes['toy_id'];
     }
