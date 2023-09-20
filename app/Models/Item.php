@@ -92,6 +92,11 @@ class Item extends Model
         return $this->toy;
     }
 
+    public function setToy(Toy $toy): void
+    {
+        $this->toy = $toy;
+    }
+
     public function setToyId(int $toyId): void
     {
         $this->attributes['toy_id'] = $toyId;
@@ -125,6 +130,11 @@ class Item extends Model
     public function setTechniqueId(int $techniqueId): void
     {
         $this->attributes['technique_id'] = $techniqueId;
+    }
+
+    public function getTechniqueId(): ?string
+    {
+        return $this->attributes['technique_id'];
     }
 
     public function getCreatedAt(): string

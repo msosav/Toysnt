@@ -19,7 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders');
             $table->unsignedBigInteger('toy_id')->nullable();
+            $table->foreign('toy_id')->references('id')->on('toys');
             $table->unsignedBigInteger('technique_id')->nullable();
+            $table->foreign('technique_id')->references('id')->on('techniques');
             $table->timestamps();
         });
     }

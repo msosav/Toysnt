@@ -58,6 +58,7 @@ return [
     'toy' => [
         'stock' => 'In stock',
         'cart' => 'Add to cart',
+        'out_of_stock' => 'Out of stock',
     ],
     'terms_and_conditions' => 'Terms and conditions',
     'cart' => [
@@ -81,8 +82,11 @@ return [
         'cart' => 'Add to cart',
     ],
     'stats' => [
-        'technique' => 'technique',
+        'technique' => 'Technique',
         'reviews' => 'Number of reviews',
+        'toy' => 'Toy',
+        'quantity' => 'Quantity purchased',
+        'top_toys' => 'Top Toys',
     ],
     'reviews' => [
         'total' => 'Total reviews',
