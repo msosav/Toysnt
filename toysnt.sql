@@ -26,16 +26,16 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `techniques` (`id`, `model`, `image`, `description`, `price`, `created_at`, `updated_at`) VALUES
-(1, 'Explosion', 'technique_image_Explosion.jpg', 'cosito', 200.00, '2023-09-20 11:21:23', '2023-09-20 11:21:23'),
-(2, 'Ácido', 'technique_image_Ácido.jpg', 'es un pez que busca a otro pez por que se le perdió, que pesar', 201.00, '2023-09-20 11:21:51', '2023-09-20 11:21:51');
+(1, 'TNT', 'technique_image_1.jpg', 'cosito', 200.00, '2023-09-20 11:21:23', '2023-09-20 11:21:23'),
+(2, 'Ácido', 'technique_image_2.jpg', 'es un pez que busca a otro pez por que se le perdió, que pesar', 201.00, '2023-09-20 11:21:51', '2023-09-20 11:21:51');
 
 --
 -- Volcado de datos para la tabla `toys`
 --
 
 INSERT INTO `toys` (`id`, `model`, `image`, `description`, `price`, `stock`, `created_at`, `updated_at`) VALUES
-(1, 'Barbi', 'toy_image_Barbi.jpg', 'Descripcion', 100.00, 16, '2023-09-20 11:20:43', '2023-09-20 08:57:17'),
-(2, 'Ken', 'toy_image_Ken.jpg', 'Descripcion', 101.00, 20, '2023-09-20 11:21:04', '2023-09-20 08:53:18');
+(1, 'Barbi', 'toy_image_1.jpg', 'Descripcion', 100.00, 16, '2023-09-20 11:20:43', '2023-09-20 08:57:17'),
+(2, 'Ken', 'toy_image_2.jpg', 'Descripcion', 101.00, 20, '2023-09-20 11:21:04', '2023-09-20 08:53:18');
 
 --
 -- Volcado de datos para la tabla `users`
