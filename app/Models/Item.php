@@ -132,11 +132,6 @@ class Item extends Model
         $this->attributes['technique_id'] = $techniqueId;
     }
 
-    public function getTechniqueId(): ?string
-    {
-        return $this->attributes['technique_id'];
-    }
-
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
