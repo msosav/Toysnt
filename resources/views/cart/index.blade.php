@@ -13,7 +13,7 @@
                 {{ session('removed') }}
             </div>
             @elseif (session('cart_emptied'))
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-success" role="alert">
                 {{ session('cart_emptied') }}
             </div>
             @elseif (session('already_removed'))

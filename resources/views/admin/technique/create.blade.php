@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
+@section('profileName', $viewData['auth_user']->getName())
 @section('content')
 <div class="container my-5">
     <div class="row justify-content-center">
