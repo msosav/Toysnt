@@ -91,13 +91,13 @@ class Item extends Model
     {
         return $this->toy;
     }
-    
+
     public function setToyId(int $toyId): void
     {
         $this->attributes['toy_id'] = $toyId;
     }
 
-    public function getToyId(): string|null
+    public function getToyId(): ?string
     {
         return $this->attributes['toy_id'];
     }
@@ -117,9 +117,14 @@ class Item extends Model
         $this->technique = $technique;
     }
 
-    public function getTechniqueId(): string|null
+    public function getTechniqueId(): ?string
     {
         return $this->attributes['technique_id'];
+    }
+
+    public function setTechniqueId(int $techniqueId): void
+    {
+        $this->attributes['technique_id'] = $techniqueId;
     }
 
     public function getCreatedAt(): string
