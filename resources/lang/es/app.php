@@ -58,6 +58,7 @@ return [
     'toy' => [
         'stock' => 'En inventario',
         'cart' => 'Añadir al carrito',
+        'out_of_stock' => 'Sin inventario',
     ],
     'terms_and_conditions' => 'Términos y condiciones',
     'cart' => [
@@ -81,8 +82,11 @@ return [
         'cart' => 'Añadir al carrito',
     ],
     'stats' => [
-        'technique' => 'técnica',
+        'technique' => 'Técnica',
         'reviews' => 'Número de reseñas',
+        'toy' => 'Juguete',
+        'quantity' => 'Cantidad comprada',
+        'top_toys' => 'Top Juguetes Vendidos',
     ],
     'reviews' => [
         'total' => 'Reseñas totales',
