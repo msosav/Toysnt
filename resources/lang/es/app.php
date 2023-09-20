@@ -82,5 +82,6 @@ return [
         'new' => 'Nueva reseña',
         'review' => 'Reseña',
         'rating' => 'Calificación',
+        'submit' => 'Enviar',
     ]
 ];

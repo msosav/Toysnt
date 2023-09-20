@@ -82,5 +82,6 @@ return [
         'new' => 'New review',
         'review' => 'Review',
         'rating' => 'Rating',
+        'submit' => 'Submit',
     ]
 ];

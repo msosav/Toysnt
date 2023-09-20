@@ -8,33 +8,32 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function technique(): RedirectResponse
-    {
-        return redirect()->route('review.technique');
-    }
-
-    public function toy(): RedirectResponse
+    public function new(): RedirectResponse
     {
         return redirect()->back()->with('newComment', 1);
     }
 
-    public function save(Request $request, string $toyId = null, string $techniqueId= null): RedirectResponse
+    public function save(Request $request, string $type,string $id): RedirectResponse
     {
         Review::validate($request);
 
         $review = new Review();
         $review->setComment($request->input('comment'));
         $review->setRating($request->input('rating'));
-        if ($toyId !== null) {
-            $review->setToyId($toyId);
+        if ($type == 'toy') {
+            $review->setToyId($id);
             $review->setUserId(auth()->user()->id);
             $review->save();
-            return redirect()->route('toy.show', ['id' => $toyId]);
-        }
-        if ($techniqueId !== null) {
-            $review->setTechniqueId($techniqueId);
+
+            return redirect()->route('toy.show', ['id' => $id]);
+        } elseif ($type == 'technique') {
+            $review->setTechniqueId($id);
             $review->setUserId(auth()->user()->id);
-            return redirect()->route('technique.show', ['id' => $techniqueId]);
+            $review->save();
+
+            return redirect()->route('technique.show', ['id' => $id]);
+        } else {
+            return redirect()->route('toy.index');
         }
     }
 }

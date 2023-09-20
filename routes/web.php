@@ -61,6 +61,5 @@ Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->n
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll');
 
 //Rutas de Review.
-Route::get('/review/technique', 'App\Http\Controllers\ReviewController@technique')->name('review.technique');
-Route::get('/review/toy', 'App\Http\Controllers\ReviewController@toy')->name('review.toy');
-Route::post('/review/save', 'App\Http\Controllers\ReviewController@save')->name('review.save');
+Route::get('/review/new', 'App\Http\Controllers\ReviewController@new')->name('review.new');
+Route::post('/review/save/{type}/{id}', 'App\Http\Controllers\ReviewController@save')->name('review.save');

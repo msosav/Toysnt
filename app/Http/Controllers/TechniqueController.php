@@ -30,14 +30,19 @@ class TechniqueController extends Controller
 
     public function show(string $id): View
     {
-        $technique = Technique::findOrFail($id);
-        $viewData = [];
-        $viewData['title'] = $technique->getModel();
-        $viewData['technique'] = $technique;
-        $viewData['selected'] = 'techniques';
-        $viewData['reviews'] = Review::all()->where('technique_id', $id);
+        $technique = Technique::find($id);
 
-        return view('technique.show')->with('viewData', $viewData);
+        if ($technique === null) {
+            return redirect()->route('technique.index');
+        } else {
+            $viewData = [];
+            $viewData['technique'] = $technique;
+            $viewData['title'] = $viewData['technique']->getModel();
+            $viewData['reviews'] = $viewData['technique']->reviews()->get();
+            $viewData['reviewCount'] = $viewData['reviews']->count();
+
+            return view('technique.show')->with('viewData', $viewData);
+        }
     }
 
     public function search(Request $request): RedirectResponse

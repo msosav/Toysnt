@@ -86,16 +86,9 @@ class Technique extends Model
         return $this->attributes['updated_at'];
     }
 
-    /*public function getTopReviews(array $coleccion): array
-    {   
-        $diccionario = array();
-        foreach($coleccion as $objeto){
-            $diccionario[$objeto.getModel()] = $objeto.getReviews();
-        }
-    }*/
     public static function validate(Request $request, array $include, array $exclude): void
     {
-        if (in_array('model', $include) or ! in_array('model', $exclude)) {
+        if (in_array('model', $include) or !in_array('model', $exclude)) {
             $request->validate([
                 'model' => 'required|string|max:255',
             ]);
@@ -105,7 +98,7 @@ class Technique extends Model
             ]);
         }
 
-        if (in_array('technique_image', $include) or ! in_array('technique_image', $exclude)) {
+        if (in_array('technique_image', $include) or !in_array('technique_image', $exclude)) {
             $request->validate([
                 'technique_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ]);
@@ -115,7 +108,7 @@ class Technique extends Model
             ]);
         }
 
-        if (in_array('description', $include) or ! in_array('description', $exclude)) {
+        if (in_array('description', $include) or !in_array('description', $exclude)) {
             $request->validate([
                 'description' => 'required|string|max:255',
             ]);
@@ -125,7 +118,7 @@ class Technique extends Model
             ]);
         }
 
-        if (in_array('price', $include) or ! in_array('price', $exclude)) {
+        if (in_array('price', $include) or !in_array('price', $exclude)) {
             $request->validate([
                 'price' => 'required|numeric',
             ]);
