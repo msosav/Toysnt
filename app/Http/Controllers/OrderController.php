@@ -25,18 +25,22 @@ class OrderController extends Controller
             $order->save();
 
             $toys = explode('},',$request->toys);
-            if(count($toys)>1){
-                $toys[0] = $toys[0].'}';
-            }
             $techniques = explode('},',$request->techniques);
-            if(count($techniques)>1){
-                $techniques[0] = $techniques[0].'}';
+
+            $toys[count($toys)-1] = str_replace ( "}", '', $toys[count($toys)-1]);
+            $techniques[count($techniques)-1] = str_replace ( "}", '', $techniques[count($techniques)-1]);
+
+            for($i = 0; $i < count($toys); $i++){
+                $toys[$i] = $toys[$i].'}';
             }
-
-
+            for($j = 0; $j < count($techniques); $j++){
+                $techniques[$j] = $techniques[$j].'}';
+            }
+            
             $total = 0;
             foreach($toys as $toy){
                 $toy = json_decode($toy);
+                
                 $id = strval($toy->id);
                 $quantity = $request->$id;
                 $item = new Item();
@@ -47,7 +51,6 @@ class OrderController extends Controller
                 $total += $toy->getPrice()*$quantity;
                 $item->setOrderId($order->getId());
                 $item->setToyId($toy->getId());
-                $item->setTechniqueId(0);
                 $item->save();
                 $toy->setStock($toy->getStock()-$item->getQuantity());
                 $toy->update();
@@ -63,7 +66,6 @@ class OrderController extends Controller
                     $total += $technique->getPrice();
                     $item->setOrderId($order->getId());
                     $item->setTechniqueId($technique->getId());
-                    $item->setToyId(0);
                     $item->save();
                 }
             }
@@ -82,7 +84,10 @@ class OrderController extends Controller
         }
         else
         {
-            return redirect()->route('toy.index')->with('purchase_failed', trans('app.cart.purchase_failed'));;
+            return redirect()->route('toy.index')->with('purchase_failed', trans('app.cart.purchase_failed'));
+            
+            
         }
+    
     }
 }
