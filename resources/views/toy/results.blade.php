@@ -1,5 +1,9 @@
 @extends('layouts.tabs')
 @section('title', $viewData['title'])
+@auth
+@section('profileName', $viewData['auth_user']->getName())
+@section('balance', $viewData['auth_user']->getBalance())
+@endif
 @section('content_tabs')
 @if ($viewData['toys']!=null)
 <h1 id="search-title" class="py-1">@lang('app.search.result') {{ $viewData['search'] }}</h1>
@@ -24,9 +28,15 @@
                         <h6 class="card-subtitle" id="card-price">${{ $toy->getPrice() }}</h6>
                         <h7 class="card-subtitle"><small><b>@lang('app.toy.stock'):</b> {{ $toy->getStock() }}</small></h6>
                     </div>
+                    @if ($toy->getStock() == 0)
+                    <div class="d-flex col justify-content-end">
+                        <small><b>@lang('app.toy.out_of_stock')</b></small>
+                    </div>
+                    @else
                     <div class="d-flex col justify-content-end">
                         <a href="{{ route('cart.addToy', ['id'=> $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

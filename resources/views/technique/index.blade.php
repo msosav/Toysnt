@@ -1,5 +1,9 @@
 @extends('layouts.tabs')
 @section('title', $viewData['title'])
+@auth
+@section('profileName', $viewData['auth_user']->getName())
+@section('balance', $viewData['auth_user']->getBalance())
+@endif
 @section('content_tabs')
 <div class="container row g-3 my-2 px-0">
     @if (session('added'))
@@ -32,23 +36,23 @@
 </div>
 @endsection
 @section('stats')
-<div class="row-4 d-flex justify-content-start">
-        <table class="table table-warning ">
-            <thead>
-                <tr>
+<div class="row-4 d-flex align-items-center">
+    <table class="table table-warning ">
+        <thead>
+            <tr>
                 <th scope="col">@lang('app.stats.technique')</th>
                 <th scope="col">@lang('app.stats.reviews')</th>
-                </tr>
-            </thead>
-            <tbody>
-                    @foreach($viewData['stats'] as $key => $value)
-                    <tr class="table-active">
-                        <td>{{$key}}</td>
-                        <td>{{$value}}</td>
-                    </tr>
-                    @endforeach
-            </tbody>
-        </table>
-    </div>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($viewData['stats'] as $key => $value)
+            <tr class="table-active">
+                <td>{{$key}}</td>
+                <td>{{$value}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 @endsection

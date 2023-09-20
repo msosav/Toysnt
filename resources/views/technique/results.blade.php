@@ -1,5 +1,9 @@
 @extends('layouts.tabs')
 @section('title', $viewData['title'])
+@auth
+@section('profileName', $viewData['auth_user']->getName())
+@section('balance', $viewData['auth_user']->getBalance())
+@endif
 @section('content_tabs')
 @if ($viewData['techniques']!=null)
 <h1 id="search-title" class="py-1">@lang('app.search.result') {{ $viewData['search'] }}</h1>
