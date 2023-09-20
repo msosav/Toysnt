@@ -64,3 +64,4 @@ Route::get('/cart/removeTechnique/{id}', 'App\Http\Controllers\CartController@re
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll')->middleware('basic.users');
 
 //Rutas de compra de juguetes
+Route::post('/purchase', 'App\Http\Controllers\PurchaseController@purchase')->name('purchase.purchase')->middleware('basic.users');
