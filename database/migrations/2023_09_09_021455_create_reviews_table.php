@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('comment');
             $table->float('rating');
-            $table->unsignedBigInteger('technique_id');
+            $table->unsignedBigInteger('technique_id')->nullable();
             $table->foreign('technique_id')->references('id')->on('techniques');
-            $table->unsignedBigInteger('toy_id');
+            $table->unsignedBigInteger('toy_id')->nullable();
             $table->foreign('toy_id')->references('id')->on('toys');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
