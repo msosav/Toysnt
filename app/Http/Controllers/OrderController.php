@@ -9,7 +9,7 @@ use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class PurchaseController extends Controller
+class OrderController extends Controller
 {
     public function purchase(Request $request): RedirectResponse
     {

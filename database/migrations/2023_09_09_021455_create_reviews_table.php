@@ -17,6 +17,10 @@ return new class extends Migration
             $table->float('rating');
             $table->unsignedBigInteger('technique_id');
             $table->foreign('technique_id')->references('id')->on('techniques');
+            $table->unsignedBigInteger('toy_id');
+            $table->foreign('toy_id')->references('id')->on('toys');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

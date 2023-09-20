@@ -28,6 +28,8 @@ class ToyController extends Controller
             $viewData = [];
             $viewData['toy'] = $toy;
             $viewData['title'] = $viewData['toy']->getModel();
+            $viewData['reviews'] = $viewData['toy']->reviews()->get();
+            $viewData['reviewCount'] = $viewData['reviews']->count();
 
             return view('toy.show')->with('viewData', $viewData);
         }
