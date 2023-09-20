@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/', 'App\Http\Controllers\ToyController@index')->name('toy.index')->middleware('landing.page');
-Route::get('/admin', 'App\Http\Controllers\Admin\AdminController@index')->name('admin.index')->middleware('admin');
+Route::get('/admin', 'App\Http\Controllers\Admin\AdminUserController@index')->name('admin.user.index')->middleware('admin');
 
 //Rutas de AdminToy.
 Route::get('/admin/toys', 'App\Http\Controllers\Admin\AdminToyController@index')->name('admin.toy.index')->middleware('admin');
@@ -17,7 +17,6 @@ Route::get('/admin/toys/delete/{id}', 'App\Http\Controllers\Admin\AdminToyContro
 Route::get('/admin/toys/{id}', 'App\Http\Controllers\Admin\AdminToyController@show')->name('admin.toy.show')->middleware('admin');
 
 //Rutas de AdminUser.
-Route::get('/admin/users', 'App\Http\Controllers\Admin\AdminUserController@index')->name('admin.user.index')->middleware('admin');
 Route::get('/admin/users/create', 'App\Http\Controllers\Admin\AdminUserController@create')->name('admin.user.create')->middleware('admin');
 Route::post('/admin/user/save', 'App\Http\Controllers\Admin\AdminUserController@save')->name('admin.user.save')->middleware('admin');
 Route::get('/admin/users/edit/{id}', 'App\Http\Controllers\Admin\AdminUserController@edit')->name('admin.user.edit')->middleware('admin');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Review;
 use App\Models\Technique;
+use App\Models\Toy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -24,8 +25,13 @@ class AdminReviewController extends Controller
     public function show(string $id): View|RedirectResponse
     {
         $review = Review::find($id);
-        $technique = Technique::find($review->getTechniqueId());
-        if ($review) {
+
+        if ($review === null) {
+            return redirect()->route('admin.review.index');
+        }
+
+        if ($review->getToyId()==null){
+            $technique = Technique::find($review->getTechniqueId());
             $viewData = [];
             $viewData['review'] = $review;
             $viewData['title'] = $technique->getModel().' review';
@@ -33,7 +39,13 @@ class AdminReviewController extends Controller
 
             return view('admin.review.show')->with('viewData', $viewData);
         } else {
-            return redirect()->route('admin.review.index');
+            $toy = Toy::find($review->getToyId());
+            $viewData = [];
+            $viewData['review'] = $review;
+            $viewData['title'] = $toy->getModel().' review';
+            $viewData['auth_user'] = auth()->user();
+
+            return view('admin.review.show')->with('viewData', $viewData);
         }
     }
 
