@@ -22,11 +22,7 @@
                         <h6 class="card-subtitle" id="card-price">${{ $technique->getPrice() }}</h6>
                     </div>
                     <div class="d-flex col justify-content-end">
-                        @guest
-                        <a href="{{ route('login') }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
-                        @else
-                        <a href="{{ route('cart.add', ['id'=> $technique->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
-                        @endguest
+                        <a href="{{ route('cart.addTechnique', ['id'=> $technique->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
                     </div>
                 </div>
             </div>

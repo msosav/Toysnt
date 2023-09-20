@@ -12,9 +12,9 @@
             <div class="alert alert-danger" role="alert">
                 {{ session('removed') }}
             </div>
-            @elseif (session('toys_removed'))
-            <div class="alert alert-danger" role="alert">
-                {{ session('toys_removed') }}
+            @elseif (session('cart_emptied'))
+            <div class="alert alert-success" role="alert">
+                {{ session('cart_emptied') }}
             </div>
             @elseif (session('already_removed'))
             <div class="alert alert-danger" role="alert">
@@ -37,14 +37,31 @@
                             <input type="number" class="form-control mb-2 field-width" placeholder="1" min="1" max="{{ $toy->getStock() }}" name="quantity" value="{{ old('quantity') }}" />
                         </div>
                         <div class="d-flex col justify-content-end mt-5">
-                            <a href="{{ route('cart.remove', ['id'=> $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
+                            <a href="{{ route('cart.removeToy', ['id'=> $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         @endforeach
-
+        @foreach ($viewData['cartTechniques'] as $technique)
+        <div class="col-4 d-flex">
+            <div class="card me-2 mb-4" style="width: 18rem;">
+                <img src="{{ URL::asset('storage/'.$technique->getImage()) }}" class="card-img-top" alt="{{ $technique->getModel() }}" id="index-card-image">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{{ route('technique.show', ['id'=> $technique->getId()]) }}" id="card-title">{{ $technique->getModel() }}</a></h5>
+                    <div class="row">
+                        <div class="col d-block">
+                            <h6 class="card-subtitle" id="card-price">${{ $technique->getPrice() }}</h6>
+                        </div>
+                        <div class="d-flex col justify-content-end mt-5">
+                            <a href="{{ route('cart.removeTechnique', ['id'=> $technique->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
     </div>
 </div>
 @endsection

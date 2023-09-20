@@ -28,6 +28,7 @@ return [
         'address' => 'Dirección',
         'remember_me' => 'Recuérdame',
         'forgot_your_password' => '¿Olvidaste tu contraseña?',
+        'no_account_created' => '¿No tienes una cuenta?',
     ],
     'passwords' => [
         'confirm_password' => 'Confirmar contraseña',
@@ -64,10 +65,13 @@ return [
         'empty' => 'Vaciar el carrito',
         'technique_removed' => '¡Técnica eliminada con éxito!',
         'toy_added' => '¡Juguete añadido con éxito!',
+        'technique_added' => 'Técnica añadida con éxito!',
         'toy_removed' => '¡Juguete eliminado con éxito!',
-        'toys_removed' => '¡Carrito vaciado con éxito!',
+        'technique_removed' => '¡Técnica eliminada con éxito!',
+        'cart_emptied' => '¡Carrito vaciado con éxito!',
         'already_removed' => '¡El carrito ya estaba vacío!',
-        'already_added' => '¡Este juguete ya está en el carrito!',
+        'toy_already_added' => '¡Este juguete ya está en el carrito!',
+        'technique_already_added' => '¡Esta técnica ya está en el carrito!',
         'quantity' => 'Cantidad',
     ],
     'technique' => [
