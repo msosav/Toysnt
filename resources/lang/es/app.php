@@ -81,4 +81,11 @@ return [
         'technique' => 'técnica',
         'reviews' => 'Número de reseñas',
     ],
+    'reviews' => [
+        'total' => 'Reseñas totales',
+        'new' => 'Nueva reseña',
+        'review' => 'Reseña',
+        'rating' => 'Calificación',
+        'submit' => 'Enviar',
+    ],
 ];

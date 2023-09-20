@@ -89,8 +89,3 @@ hr.h-color {
 #admin-show:hover {
     color: gray;
 }
-
-.sub_div {
-    position: absolute;
-    bottom: 0px;
-}

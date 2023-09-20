@@ -86,13 +86,6 @@ class Technique extends Model
         return $this->attributes['updated_at'];
     }
 
-    /*public function getTopReviews(array $coleccion): array
-    {
-        $diccionario = array();
-        foreach($coleccion as $objeto){
-            $diccionario[$objeto.getModel()] = $objeto.getReviews();
-        }
-    }*/
     public static function validate(Request $request, array $include, array $exclude): void
     {
         if (in_array('model', $include) or ! in_array('model', $exclude)) {
