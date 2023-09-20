@@ -16,6 +16,7 @@ class AdminToyController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.toys.index');
         $viewData['toys'] = Toy::all();
+        $viewData['auth_user'] = auth()->user();
 
         return view('admin.toy.index')->with('viewData', $viewData);
     }
@@ -30,6 +31,7 @@ class AdminToyController extends Controller
             $viewData = [];
             $viewData['toy'] = $toy;
             $viewData['title'] = $viewData['toy']->getModel();
+            $viewData['auth_user'] = auth()->user();
 
             return view('admin.toy.show')->with('viewData', $viewData);
         }
@@ -39,6 +41,7 @@ class AdminToyController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('admin.toys.create');
+        $viewData['auth_user'] = auth()->user();
 
         return view('admin.toy.create')->with('viewData', $viewData);
     }
@@ -74,6 +77,7 @@ class AdminToyController extends Controller
             $viewData = [];
             $viewData['toy'] = $toy;
             $viewData['title'] = $viewData['toy']->getModel();
+            $viewData['auth_user'] = auth()->user();
 
             return view('admin.toy.edit')->with('viewData', $viewData);
         }
