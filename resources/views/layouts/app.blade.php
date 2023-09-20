@@ -30,10 +30,22 @@
                     <a class="nav-link active nav-text" href="{{ route('login') }}">@lang('app.navbar.login')</a>
                     <a class="nav-link active nav-text" href="{{ route('register') }}">@lang('app.navbar.register')</a>
                     @else
-                    <form id="logout" action="{{ route('logout') }}" method="POST">
-                        <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit();">@lang('app.navbar.logout')  <i class="fa-solid fa-right-from-bracket"></i></a>
-                        @csrf
-                    </form>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item dropdown px-4">
+                            <a class="nav-link dropdown-toggle" aria-current="page" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user"></i> @yield('profileName', 'Profile')
+                            </a>
+                            <ul class="dropdown-menu md-5">
+                                <div class="ms-3 mb-1">
+                                    <b>@lang('admin.users.balance'): </b> $@yield('balance', 'balance')
+                                </div>
+                                <form id="logout" action="{{ route('logout') }}" method="POST">
+                                    <li><a class="dropdown-item d-flex justify-content-between" onclick="document.getElementById('logout').submit();">@lang('admin.navbar.logout') <i class="fa-solid fa-right-from-bracket mt-1"></i></a></li>
+                                    @csrf
+                                </form>
+                            </ul>
+                        </li>
+                    </ul>
                     @endguest
                 </div>
             </div>
