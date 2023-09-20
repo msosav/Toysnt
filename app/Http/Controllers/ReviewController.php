@@ -13,7 +13,7 @@ class ReviewController extends Controller
         return redirect()->back()->with('newComment', 1);
     }
 
-    public function save(Request $request, string $type,string $id): RedirectResponse
+    public function save(Request $request, string $type, string $id): RedirectResponse
     {
         Review::validate($request);
 

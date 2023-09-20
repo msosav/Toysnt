@@ -75,7 +75,7 @@ return [
     ],
     'stats' => [
         'technique' => 'technique',
-        'reviews' => 'Number of reviews'
+        'reviews' => 'Number of reviews',
     ],
     'reviews' => [
         'total' => 'Total reviews',
@@ -83,5 +83,5 @@ return [
         'review' => 'Review',
         'rating' => 'Rating',
         'submit' => 'Submit',
-    ]
+    ],
 ];

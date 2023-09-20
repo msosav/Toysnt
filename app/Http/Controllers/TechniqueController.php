@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
 use App\Models\Technique;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,7 +18,7 @@ class TechniqueController extends Controller
         $viewData['techniques'] = $techniques;
 
         $reviews = [];
-        foreach($techniques as $technique){
+        foreach ($techniques as $technique) {
             $reviews[$technique->getModel()] = count($technique->getReviews());
         }
         arsort($reviews);

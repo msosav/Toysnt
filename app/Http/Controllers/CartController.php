@@ -39,8 +39,7 @@ class CartController extends Controller
         try {
             if ($cartToyData[$id] != null) {
                 return back()->with('already_added', trans('app.cart.already_added'));
-            }
-            else{
+            } else {
                 return back();
             }
         } catch (Exception $e) {

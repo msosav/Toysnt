@@ -75,7 +75,7 @@ return [
     ],
     'stats' => [
         'technique' => 'técnica',
-        'reviews' => 'Número de reseñas'
+        'reviews' => 'Número de reseñas',
     ],
     'reviews' => [
         'total' => 'Reseñas totales',
@@ -83,5 +83,5 @@ return [
         'review' => 'Reseña',
         'rating' => 'Calificación',
         'submit' => 'Enviar',
-    ]
+    ],
 ];
