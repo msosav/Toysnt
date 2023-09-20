@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Collection;
 
 class User extends Authenticatable
 {
@@ -107,6 +109,36 @@ class User extends Authenticatable
     public function setRole(string $role): void
     {
         $this->attributes['role'] = $role;
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function setOrders(Collection $orders): void
+    {
+        $this->orders = $orders;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
     }
 
     public function getCreatedAt(): DateTime
