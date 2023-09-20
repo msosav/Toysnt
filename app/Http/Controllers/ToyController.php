@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Toy;
+use App\Models\Item;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -14,6 +15,21 @@ class ToyController extends Controller
         $viewData = [];
         $viewData['title'] = trans('app.titles.home');
         $viewData['toys'] = Toy::all();
+        $viewData['auth_user'] = auth()->user();
+
+        $items = Item::all();
+        $toyStats = [];
+        foreach($items as $item){
+            if($item->getToyId() != null){
+                if(isset($toyStats[$item->getMethod()])){
+                    $toyStats[$item->getMethod()]+=$item->getQuantity();
+                }else{
+                    $toyStats[$item->getMethod()]=$item->getQuantity();
+                }
+            }
+        }
+        arsort($toyStats);
+        $viewData['stats'] = $toyStats;
 
         return view('toy.index')->with('viewData', $viewData);
     }
@@ -30,6 +46,7 @@ class ToyController extends Controller
             $viewData['title'] = $viewData['toy']->getModel();
             $viewData['reviews'] = $viewData['toy']->reviews()->get();
             $viewData['reviewCount'] = $viewData['reviews']->count();
+            $viewData['auth_user'] = auth()->user();
 
             return view('toy.show')->with('viewData', $viewData);
         }
@@ -64,6 +81,7 @@ class ToyController extends Controller
         }
         $viewData['search'] = $model;
         $viewData['title'] = $model;
+        $viewData['auth_user'] = auth()->user();
 
         return view('toy.results')->with('viewData', $viewData);
     }

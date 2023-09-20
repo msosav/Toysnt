@@ -16,6 +16,7 @@ class TechniqueController extends Controller
         $viewData['title'] = trans('app.titles.home');
         $viewData['selected'] = 'techniques';
         $viewData['techniques'] = $techniques;
+        $viewData['auth_user'] = auth()->user();
 
         $reviews = [];
         foreach ($techniques as $technique) {
@@ -39,6 +40,7 @@ class TechniqueController extends Controller
             $viewData['title'] = $viewData['technique']->getModel();
             $viewData['reviews'] = $viewData['technique']->reviews()->get();
             $viewData['reviewCount'] = $viewData['reviews']->count();
+            $viewData['auth_user'] = auth()->user();
 
             return view('technique.show')->with('viewData', $viewData);
         }
@@ -73,6 +75,7 @@ class TechniqueController extends Controller
         }
         $viewData['search'] = $model;
         $viewData['title'] = $model;
+        $viewData['auth_user'] = auth()->user();
 
         return view('technique.results')->with('viewData', $viewData);
     }
