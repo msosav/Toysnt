@@ -86,7 +86,7 @@ return [
         'reviews' => 'Number of reviews',
         'toy' => 'Toy',
         'quantity' => 'Quantity purchased',
-        'top_toys' => 'Top Toys'
+        'top_toys' => 'Top Toys',
     ],
     'reviews' => [
         'total' => 'Total reviews',

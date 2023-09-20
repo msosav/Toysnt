@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Toy;
 use App\Models\Item;
+use App\Models\Toy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -19,12 +19,12 @@ class ToyController extends Controller
 
         $items = Item::all();
         $toyStats = [];
-        foreach($items as $item){
-            if($item->getToyId() != null){
-                if(isset($toyStats[$item->getMethod()])){
-                    $toyStats[$item->getMethod()]+=$item->getQuantity();
-                }else{
-                    $toyStats[$item->getMethod()]=$item->getQuantity();
+        foreach ($items as $item) {
+            if ($item->getToyId() != null) {
+                if (isset($toyStats[$item->getMethod()])) {
+                    $toyStats[$item->getMethod()] += $item->getQuantity();
+                } else {
+                    $toyStats[$item->getMethod()] = $item->getQuantity();
                 }
             }
         }
