@@ -56,7 +56,7 @@ class AdminTechniqueController extends Controller
 
         Technique::validate($request, ['technique_image'], []);
         $image = app(ImageStorage::class);
-        $image = $image->store($request, 'technique_image', $technique->getModel());
+        $image = $image->store($request, 'technique_image', $technique->getImage());
         $technique->setImage($image);
         $technique->update();
 
