@@ -16,12 +16,10 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('method');
             $table->float('price');
-            $table->unsignedBigInteger('toy_id');
-            $table->foreign('toy_id')->references('id')->on('toys');
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->unsignedBigInteger('technique_id');
-            $table->foreign('technique_id')->references('id')->on('techniques');
+            $table->unsignedBigInteger('toy_id')->nullable();
+            $table->unsignedBigInteger('technique_id')->nullable();
             $table->timestamps();
         });
     }

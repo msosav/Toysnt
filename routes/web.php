@@ -64,6 +64,10 @@ Route::get('/cart/removeToy/{id}', 'App\Http\Controllers\CartController@removeTo
 Route::get('/cart/removeTechnique/{id}', 'App\Http\Controllers\CartController@removeTechnique')->name('cart.removeTechnique');
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll');
 
+
+//Rutas de compra de juguetes
+Route::post('/purchase', 'App\Http\Controllers\PurchaseController@purchase')->name('purchase.purchase')->middleware('basic.users');
+
 //Rutas de Review.
 Route::get('/review/new', 'App\Http\Controllers\ReviewController@new')->name('review.new');
 Route::post('/review/save/{type}/{id}', 'App\Http\Controllers\ReviewController@save')->name('review.save');

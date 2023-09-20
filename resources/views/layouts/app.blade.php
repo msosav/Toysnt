@@ -44,22 +44,24 @@
         @yield('content')
     </div>
     <!-- footer -->
-    <div class="copyright py-4 text-center text-white">
-        <div class="container">
-            <small>
-                Copyright -
-                <a class="text-reset fw-bold text-decoration-none" target="_blank" href="https://github.com/cpalacior">
-                    Camilo Palacio
-                </a>
-                <span>-</span>
-                <a class="text-reset fw-bold text-decoration-none" target="_blank" href="https://github.com/msosav">
-                    Miguel Sosa
-                </a>
-                <span>-</span>
-                <a class="text-reset fw-bold text-decoration-none" target="_blank" href="https://github.com/EsteTruji">
-                    Esteban Trujillo
-                </a>
-            </small>
+    <div class="fixed-bottom">
+        <div class="copyright py-4 text-center text-white">
+            <div class="container">
+                <small>
+                    Copyright -
+                    <a class="text-reset fw-bold text-decoration-none" target="_blank" href="https://github.com/cpalacior">
+                        Camilo Palacio
+                    </a>
+                    <span>-</span>
+                    <a class="text-reset fw-bold text-decoration-none" target="_blank" href="https://github.com/msosav">
+                        Miguel Sosa
+                    </a>
+                    <span>-</span>
+                    <a class="text-reset fw-bold text-decoration-none" target="_blank" href="https://github.com/EsteTruji">
+                        Esteban Trujillo
+                    </a>
+                </small>
+            </div>
         </div>
     </div>
     <!-- footer -->
