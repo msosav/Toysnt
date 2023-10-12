@@ -1,9 +1,5 @@
 @extends('layouts.tabs')
 @section('title', $viewData['title'])
-@auth
-@section('profileName', $viewData['auth_user']->getName())
-@section('balance', $viewData['auth_user']->getBalance())
-@endif
 @section('content_tabs')
 <div class="container row g-3 my-2 px-0">
     @if (session('added'))

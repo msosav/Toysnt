@@ -1,9 +1,5 @@
 @extends('layouts.tabs')
 @section('title', $viewData['title'])
-@auth
-@section('profileName', $viewData['auth_user']->getName())
-@section('balance', $viewData['auth_user']->getBalance())
-@endif
 @section('content_tabs')
 <div class="container row g-3 my-2 px-0">
     @if (session('added'))
@@ -62,7 +58,7 @@
 @section('stats')
 <div id="sub-title" class="mb-3"><b>@lang('app.stats.top_toys')</b></div>
 <div class="row-4 d-flex align-items-center">
-    
+
     <table class="table table-warning ">
         <thead>
             <tr>
