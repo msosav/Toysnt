@@ -37,23 +37,22 @@
             </ul>
         </div>
         <div class="content">
-            <nav class="navbar navbar-expand-lg bg-light">
-                <div class="container-fluid">
-                    <div class="collapse navbar-collapse justify-content-end px-2" id="navbarSupportedContent">
-                        <ul class="navbar-nav mb-2 mb-lg-0">
-                            <li class="nav-item dropdown px-4">
-                                <a class="nav-link dropdown-toggle" aria-current="page" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-user"></i> @yield('profileName', 'Profile')
-                                </a>
-                                <ul class="dropdown-menu md-5">
-                                    <form id="logout" action="{{ route('logout') }}" method="POST">
-                                        <li><a class="dropdown-item" onclick="document.getElementById('logout').submit();">@lang('admin.navbar.logout')</a></li>
-                                        @csrf
-                                    </form>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+            <nav class="navbar navbar-expand-lg py-2 px-2">
+                <div class="navbar-nav ms-auto">
+                    <ul class="navbar-nav mb-2 mb-lg-0 ">
+                        <li class="nav-item dropdown px-4">
+                            <a class="nav-link dropdown-toggle" aria-current="page" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user"></i><span class="username-navbar">{{ auth()->user()->name }}</span>
+                            </a>
+                            <ul class="dropdown-menu md-5">
+                                <li><a class="dropdown-item d-flex justify-content-between" href="{{ route('toy.index') }}">@lang('admin.navbar.store') <i class="fa-solid fa-store"></i></a></li>
+                                <form id="logout" action="{{ route('logout') }}" method="POST">
+                                    <li><a class="dropdown-item d-flex justify-content-between" onclick="document.getElementById('logout').submit();">@lang('admin.navbar.logout') <i class="fa-solid fa-right-from-bracket mt-1"></i></a></li>
+                                    @csrf
+                                </form>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </nav>
             <div class="container-fluid">

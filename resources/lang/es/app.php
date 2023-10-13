@@ -13,6 +13,7 @@ return [
         'toys' => 'Juguetes',
         'techniques' => 'Técnicas',
         'logout' => 'Cerrar sesión',
+        'admin' => 'Panel de administración',
     ],
     'search' => [
         'toy' => 'Buscar juguete',

@@ -8,6 +8,7 @@ return [
         'reviews' => 'Reviews',
         'orders' => 'Orders',
         'logout' => 'Logout',
+        'store' => 'Store',
     ],
     'toys' => [
         'index' => 'Toys',

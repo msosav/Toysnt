@@ -13,6 +13,7 @@ return [
         'toys' => 'Toys',
         'techniques' => 'Techniques',
         'logout' => 'Logout',
+        'admin' => 'Admin panel',
     ],
     'search' => [
         'toy' => 'Search toy',
