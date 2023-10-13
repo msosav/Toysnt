@@ -1,9 +1,5 @@
 @extends('layouts.app')
 @section('title', $viewData['technique']->getModel())
-@auth
-@section('profileName', $viewData['auth_user']->getName())
-@section('balance', $viewData['auth_user']->getBalance())
-@endif
 @section('content')
 <h1 id="show-title" class="py-1">{{ $viewData['technique']->getModel() }}</h1>
 <div class="row g-5">
