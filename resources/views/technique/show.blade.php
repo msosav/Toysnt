@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', $viewData['technique']->getModel())
 @section('content')
+@include('layouts.alerts')
 <h1 id="show-title" class="py-1">{{ $viewData['technique']->getModel() }}</h1>
 <div class="row g-5">
     <div class="col-md-7">

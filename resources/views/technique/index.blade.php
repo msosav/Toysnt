@@ -2,15 +2,7 @@
 @section('title', $viewData['title'])
 @section('content_tabs')
 <div class="container row g-3 my-2 px-0">
-    @if (session('added'))
-    <div class="alert alert-success" role="alert">
-        {{ session('added') }}
-    </div>
-    @elseif (session('already_added'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('already_added') }}
-    </div>
-    @endif
+    @include('layouts.alerts')
     @foreach ($viewData['techniques'] as $technique)
     <div class="col-4 d-flex justify-content-start">
         <div class="card me-2" id="index-card">

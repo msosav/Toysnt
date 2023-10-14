@@ -2,6 +2,7 @@
 @section("title", $viewData["title"])
 @section('content')
 <div class="container">
+    @include('layouts.alerts')
     @if ($viewData['cartToys']==null && $viewData['cartTechniques']==null)
     <div class="text-center">
         <h1 class="title">@lang('app.cart.empty')</h1>
@@ -22,22 +23,6 @@
                     <input type="text" name="techniques" value="{{implode(',', $viewData['cartTechniques'])}}" hidden>
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-money-bill"></i> @lang('app.cart.pay')</button>
                 </div>
-            </div>
-
-            <div>
-                @if (session('removed'))
-                <div class="alert alert-danger" role="alert">
-                    {{ session('removed') }}
-                </div>
-                @elseif (session('cart_emptied'))
-                <div class="alert alert-danger" role="alert">
-                    {{ session('cart_emptied') }}
-                </div>
-                @elseif (session('already_removed'))
-                <div class="alert alert-danger" role="alert">
-                    {{ session('already_removed') }}
-                </div>
-                @endif
             </div>
             @foreach ($viewData['cartToys'] as $toy)
             <div class="col-4 d-flex">

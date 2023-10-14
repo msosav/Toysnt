@@ -8,15 +8,7 @@
     </div>
 </div>
 <div class="row d-flex justify-content-center py-2 px-2">
-    @if (session('created'))
-    <div class="alert alert-success" role="alert">
-        {{ session('created') }}
-    </div>
-    @elseif (session('deleted'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('deleted') }}
-    </div>
-    @endif
+    @include('layouts.alerts')
     @foreach ($viewData['techniques'] as $technique)
     <div class="card-body p-2">
         <div class="card">

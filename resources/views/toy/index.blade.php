@@ -2,32 +2,7 @@
 @section('title', $viewData['title'])
 @section('content_tabs')
 <div class="container row g-3 my-2 px-0">
-    @if (session('added'))
-    <div class="alert alert-success d-flex justify-content-between" role="alert">
-        {{ session('added') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    @elseif (session('already_added'))
-    <div class="alert alert-danger d-flex justify-content-between" role="alert">
-        {{ session('already_added') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    @elseif (session('purchase_successful'))
-    <div class="alert alert-success d-flex justify-content-between" role="alert">
-        {{ session('purchase_successful') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    @elseif (session('purchase_failed'))
-    <div class="alert alert-danger d-flex justify-content-between" role="alert">
-        {{ session('purchase_failed') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    @elseif (session('add_some_toys'))
-    <div class="alert alert-danger d-flex justify-content-between" role="alert">
-        {{ session('add_some_toys') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    @endif
+    @include('layouts.alerts')
     @foreach ($viewData['toys'] as $toy)
     <div class="col-4 d-flex justify-content-start">
         <div class="card me-2" id="index-card">

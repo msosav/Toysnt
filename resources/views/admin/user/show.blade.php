@@ -2,11 +2,7 @@
 @section('title', $viewData['title'])
 
 @section('content')
-@if (session('edited'))
-<div class="alert alert-warning" role="alert">
-    {{ session('edited') }}
-</div>
-@endif
+@include('layouts.alerts')
 <div class="card md-5 my-4 mx-4 card-padding">
     <div class="row g-3">
         <div class="col-md-5 my-5">
