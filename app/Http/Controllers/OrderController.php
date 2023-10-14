@@ -17,7 +17,7 @@ class OrderController extends Controller
         if ($request->toys == null) {
             return redirect()->route('toy.index')->with('add_some_toys', trans('app.cart.add_some_toys'));
         }
-        if ($request->session()->get('cart_toy_data') != []) {
+        if ($request->session()->get('toys_in_cart') != []) {
             $order = new Order();
             $order->setTotal(0);
             $order->setUserId(auth()->user()->id);
@@ -31,10 +31,10 @@ class OrderController extends Controller
             $techniques[count($techniques) - 1] = str_replace('}', '', $techniques[count($techniques) - 1]);
 
             for ($i = 0; $i < count($toys); $i++) {
-                $toys[$i] = $toys[$i].'}';
+                $toys[$i] = $toys[$i] . '}';
             }
             for ($j = 0; $j < count($techniques); $j++) {
-                $techniques[$j] = $techniques[$j].'}';
+                $techniques[$j] = $techniques[$j] . '}';
             }
 
             $total = 0;
@@ -77,8 +77,8 @@ class OrderController extends Controller
             $user->setBalance($user->getBalance() - $total);
             $user->update();
 
-            $request->session()->forget('cart_toy_data');
-            $request->session()->forget('cart_technique_data');
+            $request->session()->forget('toys_in_cart');
+            $request->session()->forget('techniques_in_cart');
 
             return redirect()->route('toy.index')->with('purchase_successful', trans('app.cart.purchase_successful'));
         } else {
