@@ -12,10 +12,10 @@
             <p class="card-text" id="show-description">{{ $viewData['toy']->getDescription() }}</p>
             <p class="card-text"><small class="text-muted">@lang('app.toy.stock'): {{ $viewData['toy']->getStock() }}</small></p>
             @if ($viewData['toy']->getStock() == 0)
-                    <b>@lang('app.toy.out_of_stock')</b>
-                    @else
-                    <a href="{{ route('cart.add', ['id'=> $viewData['toy']->getId()]) }}" class="btn btn-outline">@lang('app.toy.cart')</a>
-                    @endif
+            <b>@lang('app.toy.out_of_stock')</b>
+            @else
+            <a href="{{ route('cart.addToy', ['id'=> $viewData['toy']->getId()]) }}" class="btn btn-outline">@lang('app.toy.cart')</a>
+            @endif
         </div>
         <a id="terms-and-conditions" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">@lang('app.terms_and_conditions')</a>
     </div>
