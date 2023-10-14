@@ -20,7 +20,9 @@
                     </div>
                     @else
                     <div class="d-flex col justify-content-end">
-                        <a href="{{ route('cart.addToy', ['id'=> $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
+                        <a href="{{ route('cart.add', ['type' => 'toy', 'id' => $toy->getId()]) }}" class="btn btn-outline">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </a>
                     </div>
                     @endif
                 </div>

@@ -46,39 +46,30 @@ class CartController extends Controller
         return view('cart.index')->with('viewData', $viewData);
     }
 
-    public function addToy(string $id, Request $request): RedirectResponse
+    public function add(Request $request, string $type, string $id): RedirectResponse
     {
-        $cartToyData = $request->session()->get('cart_toy_data');
-
-        try {
-            if ($cartToyData[$id] != null) {
+        if ($type == 'toy') {
+            $cartToyData = $request->session()->get('cart_toy_data');
+            if (isset($cartToyData[$id])) {
                 return back()->with('already_added', trans('app.cart.toy_already_added'));
             } else {
-                return back();
+                $cartToyData[$id] = $id;
+                $request->session()->put('cart_toy_data', $cartToyData);
+
+                return back()->with('added', trans('app.cart.toy_added'));
             }
-        } catch (Exception $e) {
-            $cartToyData[$id] = $id;
-            $request->session()->put('cart_toy_data', $cartToyData);
-
-            return back()->with('added', trans('app.cart.toy_added'));
-        }
-    }
-
-    public function addTechnique(string $id, Request $request): RedirectResponse
-    {
-        $cartTechniqueData = $request->session()->get('cart_technique_data');
-
-        try {
-            if ($cartTechniqueData[$id] != null) {
+        } elseif ($type == 'technique') {
+            $cartTechniqueData = $request->session()->get('cart_technique_data');
+            if (isset($cartTechniqueData[$id])) {
                 return back()->with('already_added', trans('app.cart.technique_already_added'));
             } else {
-                return back();
-            }
-        } catch (Exception $e) {
-            $cartTechniqueData[$id] = $id;
-            $request->session()->put('cart_technique_data', $cartTechniqueData);
+                $cartTechniqueData[$id] = $id;
+                $request->session()->put('cart_technique_data', $cartTechniqueData);
 
-            return back()->with('added', trans('app.cart.technique_added'));
+                return back()->with('added', trans('app.cart.technique_added'));
+            }
+        } else {
+            return redirect()->route('toy.index');
         }
     }
 

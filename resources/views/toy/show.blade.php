@@ -15,7 +15,7 @@
             @if ($viewData['toy']->getStock() == 0)
             <b>@lang('app.toy.out_of_stock')</b>
             @else
-            <a href="{{ route('cart.addToy', ['id'=> $viewData['toy']->getId()]) }}" class="btn btn-outline">@lang('app.toy.cart')</a>
+            <a href="{{ route('cart.add', ['type' => 'toy', 'id' => $toy->getId()]) }}" class="btn btn-outline">@lang('app.toy.cart')</a>
             @endif
         </div>
         <a id="terms-and-conditions" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">@lang('app.terms_and_conditions')</a>
