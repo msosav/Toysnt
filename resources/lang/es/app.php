@@ -78,6 +78,8 @@ return [
         'technique_already_added' => '¡Esta técnica ya está en el carrito!',
         'quantity' => 'Cantidad',
         'pay' => 'Pagar',
+        'toys' => 'Volver a los juguetes',
+        'techniques' => 'Volver a las técnicas',
     ],
     'technique' => [
         'cart' => 'Añadir al carrito',

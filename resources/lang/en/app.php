@@ -78,6 +78,8 @@ return [
         'technique_already_added' => 'This technique is already in the shopping cart!',
         'quantity' => 'Quantity',
         'pay' => 'Pay',
+        'toys' => 'Go back to toys',
+        'techniques' => 'Go back to techniques',
     ],
     'technique' => [
         'cart' => 'Add to cart',

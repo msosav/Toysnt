@@ -2,6 +2,13 @@
 @section("title", $viewData["title"])
 @section('content')
 <div class="container">
+    @if ($viewData['cartToys']==null && $viewData['cartTechniques']==null)
+    <div class="text-center">
+        <h1 class="title">@lang('app.cart.empty')</h1>
+        <a href="{{ route('toy.index') }}" class="btn btn-outline mt-2 mb-4">@lang('app.cart.toys')</a>
+        <a href="{{ route('technique.index') }}" class="btn btn-outline mt-2 mb-4">@lang('app.cart.techniques')</a>
+    </div>
+    @else
     <form action="{{ route('purchase.purchase') }}" method="POST">
         @csrf
         <div class="row">
@@ -16,7 +23,7 @@
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-money-bill"></i> @lang('app.cart.pay')</button>
                 </div>
             </div>
-            
+
             <div>
                 @if (session('removed'))
                 <div class="alert alert-danger" role="alert">
@@ -74,5 +81,6 @@
             @endforeach
         </div>
     </form>
+    @endif
 </div>
 @endsection
