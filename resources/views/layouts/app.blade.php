@@ -33,13 +33,13 @@
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item dropdown px-4">
                             <a class="nav-link dropdown-toggle" aria-current="page" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user"></i> {{ auth()->user()->name }}
+                                <i class="fa-solid fa-user"></i> {{ auth()->user()->getName() }}
                             </a>
                             <ul class="dropdown-menu md-5">
                                 <div class="ms-3 mb-1">
-                                    <b>@lang('admin.users.balance'): </b> ${{ auth()->user()->balance }}
+                                    <b>@lang('admin.users.balance'): </b> ${{ auth()->user()->getBalance() }}
                                 </div>
-                                @if (auth()->user()->role == 'admin')
+                                @if (auth()->user()->getRole() == 'admin')
                                 <li><a class="dropdown-item d-flex justify-content-between" href="{{ route('admin.user.index') }}">@lang('app.navbar.admin') <i class="fa-solid fa-table-columns"></i></a></li>
                                 @endif
                                 <form id="logout" action="{{ route('logout') }}" method="POST">

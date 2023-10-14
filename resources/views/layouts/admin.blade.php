@@ -42,7 +42,7 @@
                     <ul class="navbar-nav mb-2 mb-lg-0 ">
                         <li class="nav-item dropdown px-4">
                             <a class="nav-link dropdown-toggle" aria-current="page" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user"></i><span class="username-navbar">{{ auth()->user()->name }}</span>
+                                <i class="fa-solid fa-user"></i><span class="username-navbar">{{ auth()->user()->getName() }}</span>
                             </a>
                             <ul class="dropdown-menu md-5">
                                 <li><a class="dropdown-item d-flex justify-content-between" href="{{ route('toy.index') }}">@lang('admin.navbar.store') <i class="fa-solid fa-store"></i></a></li>
