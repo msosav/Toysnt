@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Technique;
 use App\Models\Toy;
-use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
