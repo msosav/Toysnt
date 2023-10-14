@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
-@section('profileName', $viewData['auth_user']->getName())
 @section('content')
 <div class="d-flex flex-row py3 justify-content-between">
     <h1 class="title">@lang('admin.orders.index')</h1>
@@ -13,15 +12,15 @@
                 <div class="row d-flex justify-content-between">
                     <div class="col-5">
                         <h5 class="card-title">{{ $order->getUser()->getName() }}</h5>
-                    <div class="col-5">
-                        <div class="d-flex justify-content-around">
-                            <a href="{{ route('admin.order.show', ['id'=> $order['id']]) }}" id="admin-show"><i class="fa-solid fa-eye"></i> @lang('admin.orders.show')</a>
+                        <div class="col-5">
+                            <div class="d-flex justify-content-around">
+                                <a href="{{ route('admin.order.show', ['id'=> $order['id']]) }}" id="admin-show"><i class="fa-solid fa-eye"></i> @lang('admin.orders.show')</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
-    @endforeach
-</div>
-@endsection
+    @endsection

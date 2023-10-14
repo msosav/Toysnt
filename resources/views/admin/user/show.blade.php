@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
-@section('profileName', $viewData['auth_user']->getName())
+
 @section('content')
 @if (session('edited'))
 <div class="alert alert-warning" role="alert">
@@ -14,7 +14,7 @@
             <div class="class-body px-2 py-2 d-block">
                 <p class="card-text"><b>@lang('admin.users.email'):</b> {{ $viewData['user']->getEmail() }}</p>
                 <p class="card-text"><b>@lang('admin.users.password'):</b> {{ $viewData['user']->getPassword() }}</p>
-                <p class="card-text"><b>@lang('admin.users.role'):</b> 
+                <p class="card-text"><b>@lang('admin.users.role'):</b>
                     @if($viewData['user']->getRole() == 'basic_user')
                     @lang('admin.users.basic_user').
                     @elseif($viewData['user']->getRole() == 'admin')

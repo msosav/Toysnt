@@ -17,7 +17,6 @@ class AdminReviewController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.reviews.index');
         $viewData['reviews'] = Review::all();
-        $viewData['auth_user'] = auth()->user();
 
         return view('admin.review.index')->with('viewData', $viewData);
     }
@@ -35,7 +34,6 @@ class AdminReviewController extends Controller
             $viewData = [];
             $viewData['review'] = $review;
             $viewData['title'] = $technique->getModel().' review';
-            $viewData['auth_user'] = auth()->user();
 
             return view('admin.review.show')->with('viewData', $viewData);
         } else {
@@ -43,7 +41,6 @@ class AdminReviewController extends Controller
             $viewData = [];
             $viewData['review'] = $review;
             $viewData['title'] = $toy->getModel().' review';
-            $viewData['auth_user'] = auth()->user();
 
             return view('admin.review.show')->with('viewData', $viewData);
         }
@@ -55,7 +52,6 @@ class AdminReviewController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.reviews.create');
         $viewData['techniques'] = $techniques;
-        $viewData['auth_user'] = auth()->user();
 
         return view('admin.review.create')->with('viewData', $viewData);
     }
@@ -82,13 +78,11 @@ class AdminReviewController extends Controller
             $viewData['techniques'] = $techniques;
             $viewData['technique_name'] = $technique->getModel();
             $viewData['title'] = $viewData['technique_name'].' review';
-            $viewData['auth_user'] = auth()->user();
 
             return view('admin.review.edit')->with('viewData', $viewData);
         } else {
 
             return redirect()->route('admin.review.index');
-
         }
     }
 

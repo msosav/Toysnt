@@ -16,7 +16,6 @@ class AdminTechniqueController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.techniques.index');
         $viewData['techniques'] = Technique::all();
-        $viewData['auth_user'] = auth()->user();
 
         return view('admin.technique.index')->with('viewData', $viewData);
     }
@@ -28,7 +27,6 @@ class AdminTechniqueController extends Controller
             $viewData = [];
             $viewData['technique'] = $technique;
             $viewData['title'] = $viewData['technique']->getModel();
-            $viewData['auth_user'] = auth()->user();
 
             return view('admin.technique.show')->with('viewData', $viewData);
         } else {
@@ -40,7 +38,6 @@ class AdminTechniqueController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('admin.techniques.create');
-        $viewData['auth_user'] = auth()->user();
 
         return view('admin.technique.create')->with('viewData', $viewData);
     }
@@ -70,13 +67,11 @@ class AdminTechniqueController extends Controller
             $viewData = [];
             $viewData['technique'] = Technique::find($id);
             $viewData['title'] = $viewData['technique']->getModel();
-            $viewData['auth_user'] = auth()->user();
 
             return view('admin.technique.edit')->with('viewData', $viewData);
         } else {
 
             return redirect()->route('admin.technique.index');
-
         }
     }
 

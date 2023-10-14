@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
-@section('profileName', $viewData['auth_user']->getName())
 @section('content')
 <div class="container my-5">
     <div class="row justify-content-center">
@@ -27,7 +26,7 @@
                         </select>
                         <p></p>
                         <div class="text-center">
-                            <input type="submit" class="btn btn-danger" value=@lang('admin.reviews.edit') />
+                            <input type="submit" class="btn btn-danger" value="@lang('admin.reviews.edit')" />
                         </div>
                     </form>
                 </div>

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
-@section('profileName', $viewData['auth_user']->getName())
+
 @section('content')
 <div class="d-flex flex-row py3 justify-content-between">
     <h1 class="title">@lang('admin.users.index')</h1>
