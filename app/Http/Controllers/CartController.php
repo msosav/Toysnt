@@ -52,7 +52,7 @@ class CartController extends Controller
             if (isset($cartToyData[$id])) {
                 return back()->with('already_added', trans('app.cart.toy_already_added'));
             } else {
-                $cartToyData[$id] = $id;
+                $cartToyData[$id] = $request->input('quantity');
                 $request->session()->put('cart_toy_data', $cartToyData);
 
                 return back()->with('added', trans('app.cart.toy_added'));
@@ -62,7 +62,7 @@ class CartController extends Controller
             if (isset($cartTechniqueData[$id])) {
                 return back()->with('already_added', trans('app.cart.technique_already_added'));
             } else {
-                $cartTechniqueData[$id] = $id;
+                $cartTechniqueData[$id] = $request->input('quantity');
                 $request->session()->put('cart_technique_data', $cartTechniqueData);
 
                 return back()->with('added', trans('app.cart.technique_added'));

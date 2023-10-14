@@ -58,12 +58,12 @@ return [
     ],
     'toy' => [
         'stock' => 'In stock',
-        'cart' => 'Add to cart',
         'out_of_stock' => 'Out of stock',
     ],
     'terms_and_conditions' => 'Terms and conditions',
     'cart' => [
         'cart' => 'Shopping cart',
+        'add' => 'Add to cart',
         'empty' => 'Empty shopping cart',
         'technique_removed' => 'Technique deleted successfully!',
         'toy_added' => 'Toy added successfully!',
@@ -80,9 +80,6 @@ return [
         'pay' => 'Pay',
         'toys' => 'Go back to toys',
         'techniques' => 'Go back to techniques',
-    ],
-    'technique' => [
-        'cart' => 'Add to cart',
     ],
     'stats' => [
         'technique' => 'Technique',

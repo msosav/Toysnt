@@ -36,7 +36,7 @@
                                 <h7 class="card-subtitle"><b>@lang('app.cart.quantity'):</b></h7>
                             </div>
                             <div class="col mt-2">
-                                <input type="number" class="form-control mb-2 field-width" placeholder="1" min="1" max="{{ $toy->getStock() }}" name="{{$toy->getId()}}" value="1" />
+                                <input type="number" class="form-control mb-2 field-width" value="{{ session('cart_toy_data')[$toy->getId()] }}" min="1" max="{{ $toy->getStock() }}" name="{{$toy->getId()}}" value="1" />
                             </div>
                             <div class="d-flex col justify-content-end mt-5">
                                 <a href="{{ route('cart.remove', ['type' => 'toy', 'id' => $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>

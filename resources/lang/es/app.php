@@ -58,13 +58,13 @@ return [
     ],
     'toy' => [
         'stock' => 'En inventario',
-        'cart' => 'Añadir al carrito',
         'out_of_stock' => 'Sin inventario',
     ],
     'terms_and_conditions' => 'Términos y condiciones',
     'cart' => [
         'cart' => 'Carrito de compras',
         'empty' => 'Vaciar el carrito',
+        'add' => 'Añadir al carrito',
         'technique_removed' => '¡Técnica eliminada con éxito!',
         'toy_added' => '¡Juguete añadido con éxito!',
         'technique_added' => 'Técnica añadida con éxito!',
@@ -80,9 +80,6 @@ return [
         'pay' => 'Pagar',
         'toys' => 'Volver a los juguetes',
         'techniques' => 'Volver a las técnicas',
-    ],
-    'technique' => [
-        'cart' => 'Añadir al carrito',
     ],
     'stats' => [
         'technique' => 'Técnica',
