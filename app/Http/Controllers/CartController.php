@@ -72,33 +72,29 @@ class CartController extends Controller
         }
     }
 
-    public function removeToy(string $id, Request $request): RedirectResponse
+    public function remove(Request $request, string $type, string $id): RedirectResponse
     {
-        $cartToyData = $request->session()->get('cart_toy_data');
-        unset($cartToyData[$id]);
-        $request->session()->put('cart_toy_data', $cartToyData);
+        if ($type == 'toy') {
+            $cartToyData = $request->session()->get('cart_toy_data');
+            unset($cartToyData[$id]);
+            $request->session()->put('cart_toy_data', $cartToyData);
 
-        return back()->with('removed', trans('app.cart.toy_removed'));
-    }
+            return back()->with('removed', trans('app.cart.toy_removed'));
+        } elseif ($type == 'technique') {
+            $cartTechniqueData = $request->session()->get('cart_technique_data');
+            unset($cartTechniqueData[$id]);
+            $request->session()->put('cart_technique_data', $cartTechniqueData);
 
-    public function removeTechnique(string $id, Request $request): RedirectResponse
-    {
-        $cartTechniqueData = $request->session()->get('cart_technique_data');
-        unset($cartTechniqueData[$id]);
-        $request->session()->put('cart_technique_data', $cartTechniqueData);
+            return back()->with('removed', trans('app.cart.technique_removed'));
+        } elseif ($type == 'all') {
+            if ($request->session()->get('cart_toy_data') == [] and $request->session()->get('cart_technique_data') == []) {
+                return back()->with('already_removed', trans('app.cart.already_removed'));
+            } else {
+                $request->session()->forget('cart_toy_data');
+                $request->session()->forget('cart_technique_data');
 
-        return back()->with('removed', trans('app.cart.technique_removed'));
-    }
-
-    public function removeAll(Request $request): RedirectResponse
-    {
-        if ($request->session()->get('cart_toy_data') == [] and $request->session()->get('cart_technique_data') == []) {
-            return back()->with('already_removed', trans('app.cart.already_removed'));
-        } else {
-            $request->session()->forget('cart_toy_data');
-            $request->session()->forget('cart_technique_data');
-
-            return back()->with('cart_emptied', trans('app.cart.cart_emptied'));
+                return back()->with('cart_emptied', trans('app.cart.cart_emptied'));
+            }
         }
     }
 }

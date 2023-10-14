@@ -60,16 +60,10 @@ Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.sh
 //Rutas de Cart.
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
 Route::get('/cart/add/{type}/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
-Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
-Route::get('/cart/addToy/{id}', 'App\Http\Controllers\CartController@addToy')->name('cart.addToy');
-Route::get('/cart/addTechnique/{id}', 'App\Http\Controllers\CartController@addTechnique')->name('cart.addTechnique');
-Route::get('/cart/removeToy/{id}', 'App\Http\Controllers\CartController@removeToy')->name('cart.removeToy');
-Route::get('/cart/removeTechnique/{id}', 'App\Http\Controllers\CartController@removeTechnique')->name('cart.removeTechnique');
-Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll');
+Route::get('/cart/remove/{type}/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
 
 //Rutas de compra de juguetes
 Route::post('/purchase', 'App\Http\Controllers\OrderController@purchase')->name('purchase.purchase')->middleware('basic.users', 'admin');
 
 //Rutas de Review.
-Route::get('/review/new', 'App\Http\Controllers\ReviewController@new')->name('review.new');
 Route::post('/review/save/{type}/{id}', 'App\Http\Controllers\ReviewController@save')->name('review.save');

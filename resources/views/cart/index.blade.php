@@ -16,7 +16,7 @@
             <h1 class="title">@lang('app.cart.cart')</h1>
             <div class='row'>
                 <div class='col-3'>
-                    <a href="{{ route('cart.removeAll') }}" class="btn btn-outline mt-2 mb-4">@lang('app.cart.empty')</a>
+                    <a href="{{ route('cart.remove', ['type' => 'all', 'id' => 'null']) }}" class="btn btn-outline mt-2 mb-4">@lang('app.cart.empty')</a>
                 </div>
                 <div class='col-3 mt-2'>
                     <input type="text" name="toys" value="{{implode(',', $viewData['cartToys'])}}" hidden>
@@ -39,7 +39,7 @@
                                 <input type="number" class="form-control mb-2 field-width" placeholder="1" min="1" max="{{ $toy->getStock() }}" name="{{$toy->getId()}}" value="1" />
                             </div>
                             <div class="d-flex col justify-content-end mt-5">
-                                <a href="{{ route('cart.removeToy', ['id'=> $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
+                                <a href="{{ route('cart.remove', ['type' => 'toy', 'id' => $toy->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                                 <h6 class="card-subtitle" id="card-price">${{ $technique->getPrice() }}</h6>
                             </div>
                             <div class="d-flex col justify-content-end mt-5">
-                                <a href="{{ route('cart.removeTechnique', ['id'=> $technique->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
+                                <a href="{{ route('cart.remove', ['type' => 'technique', 'id' => $technique->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
                             </div>
                         </div>
                     </div>
