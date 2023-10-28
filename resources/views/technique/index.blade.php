@@ -14,7 +14,7 @@
                         <h6 class="card-subtitle" id="card-price">${{ $technique->getPrice() }}</h6>
                     </div>
                     <div class="d-flex col justify-content-end">
-                        <a href="{{ route('cart.add', ['type' => 'technique' 'id' => $technique->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
+                        <a href="{{ route('cart.add', ['type' => 'technique', 'id' => $technique->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
                     </div>
                 </div>
             </div>
