@@ -15,7 +15,7 @@
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
                     <div class="col-4">
-                        <h5 class="card-title">{{ $technique->getModel() }}</h5>
+                        <h5 class="card-title">{{ $technique->getName() }}</h5>
                     </div>
                     <div class="col-4">
                         <div class="d-flex justify-content-around">

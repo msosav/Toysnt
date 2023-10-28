@@ -21,7 +21,7 @@
                         <input type="text" class="form-control mb-2" placeholder="@lang('admin.reviews.rating')" name="rating" value="{{ $viewData['review']->getRating() }}" />
                         <select class="form-control mb-2" placeholder="@lang('admin.reviews.technique')" name="technique" value="{{ $viewData['review']->getTechniqueId() }}">
                             @foreach ($viewData['techniques'] as $technique)
-                            <option value="{{ $technique->getId() }}">{{ $technique->getModel() }}</option>
+                            <option value="{{ $technique->getId() }}">{{ $technique->getName() }}</option>
                             @endforeach
                         </select>
                         <p></p>

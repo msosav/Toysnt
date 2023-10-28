@@ -33,14 +33,14 @@ class AdminReviewController extends Controller
             $technique = Technique::find($review->getTechniqueId());
             $viewData = [];
             $viewData['review'] = $review;
-            $viewData['title'] = $technique->getModel().' review';
+            $viewData['title'] = $technique->getName() . ' review';
 
             return view('admin.review.show')->with('viewData', $viewData);
         } else {
             $toy = Toy::find($review->getToyId());
             $viewData = [];
             $viewData['review'] = $review;
-            $viewData['title'] = $toy->getModel().' review';
+            $viewData['title'] = $toy->getName() . ' review';
 
             return view('admin.review.show')->with('viewData', $viewData);
         }
@@ -76,8 +76,8 @@ class AdminReviewController extends Controller
             $viewData = [];
             $viewData['review'] = Review::find($id);
             $viewData['techniques'] = $techniques;
-            $viewData['technique_name'] = $technique->getModel();
-            $viewData['title'] = $viewData['technique_name'].' review';
+            $viewData['technique_name'] = $technique->getName();
+            $viewData['title'] = $viewData['technique_name'] . ' review';
 
             return view('admin.review.edit')->with('viewData', $viewData);
         } else {

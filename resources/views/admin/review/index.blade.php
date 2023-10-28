@@ -16,9 +16,9 @@
                 <div class="row d-flex justify-content-between">
                     <div class="col-5">
                         @if ($review->getToyId()!=null)
-                        <h5 class="card-title">{{ $review->getToy()->getModel() }}</h5>
+                        <h5 class="card-title">{{ $review->getToy()->getName() }}</h5>
                         @elseif ($review->getTechniqueId()!==null)
-                        <h5 class="card-title">{{ $review->getTechnique()->getModel() }}</h5>
+                        <h5 class="card-title">{{ $review->getTechnique()->getName() }}</h5>
                         @endif
                     </div>
                     <div class="col-5">

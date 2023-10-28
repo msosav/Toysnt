@@ -12,7 +12,7 @@ class Toy extends Model
     /**
      * Toy ATTRIBUTES
      * $this->attributes['id'] - string - contains the pet primary key (id)
-     * $this->attributes['model'] - string - contains the toy model
+     * $this->attributes['name'] - string - contains the toy model
      * $this->attributes['image'] - string - contains the toy image path
      * $this->attributes['description'] - string - contains the toy description
      * $this->attributes['price'] - float - contains the toy price
@@ -22,21 +22,21 @@ class Toy extends Model
      * $this->attributes['created_at'] - string - contains when the toy was created
      * $this->attributes['updated_at'] - string - contains when the toy was updated
      */
-    protected $fillable = ['model', 'image', 'description', 'price'];
+    protected $fillable = ['name', 'image', 'description', 'price'];
 
     public function getId(): string
     {
         return $this->attributes['id'];
     }
 
-    public function getModel(): string
+    public function getName(): string
     {
-        return $this->attributes['model'];
+        return $this->attributes['name'];
     }
 
-    public function setModel(string $model): void
+    public function setName(string $name): void
     {
-        $this->attributes['model'] = $model;
+        $this->attributes['name'] = $name;
     }
 
     public function getImage(): string
@@ -111,7 +111,7 @@ class Toy extends Model
 
     public static function validate(Request $request, array $include, array $exclude): void
     {
-        if (in_array('model', $include) or ! in_array('model', $exclude)) {
+        if (in_array('model', $include) or !in_array('model', $exclude)) {
             $request->validate([
                 'model' => 'required|string|max:255',
             ]);
@@ -121,7 +121,7 @@ class Toy extends Model
             ]);
         }
 
-        if (in_array('toy_image', $include) or ! in_array('toy_image', $exclude)) {
+        if (in_array('toy_image', $include) or !in_array('toy_image', $exclude)) {
             $request->validate([
                 'toy_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ]);
@@ -131,7 +131,7 @@ class Toy extends Model
             ]);
         }
 
-        if (in_array('description', $include) or ! in_array('description', $exclude)) {
+        if (in_array('description', $include) or !in_array('description', $exclude)) {
             $request->validate([
                 'description' => 'required|string|max:255',
             ]);
@@ -141,7 +141,7 @@ class Toy extends Model
             ]);
         }
 
-        if (in_array('price', $include) or ! in_array('price', $exclude)) {
+        if (in_array('price', $include) or !in_array('price', $exclude)) {
             $request->validate([
                 'price' => 'required|numeric',
             ]);
@@ -151,7 +151,7 @@ class Toy extends Model
             ]);
         }
 
-        if (in_array('stock', $include) or ! in_array('stock', $exclude)) {
+        if (in_array('stock', $include) or !in_array('stock', $exclude)) {
             $request->validate([
                 'stock' => 'required|numeric',
             ]);

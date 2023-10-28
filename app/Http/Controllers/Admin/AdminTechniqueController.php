@@ -26,7 +26,7 @@ class AdminTechniqueController extends Controller
         if ($technique) {
             $viewData = [];
             $viewData['technique'] = $technique;
-            $viewData['title'] = $viewData['technique']->getModel();
+            $viewData['title'] = $viewData['technique']->getName();
 
             return view('admin.technique.show')->with('viewData', $viewData);
         } else {
@@ -45,7 +45,7 @@ class AdminTechniqueController extends Controller
     public function save(Request $request): View|RedirectResponse
     {
         $technique = new Technique();
-        $technique->setModel($request->input('model'));
+        $technique->setName($request->input('model'));
         $technique->setPrice($request->input('price'));
         $technique->setDescription($request->input('description'));
         $technique->setImage('default');
@@ -66,7 +66,7 @@ class AdminTechniqueController extends Controller
         if ($technique) {
             $viewData = [];
             $viewData['technique'] = Technique::find($id);
-            $viewData['title'] = $viewData['technique']->getModel();
+            $viewData['title'] = $viewData['technique']->getName();
 
             return view('admin.technique.edit')->with('viewData', $viewData);
         } else {
@@ -83,10 +83,10 @@ class AdminTechniqueController extends Controller
         }
 
         Technique::validate($request, [], ['technique_image']);
-        $technique->setModel($request->input('model'));
+        $technique->setName($request->input('model'));
         if ($request->input('technique_image') != null) {
             $image = app(ImageStorage::class);
-            $image->store($request, 'technique_image', $technique->getModel());
+            $image->store($request, 'technique_image', $technique->getName());
             $technique->setImage($image->getImagePath());
         }
         $technique->setPrice($request->input('price'));
@@ -102,7 +102,7 @@ class AdminTechniqueController extends Controller
         $technique = Technique::find($id);
         if ($technique !== null) {
             $image = app(ImageStorage::class);
-            $image = $image->delete('technique_image', $technique->getModel());
+            $image = $image->delete('technique_image', $technique->getName());
             Technique::destroy($id);
         }
 

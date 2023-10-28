@@ -8,7 +8,7 @@
             <img src="{{ URL::asset('storage/'.$viewData['toy']->getImage()) }}" class="img-fluid rounded-start" id="card-image">
         </div>
         <div class="col-md-3 my-5">
-            <h1 id="show-title" class="py-1">{{ $viewData['toy']->getModel() }}</h1>
+            <h1 id="show-title" class="py-1">{{ $viewData['toy']->getName() }}</h1>
             <div class="class-body px-2 py-2 d-block">
                 <h1 class="card-title" id="show-price">$ {{ $viewData['toy']->getPrice() }}</h1>
                 <p class="card-text">{{ $viewData['toy']->getDescription() }}</p>

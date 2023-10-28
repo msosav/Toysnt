@@ -8,9 +8,9 @@
     @foreach ($viewData['toys'] as $toy)
     <div class="col-4 d-flex justify-content-start">
         <div class="card me-2" id="index-card">
-            <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top" alt="{{ $toy->getModel() }}" id="index-card-image">
+            <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top" alt="{{ $toy->getName() }}" id="index-card-image">
             <div class="card-body">
-                <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}" id="card-title">{{ $toy->getModel() }}</a></h5>
+                <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}" id="card-title">{{ $toy->getName() }}</a></h5>
                 <div class="row">
                     <div class="col d-block">
                         <h6 class="card-subtitle" id="card-price">${{ $toy->getPrice() }}</h6>

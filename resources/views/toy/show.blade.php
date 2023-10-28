@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('title', $viewData['toy']->getModel())
+@section('title', $viewData['toy']->getName())
 @section('content')
 @include('layouts.alerts')
-<h1 id="show-title" class="py-1">{{ $viewData['toy']->getModel() }}</h1>
+<h1 id="show-title" class="py-1">{{ $viewData['toy']->getName() }}</h1>
 <div class="row g-5">
     <div class="col-md-7">
         <img src="{{ URL::asset('storage/'.$viewData['toy']->getImage()) }}" class="img img-fluid rounded" id="card-image">

@@ -42,7 +42,7 @@ class ToyController extends Controller
         } else {
             $viewData = [];
             $viewData['toy'] = $toy;
-            $viewData['title'] = $viewData['toy']->getModel();
+            $viewData['title'] = $viewData['toy']->getName();
             $viewData['reviews'] = $viewData['toy']->reviews()->get();
             $viewData['reviewCount'] = $viewData['reviews']->count();
 

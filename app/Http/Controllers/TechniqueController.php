@@ -19,7 +19,7 @@ class TechniqueController extends Controller
 
         $reviews = [];
         foreach ($techniques as $technique) {
-            $reviews[$technique->getModel()] = count($technique->getReviews());
+            $reviews[$technique->getName()] = count($technique->getReviews());
         }
         arsort($reviews);
         $viewData['stats'] = $reviews;
@@ -36,7 +36,7 @@ class TechniqueController extends Controller
         } else {
             $viewData = [];
             $viewData['technique'] = $technique;
-            $viewData['title'] = $viewData['technique']->getModel();
+            $viewData['title'] = $viewData['technique']->getName();
             $viewData['reviews'] = $viewData['technique']->reviews()->get();
             $viewData['reviewCount'] = $viewData['reviews']->count();
 

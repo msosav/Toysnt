@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">@lang('admin.toys.edit'): {{ $viewData['toy']->getModel() }}</div>
+                <div class="card-header">@lang('admin.toys.edit'): {{ $viewData['toy']->getName() }}</div>
                 <div class="card-body">
                     @if($errors->any())
                     <ul id="errors" class="alert alert-danger list-unstyled">
@@ -17,7 +17,7 @@
 
                     <form method="POST" action="{{ route('admin.toy.update', ['id' => $viewData['toy']->getId()]) }}" enctype="multipart/form-data">
                         @csrf
-                        <input type="text" class="form-control mb-2" placeholder=@lang('admin.toys.model') name="model" value="{{ $viewData['toy']->getModel() }}" />
+                        <input type="text" class="form-control mb-2" placeholder=@lang('admin.toys.model') name="model" value="{{ $viewData['toy']->getName() }}" />
                         <input type="file" name="toy_image" accept=".jpg,.png,.jpeg" class="form-control mb-2" />
                         <input type="text" class="form-control mb-2" placeholder=@lang('admin.toys.description') name="description" value="{{ $viewData['toy']->getDescription() }}" />
                         <input type="number" class="form-control mb-2" placeholder=@lang('admin.toys.price') name="price" value="{{ $viewData['toy']->getPrice() }}" />
