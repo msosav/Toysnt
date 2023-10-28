@@ -33,7 +33,7 @@ class OrderController extends Controller
 
                 $item = new Item();
                 $item->setQuantity($quantity);
-                $item->setMethod($toy->getModel());
+                $item->setName($toy->getModel());
                 $item->setPrice($toy->getPrice());
                 $item->setOrderId($order->getId());
                 $item->setToyId($toy->getId());
@@ -52,7 +52,7 @@ class OrderController extends Controller
 
                     $item = new Item();
                     $item->setQuantity($quantity);
-                    $item->setMethod($technique->getModel());
+                    $item->setName($technique->getModel());
                     $item->setPrice($technique->getPrice());
                     $item->setOrderId($order->getId());
                     $item->setTechniqueId($technique->getId());

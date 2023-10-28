@@ -20,10 +20,10 @@ class ToyController extends Controller
         $toyStats = [];
         foreach ($items as $item) {
             if ($item->getToyId() != null) {
-                if (isset($toyStats[$item->getMethod()])) {
-                    $toyStats[$item->getMethod()] += $item->getQuantity();
+                if (isset($toyStats[$item->getName()])) {
+                    $toyStats[$item->getName()] += $item->getQuantity();
                 } else {
-                    $toyStats[$item->getMethod()] = $item->getQuantity();
+                    $toyStats[$item->getName()] = $item->getQuantity();
                 }
             }
         }

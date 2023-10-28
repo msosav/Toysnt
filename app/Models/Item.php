@@ -37,12 +37,12 @@ class Item extends Model
         $this->attributes['quantity'] = $quantity;
     }
 
-    public function getMethod(): string
+    public function getName(): string
     {
         return $this->attributes['method'];
     }
 
-    public function setMethod(string $method): void
+    public function setName(string $method): void
     {
         $this->attributes['method'] = $method;
     }
