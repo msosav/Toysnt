@@ -106,5 +106,5 @@ return [
         'no_orders' => 'You have not purchased anything in our store, so sad =(',
         'toys' => 'See our toys',
         'techniques' => 'See our techniques',
-    ]
+    ],
 ];
