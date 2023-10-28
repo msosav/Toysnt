@@ -11,7 +11,7 @@ class Item extends Model
      * Item ATTRIBUTES
      * $this->attributes['id'] - string - contains the items primary key (id)
      * $this->attributes['quantity'] - string - contains the method quantity
-     * $this->attributes['method'] - string - contains the methods name
+     * $this->attributes['name'] - string - contains the item name
      * $this->attributes['price'] - string - contains the methods price
      * $this->attributes['order_id'] - string - contains the order's id which has the item
      * $this->order - order - contains associated order
@@ -39,12 +39,12 @@ class Item extends Model
 
     public function getName(): string
     {
-        return $this->attributes['method'];
+        return $this->attributes['name'];
     }
 
-    public function setName(string $method): void
+    public function setName(string $name): void
     {
-        $this->attributes['method'] = $method;
+        $this->attributes['name'] = $name;
     }
 
     public function getPrice(): string
