@@ -12,35 +12,25 @@ class CartController extends Controller
 {
     public function index(Request $request): View
     {
-        $toys = Toy::all();
-        $cartToys = [];
+        $toysInCart = [];
         $cartToyData = $request->session()->get('toys_in_cart');
 
-        $techniques = Technique::all();
-        $cartTechniques = [];
+        $techniquesInCart = [];
         $cartTechniqueData = $request->session()->get('techniques_in_cart');
 
         if ($cartToyData) {
-            foreach ($toys as $toy) {
-                if (in_array($toy->getId(), array_keys($cartToyData))) {
-                    $cartToys[$toy->getId()] = $toy;
-                }
-            }
+            $toysInCart = Toy::findMany(array_keys($cartToyData));
         }
 
         if ($cartTechniqueData) {
-            foreach ($techniques as $technique) {
-                if (in_array($technique->getId(), array_keys($cartTechniqueData))) {
-                    $cartTechniques[$technique->getId()] = $technique;
-                }
-            }
+            $techniquesInCart = Technique::findMany(array_keys($cartTechniqueData));
         }
 
         $viewData = [];
         $viewData['title'] = 'Cart - Online Store';
         $viewData['subtitle'] = 'Shopping Cart';
-        $viewData['cartToys'] = $cartToys;
-        $viewData['cartTechniques'] = $cartTechniques;
+        $viewData['toysInCart'] = $toysInCart;
+        $viewData['techniquesInCart'] = $techniquesInCart;
 
         return view('cart.index')->with('viewData', $viewData);
     }

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     @include('layouts.alerts')
-    @if ($viewData['cartToys']==null && $viewData['cartTechniques']==null)
+    @if ($viewData['toysInCart']==null && $viewData['techniquesInCart']==null)
     <div class="text-center">
         <h1 class="title">@lang('app.cart.empty')</h1>
         <a href="{{ route('toy.index') }}" class="btn btn-outline mt-2 mb-4">@lang('app.cart.toys')</a>
@@ -19,12 +19,10 @@
                     <a href="{{ route('cart.remove', ['type' => 'all', 'id' => 'null']) }}" class="btn btn-outline mt-2 mb-4">@lang('app.cart.empty')</a>
                 </div>
                 <div class='col-3 mt-2'>
-                    <input type="text" name="toys" value="{{implode(',', $viewData['cartToys'])}}" hidden>
-                    <input type="text" name="techniques" value="{{implode(',', $viewData['cartTechniques'])}}" hidden>
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-money-bill"></i> @lang('app.cart.pay')</button>
                 </div>
             </div>
-            @foreach ($viewData['cartToys'] as $toy)
+            @foreach ($viewData['toysInCart'] as $toy)
             <div class="col-4 d-flex">
                 <div class="card me-2 mb-4" style="width: 18rem;">
                     <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top" alt="{{ $toy->getModel() }}" id="index-card-image">
@@ -46,7 +44,7 @@
                 </div>
             </div>
             @endforeach
-            @foreach ($viewData['cartTechniques'] as $technique)
+            @foreach ($viewData['techniquesInCart'] as $technique)
             <div class="col-4 d-flex">
                 <div class="card me-2 mb-4" style="width: 18rem;">
                     <img src="{{ URL::asset('storage/'.$technique->getImage()) }}" class="card-img-top" alt="{{ $technique->getModel() }}" id="index-card-image">
