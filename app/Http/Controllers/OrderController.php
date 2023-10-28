@@ -14,68 +14,60 @@ class OrderController extends Controller
 {
     public function purchase(Request $request): RedirectResponse
     {
-        if ($request->toys == null) {
-            return redirect()->route('toy.index')->with('add_some_toys', trans('app.cart.add_some_toys'));
-        }
-        if ($request->session()->get('toys_in_cart') != []) {
+        $toysInSession = $request->session()->get('toys_in_cart');
+        $techniquesInSession = $request->session()->get('techniques_in_cart');
+
+        if ($toysInSession) {
+            $userId = auth()->user()->id;
+            $userAddress = auth()->user()->address;
             $order = new Order();
             $order->setTotal(0);
-            $order->setUserId(auth()->user()->id);
-            $order->setAddress(auth()->user()->address);
+            $order->setUserId($userId);
+            $order->setAddress($userAddress);
             $order->save();
 
-            $toys = explode('},', $request->toys);
-            $techniques = explode('},', $request->techniques);
-
-            $toys[count($toys) - 1] = str_replace('}', '', $toys[count($toys) - 1]);
-            $techniques[count($techniques) - 1] = str_replace('}', '', $techniques[count($techniques) - 1]);
-
-            for ($i = 0; $i < count($toys); $i++) {
-                $toys[$i] = $toys[$i] . '}';
-            }
-            for ($j = 0; $j < count($techniques); $j++) {
-                $techniques[$j] = $techniques[$j] . '}';
-            }
-
             $total = 0;
-            foreach ($toys as $toy) {
-                $toy = json_decode($toy);
+            $toysInCart = Toy::findMany(array_keys($toysInSession));
+            foreach ($toysInCart as $toy) {
+                $quantity = $toysInSession[$toy->getId()];
 
-                $id = strval($toy->id);
-                $quantity = $request->$id;
                 $item = new Item();
-                $toy = Toy::find($toy->id);
                 $item->setQuantity($quantity);
                 $item->setMethod($toy->getModel());
                 $item->setPrice($toy->getPrice());
-                $total += $toy->getPrice() * $quantity;
                 $item->setOrderId($order->getId());
                 $item->setToyId($toy->getId());
                 $item->save();
-                $toy->setStock($toy->getStock() - $item->getQuantity());
-                $toy->update();
+
+                $toy->setStock($toy->getStock() - $quantity);
+                $toy->save();
+
+                $total += $toy->getPrice() * $quantity;
             }
-            if ($request->techniques != null) {
-                foreach ($techniques as $technique) {
-                    $technique = json_decode($technique);
+
+            if ($techniquesInSession) {
+                $techniquesInCart = Technique::findMany(array_keys($techniquesInSession));
+                foreach ($techniquesInCart as $technique) {
+                    $quantity = $techniquesInSession[$technique->getId()];
+
                     $item = new Item();
-                    $technique = Technique::find($technique->id);
-                    $item->setQuantity('1');
+                    $item->setQuantity($quantity);
                     $item->setMethod($technique->getModel());
                     $item->setPrice($technique->getPrice());
-                    $total += $technique->getPrice();
                     $item->setOrderId($order->getId());
                     $item->setTechniqueId($technique->getId());
                     $item->save();
+
+                    $total += $technique->getPrice() * $quantity;
                 }
             }
 
             $order->setTotal($total);
-            $order->update();
+            $order->save();
 
             $user = User::find(auth()->user()->id);
             $user->setBalance($user->getBalance() - $total);
-            $user->update();
+            $user->save();
 
             $request->session()->forget('toys_in_cart');
             $request->session()->forget('techniques_in_cart');
