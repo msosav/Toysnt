@@ -111,7 +111,7 @@ class Toy extends Model
 
     public static function validate(Request $request, array $include, array $exclude): void
     {
-        if (in_array('model', $include) or !in_array('model', $exclude)) {
+        if (in_array('model', $include) or ! in_array('model', $exclude)) {
             $request->validate([
                 'model' => 'required|string|max:255',
             ]);
@@ -121,7 +121,7 @@ class Toy extends Model
             ]);
         }
 
-        if (in_array('toy_image', $include) or !in_array('toy_image', $exclude)) {
+        if (in_array('toy_image', $include) or ! in_array('toy_image', $exclude)) {
             $request->validate([
                 'toy_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ]);
@@ -131,7 +131,7 @@ class Toy extends Model
             ]);
         }
 
-        if (in_array('description', $include) or !in_array('description', $exclude)) {
+        if (in_array('description', $include) or ! in_array('description', $exclude)) {
             $request->validate([
                 'description' => 'required|string|max:255',
             ]);
@@ -141,7 +141,7 @@ class Toy extends Model
             ]);
         }
 
-        if (in_array('price', $include) or !in_array('price', $exclude)) {
+        if (in_array('price', $include) or ! in_array('price', $exclude)) {
             $request->validate([
                 'price' => 'required|numeric',
             ]);
@@ -151,7 +151,7 @@ class Toy extends Model
             ]);
         }
 
-        if (in_array('stock', $include) or !in_array('stock', $exclude)) {
+        if (in_array('stock', $include) or ! in_array('stock', $exclude)) {
             $request->validate([
                 'stock' => 'required|numeric',
             ]);
