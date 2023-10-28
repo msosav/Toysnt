@@ -63,7 +63,7 @@ Route::get('/cart/add/{type}/{id}', 'App\Http\Controllers\CartController@add')->
 Route::get('/cart/remove/{type}/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
 
 //Rutas de compra de juguetes
-Route::post('/purchase', 'App\Http\Controllers\OrderController@purchase')->name('order.purchase')->middleware('basic.users', 'admin');
+Route::get('/purchase', 'App\Http\Controllers\OrderController@purchase')->name('order.purchase')->middleware('auth');
 
 //Rutas de Review.
 Route::post('/review/save/{type}/{id}', 'App\Http\Controllers\ReviewController@save')->name('review.save');
