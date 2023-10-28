@@ -95,4 +95,16 @@ return [
         'rating' => 'Calificación',
         'submit' => 'Enviar',
     ],
+    'orders' => [
+        'my_orders' => 'Mis órdenes',
+        'order' => 'Orden',
+        'date' => 'Fecha',
+        'total' => 'Total',
+        'item' => 'Ítem',
+        'price' => 'Precio',
+        'quantity' => 'Cantidad',
+        'no_orders' => 'No has comprado nada en nuestra tienda, ¡qué triste! =(',
+        'toys' => 'Ver nuestros juguetes',
+        'techniques' => 'Ver nuestras técnicas',
+    ],
 ];

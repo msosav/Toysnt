@@ -95,4 +95,16 @@ return [
         'rating' => 'Rating',
         'submit' => 'Submit',
     ],
+    'orders' => [
+        'my_orders' => 'My orders',
+        'order' => 'Order',
+        'date' => 'Date',
+        'total' => 'Total',
+        'item' => 'Item',
+        'price' => 'Price',
+        'quantity' => 'Quantity',
+        'no_orders' => 'You have not purchased anything in our store, so sad =(',
+        'toys' => 'See our toys',
+        'techniques' => 'See our techniques',
+    ]
 ];

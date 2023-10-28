@@ -39,9 +39,13 @@
                                 <div class="ms-3 mb-1">
                                     <b>@lang('admin.users.balance'): </b> ${{ auth()->user()->getBalance() }}
                                 </div>
+                                <li>
+                                    <a class="dropdown-item d-flex justify-content-between" href="{{ route('order.index') }}">@lang('app.orders.my_orders') <i class="fa-solid fa-table-columns"></i></a>
+                                </li>
                                 @if (auth()->user()->getRole() == 'admin')
                                 <li><a class="dropdown-item d-flex justify-content-between" href="{{ route('admin.user.index') }}">@lang('app.navbar.admin') <i class="fa-solid fa-table-columns"></i></a></li>
                                 @endif
+                                <div class="dropdown-divider"></div>
                                 <form id="logout" action="{{ route('logout') }}" method="POST">
                                     <li><a class="dropdown-item d-flex justify-content-between" onclick="document.getElementById('logout').submit();">@lang('admin.navbar.logout') <i class="fa-solid fa-right-from-bracket mt-1"></i></a></li>
                                     @csrf

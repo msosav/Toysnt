@@ -9,9 +9,21 @@ use App\Models\Toy;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class OrderController extends Controller
 {
+    public function index(): View
+    {
+        $orders = Order::where('user_id', auth()->user()->id)->get();
+        $orders = $orders->sortByDesc('created_at');
+        $viewData = [];
+        $viewData['title'] = trans('app.orders.my_orders');
+        $viewData['orders'] = $orders;
+
+        return view('order.index')->with('viewData', $viewData);
+    }
+
     public function purchase(Request $request): RedirectResponse
     {
         $toysInSession = $request->session()->get('toys_in_cart');

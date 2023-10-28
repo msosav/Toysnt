@@ -62,7 +62,8 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.ind
 Route::get('/cart/add/{type}/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 Route::get('/cart/remove/{type}/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
 
-//Rutas de compra de juguetes
+//Rutas de Order
+Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index')->middleware('auth');
 Route::get('/purchase', 'App\Http\Controllers\OrderController@purchase')->name('order.purchase')->middleware('auth');
 
 //Rutas de Review.
