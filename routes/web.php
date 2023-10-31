@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+//Rutas de Auth.
+Auth::routes();
+
+//Rutas de Home.
 Route::get('/', 'App\Http\Controllers\ToyController@index')->name('toy.index')->middleware('landing.page');
 
 //Rutas de Technique.
