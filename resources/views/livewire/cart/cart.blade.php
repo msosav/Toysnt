@@ -12,7 +12,7 @@
             <h1 class="title">@lang('app.cart.cart')</h1>
             <div class='row'>
                 <div class='col-3'>
-                    <a wire:click="remove" class="btn btn-outline mt-2 mb-4">@lang('app.cart.empty')</a>
+                    <a wire:click="remove('all')" class="btn btn-outline mt-2 mb-4">@lang('app.cart.empty')</a>
                 </div>
                 <div class='col-3 mt-2'>
                     <a href="{{ route('order.purchase') }}" type="button" class="btn btn-outline"><i class="fa-solid fa-money-bill"></i> @lang('app.cart.pay')</a>
@@ -20,16 +20,21 @@
             </div>
             @if (isset($viewData['toysInCart']))
             @foreach ($viewData['toysInCart'] as $toy)
-            <div class="col-4 d-flex text-center">
+            <div class="col-4 d-flex">
                 <div class="card me-2 mb-4" style="width: 18rem;">
                     <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top" alt="{{ $toy->getName() }}" id="index-card-image">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}" id="card-title">{{ $toy->getName() }}</a></h5>
                         <div class="row">
                             <div class="col d-block">
+                                <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}" id="card-title">{{ $toy->getName() }}</a></h5>
                                 <h6 class="card-subtitle" id="card-price">${{ $toy->getPrice() }}</h6>
                             </div>
-                            @livewire('cart.cart-management', ['type' => 'toy', 'id' => $toy->getId()], key($toy->getId()))
+                            <div class="d-flex col justify-content-end mt-2">
+                                <a wire:click="remove('toy', {{ $toy->getId() }})" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
+                            </div>
+                            <div class="text-center">
+                                @livewire('cart.cart-management', ['type' => 'toy', 'id' => $toy->getId()], key($toy->getId()))
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -42,10 +47,13 @@
                 <div class="card me-2 mb-4" style="width: 18rem;">
                     <img src="{{ URL::asset('storage/'.$technique->getImage()) }}" class="card-img-top" alt="{{ $technique->getName() }}" id="index-card-image">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="{{ route('technique.show', ['id'=> $technique->getId()]) }}" id="card-title">{{ $technique->getName() }}</a></h5>
                         <div class="row">
                             <div class="col d-block">
+                                <h5 class="card-title"><a href="{{ route('technique.show', ['id'=> $technique->getId()]) }}" id="card-title">{{ $technique->getName() }}</a></h5>
                                 <h6 class="card-subtitle" id="card-price">${{ $technique->getPrice() }}</h6>
+                            </div>
+                            <div class="d-flex col justify-content-end mt-2">
+                                <a wire:click="remove('technique', {{ $toy->getId() }})" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
                             </div>
                             @livewire('cart.cart-management', ['type' => 'technique', 'id' => $technique->getId(), key($technique->getId())])
                         </div>
