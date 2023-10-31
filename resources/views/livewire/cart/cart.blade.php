@@ -12,10 +12,10 @@
             <h1 class="title">@lang('app.cart.cart')</h1>
             <div class='row'>
                 <div class='col-3'>
-                    <a href="{{ route('cart.remove', ['type' => 'all', 'id' => 'null']) }}" class="btn btn-outline mt-2 mb-4">@lang('app.cart.empty')</a>
+                    <a wire:click="remove" class="btn btn-outline mt-2 mb-4">@lang('app.cart.empty')</a>
                 </div>
                 <div class='col-3 mt-2'>
-                    <a href="{{ route('order.purchase') }}" type="button" class="btn btn-primary"><i class="fa-solid fa-money-bill"></i> @lang('app.cart.pay')</a>
+                    <a href="{{ route('order.purchase') }}" type="button" class="btn btn-outline"><i class="fa-solid fa-money-bill"></i> @lang('app.cart.pay')</a>
                 </div>
             </div>
             @if (isset($viewData['toysInCart']))
@@ -24,7 +24,7 @@
                 <div class="card me-2 mb-4" style="width: 18rem;">
                     <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top" alt="{{ $toy->getName() }}" id="index-card-image">
                     <div class="card-body">
-                        <h5 class="card-title"><a wire:click="remove('all', {{ $toy->getId() }})" id="card-title">{{ $toy->getName() }}</a></h5>
+                        <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}" id="card-title">{{ $toy->getName() }}</a></h5>
                         <div class="row">
                             <div class="col d-block">
                                 <h6 class="card-subtitle" id="card-price">${{ $toy->getPrice() }}</h6>

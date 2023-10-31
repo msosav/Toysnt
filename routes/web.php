@@ -22,8 +22,6 @@ Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.sh
 
 //Rutas de Cart.
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
-Route::get('/cart/add/{type}/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
-Route::get('/cart/remove/{type}/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
 
 //Rutas de Review.
 Route::post('/review/save/{type}/{id}', 'App\Http\Controllers\ReviewController@save')->name('review.save');
