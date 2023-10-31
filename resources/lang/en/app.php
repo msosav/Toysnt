@@ -80,6 +80,8 @@ return [
         'pay' => 'Pay',
         'toys' => 'Go back to toys',
         'techniques' => 'Go back to techniques',
+        'stock_changed' => 'The stock of the following toys has changed: ',
+        'stock_changed_units' => ' units',
     ],
     'stats' => [
         'technique' => 'Technique',

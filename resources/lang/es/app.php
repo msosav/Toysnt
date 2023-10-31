@@ -80,6 +80,8 @@ return [
         'pay' => 'Pagar',
         'toys' => 'Volver a los juguetes',
         'techniques' => 'Volver a las técnicas',
+        'stock_changed' => 'El inventario de los siguientes juguetes cambió: ',
+        'stock_changed_units' => ' unidades',
     ],
     'stats' => [
         'technique' => 'Técnica',

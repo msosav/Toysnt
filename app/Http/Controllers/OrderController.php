@@ -43,6 +43,14 @@ class OrderController extends Controller
             foreach ($toysInCart as $toy) {
                 $quantity = $toysInSession[$toy->getId()];
 
+                if ($quantity > $toy->getStock()) {
+                    $message = trans('app.cart.stock_changed') . $toy->getName() . "-" . $toy->getStock() . trans('app.cart.stock_changed_units');
+                    return back()->with('stock_changed', $message);
+                }
+            }
+            foreach ($toysInCart as $toy) {
+                $quantity = $toysInSession[$toy->getId()];
+
                 $item = new Item();
                 $item->setQuantity($quantity);
                 $item->setName($toy->getName());
@@ -61,6 +69,10 @@ class OrderController extends Controller
                 $techniquesInCart = Technique::findMany(array_keys($techniquesInSession));
                 foreach ($techniquesInCart as $technique) {
                     $quantity = $techniquesInSession[$technique->getId()];
+
+                    if ($quantity > $toy->getStock()) {
+                        return back()->with('stock_changed', trans('app.cart.stock_changed'));
+                    }
 
                     $item = new Item();
                     $item->setQuantity($quantity);

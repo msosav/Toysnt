@@ -47,4 +47,8 @@
 <div class="alert alert-warning" role="alert">
     {{ session('edited') }}
 </div>
+@elseif (session('stock_changed'))
+<div class="alert alert-danger" role="alert">
+    {{ session('stock_changed') }}
+</div>
 @endif
