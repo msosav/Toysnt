@@ -1,5 +1,5 @@
 <div>
-    @if (isset($viewData['quantity']))
+    @if ($viewData['quantity']!=0)
     <div class="text-center">
         <div class="input-group w-auto justify-content-center align-items-center py-4">
             <input type="button" value="-" class="button-minus border rounded-circle icon-shape icon-sm mx-1" wire:click="decrementQuantity">

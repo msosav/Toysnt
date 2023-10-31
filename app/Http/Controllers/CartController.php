@@ -10,27 +10,10 @@ use Illuminate\View\View;
 
 class CartController extends Controller
 {
-    public function index(Request $request): View
+    public function index(): View
     {
-        $toysInCart = [];
-        $cartToyData = $request->session()->get('toys_in_cart');
-
-        $techniquesInCart = [];
-        $cartTechniqueData = $request->session()->get('techniques_in_cart');
-
-        if ($cartToyData) {
-            $toysInCart = Toy::findMany(array_keys($cartToyData));
-        }
-
-        if ($cartTechniqueData) {
-            $techniquesInCart = Technique::findMany(array_keys($cartTechniqueData));
-        }
-
         $viewData = [];
-        $viewData['title'] = 'Cart - Online Store';
-        $viewData['subtitle'] = 'Shopping Cart';
-        $viewData['toysInCart'] = $toysInCart;
-        $viewData['techniquesInCart'] = $techniquesInCart;
+        $viewData['title'] = 'Cart';
 
         return view('cart.index')->with('viewData', $viewData);
     }

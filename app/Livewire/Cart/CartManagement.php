@@ -24,6 +24,7 @@ class CartManagement extends Component
         if ($this->type == 'toy') {
             $viewData['id'] = $this->id;
             $viewData['type'] = $this->type;
+            $viewData['quantity'] = 0;
             $cartData = session()->get('toys_in_cart');
             if (isset($cartData[$this->id])) {
                 $viewData['quantity'] = $cartData[$this->id];
@@ -33,22 +34,21 @@ class CartManagement extends Component
                 if ($viewData['quantity'] > $viewData['stock']) {
                     $viewData['quantity'] = $viewData['stock'];
                 }
-
-                return view('livewire.cart.cart-management', ['viewData' => $viewData]);
-            } else {
-                return view('livewire.cart.cart-management', ['viewData' => $viewData]);
             }
+            $this->dispatch('updateCartQuantity', $viewData['id'], $viewData['type'], $viewData['quantity']);
+
+            return view('livewire.cart.cart-management', ['viewData' => $viewData]);
         } else {
             $viewData['id'] = $this->id;
             $viewData['type'] = $this->type;
+            $viewData['quantity'] = 0;
             $cartData = session()->get('techniques_in_cart');
             if (isset($cartData[$this->id])) {
                 $viewData['quantity'] = $cartData[$this->id];
-
-                return view('livewire.cart.cart-management')->with('viewData', $viewData, 'product_in_cart');
-            } else {
-                return view('livewire.cart.cart-management')->with('product_not_in_cart');
             }
+            $this->dispatch('updateCartQuantity', $viewData['id'], $viewData['type'], $viewData['quantity']);
+
+            return view('livewire.cart.cart-management')->with('viewData', $viewData, 'product_in_cart');
         }
     }
 
@@ -56,7 +56,7 @@ class CartManagement extends Component
     {
         if ($this->type == 'toy') {
             $cartToyData = session()->get('toys_in_cart');
-            if (! $cartToyData) {
+            if (!$cartToyData) {
                 $cartToyData = [
                     $this->id => 1,
                 ];
@@ -71,7 +71,7 @@ class CartManagement extends Component
             }
         } else {
             $cartTechniqueData = session()->get('techniques_in_cart');
-            if (! $cartTechniqueData) {
+            if (!$cartTechniqueData) {
                 $cartTechniqueData = [
                     $this->id => 1,
                 ];
