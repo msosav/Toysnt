@@ -19,11 +19,7 @@
                         <small><b>@lang('app.toy.out_of_stock')</b></small>
                     </div>
                     @else
-                    <div class="d-flex col justify-content-end">
-                        <a href="{{ route('cart.add', ['type' => 'toy', 'id' => $toy->getId()]) }}" class="btn btn-outline">
-                            <i class="fa-solid fa-cart-plus"></i>
-                        </a>
-                    </div>
+                    @livewire('cart.cart-management', ['type' => 'toy', 'id' => $toy->getId()])
                     @endif
                 </div>
             </div>

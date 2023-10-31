@@ -13,9 +13,7 @@
                     <div class="col d-block">
                         <h6 class="card-subtitle" id="card-price">${{ $technique->getPrice() }}</h6>
                     </div>
-                    <div class="d-flex col justify-content-end">
-                        <a href="{{ route('cart.add', ['type' => 'technique', 'id' => $technique->getId()]) }}" class="btn btn-outline"><i class="fa-solid fa-cart-plus"></i></a>
-                    </div>
+                    @livewire('cart.cart-management', ['type' => 'technique', 'id' => $technique->getId()])
                 </div>
             </div>
         </div>
