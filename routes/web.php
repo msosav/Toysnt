@@ -26,7 +26,7 @@ Route::get('/admin/users/{id}', 'App\Http\Controllers\Admin\AdminUserController@
 
 //Rutas de Technique.
 Route::post('/techniques/search', 'App\Http\Controllers\TechniqueController@search')->name('technique.search');
-Route::get('/techniques/results/{model}', 'App\Http\Controllers\TechniqueController@results')->name('technique.results');
+Route::get('/techniques/results/{name}', 'App\Http\Controllers\TechniqueController@results')->name('technique.results');
 Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->name('technique.index');
 Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show');
 
@@ -54,7 +54,7 @@ Route::get('/admin/orders/show', 'App\Http\Controllers\Admin\AdminOrderControlle
 
 //Rutas de Toy.
 Route::post('/toys/search', 'App\Http\Controllers\ToyController@search')->name('toy.search');
-Route::get('/toys/results/{model}', 'App\Http\Controllers\ToyController@results')->name('toy.results');
+Route::get('/toys/results/{name}', 'App\Http\Controllers\ToyController@results')->name('toy.results');
 Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show');
 
 //Rutas de Cart.

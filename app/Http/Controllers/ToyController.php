@@ -58,17 +58,17 @@ class ToyController extends Controller
             return redirect()->route('toy.index');
         }
 
-        return redirect()->route('toy.results', ['model' => $search]);
+        return redirect()->route('toy.results', ['name' => $search]);
     }
 
-    public function results(string $model): View|RedirectResponse
+    public function results(string $name): View|RedirectResponse
     {
-        if ($model == null) {
+        if ($name == null) {
             return redirect()->route('toy.index');
         }
 
         $toys = Toy::query()
-            ->where('model', 'LIKE', "%{$model}%")
+            ->where('name', 'LIKE', "%{$name}%")
             ->get();
 
         $viewData = [];
@@ -77,8 +77,8 @@ class ToyController extends Controller
         } else {
             $viewData['toys'] = $toys;
         }
-        $viewData['search'] = $model;
-        $viewData['title'] = $model;
+        $viewData['search'] = $name;
+        $viewData['title'] = $name;
 
         return view('toy.results')->with('viewData', $viewData);
     }

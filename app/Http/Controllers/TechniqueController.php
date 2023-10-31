@@ -52,17 +52,17 @@ class TechniqueController extends Controller
             return redirect()->route('technique.index');
         }
 
-        return redirect()->route('technique.results', ['model' => $search]);
+        return redirect()->route('technique.results', ['name' => $search]);
     }
 
-    public function results(string $model): View|RedirectResponse
+    public function results(string $name): View|RedirectResponse
     {
-        if ($model == null) {
+        if ($name == null) {
             return redirect()->route('technique.index');
         }
 
         $techniques = Technique::query()
-            ->where('model', 'LIKE', "%{$model}%")
+            ->where('name', 'LIKE', "%{$name}%")
             ->get();
 
         $viewData = [];
@@ -71,8 +71,8 @@ class TechniqueController extends Controller
         } else {
             $viewData['techniques'] = $techniques;
         }
-        $viewData['search'] = $model;
-        $viewData['title'] = $model;
+        $viewData['search'] = $name;
+        $viewData['title'] = $name;
 
         return view('technique.results')->with('viewData', $viewData);
     }
