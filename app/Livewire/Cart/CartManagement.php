@@ -3,6 +3,7 @@
 namespace App\Livewire\Cart;
 
 use App\Models\Toy;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class CartManagement extends Component
@@ -11,13 +12,13 @@ class CartManagement extends Component
 
     public $id;
 
-    public function mount($type, $id)
+    public function mount($type, $id): void
     {
         $this->type = $type;
         $this->id = $id;
     }
 
-    public function render()
+    public function render(): View
     {
         $viewData = [];
 
@@ -56,7 +57,7 @@ class CartManagement extends Component
     {
         if ($this->type == 'toy') {
             $cartToyData = session()->get('toys_in_cart');
-            if (!$cartToyData) {
+            if (! $cartToyData) {
                 $cartToyData = [
                     $this->id => 1,
                 ];
@@ -71,7 +72,7 @@ class CartManagement extends Component
             }
         } else {
             $cartTechniqueData = session()->get('techniques_in_cart');
-            if (!$cartTechniqueData) {
+            if (! $cartTechniqueData) {
                 $cartTechniqueData = [
                     $this->id => 1,
                 ];

@@ -44,9 +44,10 @@ class OrderController extends Controller
                 $quantity = $toysInSession[$toy->getId()];
 
                 if ($quantity > $toy->getStock()) {
-                    $message = trans('app.cart.stock_changed') . $toy->getName() . "-" . $toy->getStock() . trans('app.cart.stock_changed_units');
+                    $message = trans('app.cart.stock_changed').$toy->getName().'-'.$toy->getStock().trans('app.cart.stock_changed_units');
                     $toysInSession[$toy->getId()] = $toy->getStock();
                     $request->session()->put('toys_in_cart', $toysInSession);
+
                     return back()->with('stock_changed', $message);
                 }
             }

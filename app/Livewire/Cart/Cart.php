@@ -2,12 +2,10 @@
 
 namespace App\Livewire\Cart;
 
-use Livewire\Component;
-use App\Models\Toy;
 use App\Models\Technique;
+use App\Models\Toy;
 use Illuminate\View\View;
-
-use function Termwind\render;
+use Livewire\Component;
 
 class Cart extends Component
 {

@@ -26,13 +26,13 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.ind
 //Rutas de Review.
 Route::post('/review/save/{type}/{id}', 'App\Http\Controllers\ReviewController@save')->name('review.save');
 
-Route::middleware('auth')->group(function(){
+Route::middleware('auth')->group(function () {
     //Rutas de Order
     Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index');
     Route::get('/purchase', 'App\Http\Controllers\OrderController@purchase')->name('order.purchase');
 });
 
-Route::middleware('admin')->group(function() {
+Route::middleware('admin')->group(function () {
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminUserController@index')->name('admin.user.index');
 
     //Rutas de AdminToy.
