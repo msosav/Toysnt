@@ -26,6 +26,7 @@
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link active nav-text" href="{{ route('toy.index') }}">@lang('app.navbar.home')</a>
                     <a class="nav-link active nav-text" href="{{ route('cart.index') }}"> <i class="fa-solid fa-cart-shopping"></i></a>
+                    <a class="nav-link active nav-text" href="{{ route('search.index') }}"> <i class="fa-solid fa-magnifying-glass"></i></a>
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     @guest
                     <a class="nav-link active nav-text" href="{{ route('login') }}">@lang('app.navbar.login')</a>
