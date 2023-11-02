@@ -18,22 +18,24 @@
                     <a href="{{ route('order.purchase') }}" type="button" class="btn btn-outline"><i class="fa-solid fa-money-bill"></i> @lang('app.cart.pay')</a>
                 </div>
             </div>
+        </div>
+        <div class="card-group">
             @if (isset($viewData['toysInCart']))
             @foreach ($viewData['toysInCart'] as $toy)
-            <div class="col-4 d-flex">
-                <div class="card me-2 mb-4" style="width: 18rem;">
-                    <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top" alt="{{ $toy->getName() }}" id="index-card-image">
-                    <div class="card-body">
+            <div class="col-md-4 col-lg-3 mb-2 mt-1" wire:key="{{'toy' . $toy->getId()}}">
+                <div class="card index-card h-100">
+                    <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top index-image" alt="{{ $toy->getName() }}">
+                    <div class="card-body text-center">
                         <div class="row">
                             <div class="col d-block">
                                 <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}" id="card-title">{{ $toy->getName() }}</a></h5>
                                 <h6 class="card-subtitle" id="card-price">${{ $toy->getPrice() }}</h6>
                             </div>
-                            <div class="d-flex col justify-content-end mt-2">
-                                <a wire:click="remove('toy', {{ $toy->getId() }})" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
-                            </div>
                             <div class="text-center">
-                                @livewire('cart.cart-management', ['type' => 'toy', 'id' => $toy->getId()], key($toy->getId()))
+                                <div class="col">
+                                    @livewire('cart.cart-management', ['type' => 'toy', 'id' => $toy->getId()], key('toy' . $toy->getId()))
+                                    <a wire:click="remove('toy', {{ $toy->getId() }})" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -43,7 +45,7 @@
             @endif
             @if (isset($viewData['techniquesInCart']))
             @foreach ($viewData['techniquesInCart'] as $technique)
-            <div class="col-4 d-flex">
+            <div class="col-4 d-flex justify-content-start">
                 <div class="card me-2 mb-4" style="width: 18rem;">
                     <img src="{{ URL::asset('storage/'.$technique->getImage()) }}" class="card-img-top" alt="{{ $technique->getName() }}" id="index-card-image">
                     <div class="card-body">
@@ -53,9 +55,9 @@
                                 <h6 class="card-subtitle" id="card-price">${{ $technique->getPrice() }}</h6>
                             </div>
                             <div class="d-flex col justify-content-end mt-2">
-                                <a wire:click="remove('technique', {{ $toy->getId() }})" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
+                                <a wire:click="remove('technique', {{ $technique->getId() }})" class="btn btn-outline"><i class="fa-solid fa-trash-can"></i></a>
                             </div>
-                            @livewire('cart.cart-management', ['type' => 'technique', 'id' => $technique->getId(), key($technique->getId())])
+                            @livewire('cart.cart-management', ['type' => 'technique', 'id' => $technique->getId(), key('technique', $technique->getId())])
                         </div>
                     </div>
                 </div>
@@ -63,6 +65,6 @@
             @endforeach
             @endif
         </div>
-        @endif
     </div>
+    @endif
 </div>

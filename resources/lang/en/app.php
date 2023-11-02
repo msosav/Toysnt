@@ -15,6 +15,14 @@ return [
         'logout' => 'Logout',
         'admin' => 'Admin panel',
     ],
+    'home' => [
+        'home' => 'Home - Toysnt',
+        'message' => 'Play, destroy, repeat: Your extreme fun store',
+        'button' => 'Go to the store',
+        'info' => 'More information',
+        'top_toys' => 'Top toys',
+        'top_techniques' => 'Top rated techniques',
+    ],
     'search' => [
         'toy' => 'Search toy',
         'technique' => 'Search technique',

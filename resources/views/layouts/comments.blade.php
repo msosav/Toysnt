@@ -14,7 +14,7 @@
             @endguest
         </div>
         <div id="newCommentBox" style="display: none">
-            <form action="{{ route('review.save', ['type' => 'toy', 'id' => $viewData['toy']->getId()]) }}" method="POST">
+            <form @if (Request::segment(1)=='toy' ) action="{{ route('review.save', ['type' => 'toy', 'id' => $viewData['toy']->getId()]) }}" @else action="{{ route('review.save', ['type' => 'technique', 'id' => $viewData['technique']->getId()]) }}" @endif method="POST">
                 @csrf
                 <div class="card m-2">
                     <div class="card-body d-flex justify-content-between">

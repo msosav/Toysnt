@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 //Rutas de Home.
-Route::get('/', 'App\Http\Controllers\ToyController@index')->name('toy.index')->middleware('landing.page');
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')->middleware('landing.page');
 
 //Rutas de Technique.
 Route::post('/techniques/search', 'App\Http\Controllers\TechniqueController@search')->name('technique.search');
@@ -16,6 +16,7 @@ Route::get('/techniques', 'App\Http\Controllers\TechniqueController@index')->nam
 Route::get('/technique/{id}', 'App\Http\Controllers\TechniqueController@show')->name('technique.show');
 
 //Rutas de Toy.
+Route::get('/toys', 'App\Http\Controllers\ToyController@index')->name('toy.index');
 Route::post('/toys/search', 'App\Http\Controllers\ToyController@search')->name('toy.search');
 Route::get('/toys/results/{name}', 'App\Http\Controllers\ToyController@results')->name('toy.results');
 Route::get('/toy/{id}', 'App\Http\Controllers\ToyController@show')->name('toy.show');

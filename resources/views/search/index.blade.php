@@ -2,6 +2,6 @@
 @section('title', $viewData["title"])
 @section('content')
 <div class="row">
-    @livewire('search.search')
+    @livewire('search.search') 
 </div>
 @endsection

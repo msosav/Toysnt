@@ -1,16 +1,11 @@
-<div>
-    <input wire:model="search" type="text" class="form-control mb-2" placeholder="Search products..." />
-
-    <div class="row">
-        @foreach ($viewData["products"] as $product)
-        <div class="col-md-4 col-lg-3 mb-2">
-            <div class="card">
-                <img src="https://laravel.com/img/logotype.min.svg" class="card-img-top img-card" />
-                <div class="card-body text-center">
-                    <a href="#" class="btn bg-primary text-white">{{ $product->getName() }}</a>
-                </div>
-            </div>
-        </div>
+<div class="mx-5">
+    <input class="form-control" type="search" placeholder="Search" aria-label="Search" wire:model.live="search">
+    <div @if (count($viewData['toys'])==0 and count($viewData['techniques'])==0) class="dropdown-menu d-none" @else class="dropdown-menu d-block" @endif>
+        @foreach($viewData['toys'] as $toy)
+        <a class="dropdown-item" href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">{{ $toy->getName() }}</a>
+        @endforeach
+        @foreach($viewData['techniques'] as $technique)
+        <a class="dropdown-item" href="{{ route('technique.show', ['id'=> $technique->getId()]) }}">{{ $technique->getName() }}</a>
         @endforeach
     </div>
 </div>

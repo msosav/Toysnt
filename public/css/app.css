@@ -7,22 +7,24 @@
     --textColor: white;
 }
 
+/*
+=========================================
+    Navbar
+=========================================
+*/
+
 nav {
     font-weight: 700;
     font-size: 1.2rem;
 }
 
 .logo {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
 }
 
 .bg-primary {
     background-color: var(--primaryColor) !important;
-}
-
-.copyright {
-    background-color: var(--cuaternaryColor);
 }
 
 .bar {
@@ -44,6 +46,27 @@ nav {
     background-color: var(--primaryColor);
     color: var(--textColor);
     border-color: transparent;
+}
+
+.search {
+    border-color: transparent;
+    background-color: var(--cuaternaryColor);
+}
+
+/*
+=========================================
+    Footer
+=========================================
+*/
+
+.copyright {
+    background-color: var(--cuaternaryColor);
+}
+
+.footer-cart {
+    width: 100%;
+    position: relative;
+    bottom: 0;
 }
 
 .title {
@@ -128,4 +151,104 @@ icon-shape {
 .icon-sm {
     width: 2rem;
     height: 2rem;
+}
+
+/*
+=========================================
+    Home
+=========================================
+*/
+
+#home {
+    background-image: url(../images/banner.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 100%;
+}
+
+
+#home h1 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+#home .btn1 {
+    height: 45px;
+    width: 35%;
+    border: none;
+    outline: none;
+    background-color: var(--primaryColor);
+    color: white;
+    font-size: 700;
+    border-radius: 60px;
+}
+
+#home .btn1:hover {
+    background-color: var(--cuaternaryColor);
+    color: white;
+}
+
+#home .more-info {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*
+=========================================
+    Top Toys
+=========================================
+*/
+
+#top-toys h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primaryColor);
+}
+
+/*
+=========================================
+    Top Techniques
+=========================================
+*/
+
+#top-techniques h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primaryColor);
+}
+
+/*
+=========================================
+    Responsive
+=========================================
+*/
+
+@media (max-width: 430px) {
+    #home .btn1 {
+        width: 50%;
+    }
+
+    #home h1 {
+        font-size: 3rem;
+    }
+
+    #home {
+        background-image: none;
+    }
+}
+
+@media (max-width: 360px) {
+    #home .btn1 {
+        width: 60%;
+    }
+
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    #home {
+        background-image: none;
+    }
 }

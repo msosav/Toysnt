@@ -17,10 +17,7 @@
             </div>
             @yield('content_tabs')
         </div>
-        <div class="col-3">
-            <h2 class="title">@lang('app.titles.stats')</h2>
-            @yield('stats')
-        </div>
+
     </div>
 </div>
 @endsection

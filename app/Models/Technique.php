@@ -128,4 +128,18 @@ class Technique extends Model
             ]);
         }
     }
+
+    public static function stats(): Collection
+    {
+        $techniques = Technique::all();
+        $techniqueStats = [];
+        foreach ($techniques as $technique) {
+            $techniqueStats[$technique->getId()] = $technique->getReviews()->count();
+        }
+        arsort($techniqueStats);
+        $techniqueStats = array_slice($techniqueStats, 0, 5, true);
+        $techniqueStats = Technique::findMany(array_keys($techniqueStats));
+        
+        return $techniqueStats;
+    }
 }
