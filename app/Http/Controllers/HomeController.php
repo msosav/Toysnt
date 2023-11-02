@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Technique;
-use Illuminate\View\View;
 use App\Models\Toy;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {

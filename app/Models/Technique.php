@@ -139,7 +139,7 @@ class Technique extends Model
         arsort($techniqueStats);
         $techniqueStats = array_slice($techniqueStats, 0, 5, true);
         $techniqueStats = Technique::findMany(array_keys($techniqueStats));
-        
+
         return $techniqueStats;
     }
 }
