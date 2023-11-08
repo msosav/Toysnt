@@ -10,17 +10,20 @@
         <div class="card">
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
-                    <div class="col-5">
-                        <h5 class="card-title">{{ $order->getUser()->getName() }}</h5>
-                        <div class="col-5">
-                            <div class="d-flex justify-content-around">
-                                <a href="{{ route('admin.order.show', ['id'=> $order['id']]) }}" id="admin-show"><i class="fa-solid fa-eye"></i> @lang('admin.orders.show')</a>
-                            </div>
+                    <div class="col-4">
+                        <h5 class="card-title">@lang('app.orders.order') #{{ $order->getId() }}</h5>
+                    </div>
+                    <div class="col-4">
+                        <div class="d-flex justify-content-around">
+                            <a href="" id="admin-show"><i class="fa-solid fa-eye"></i> @lang('admin.toys.show')</a>
+                            <a href="" id="admin-edit"><i class="fa-solid fa-pen"></i> @lang('admin.toys.edit')</a>
+                            <a href="" id="admin-delete"><i class="fa-solid fa-trash"></i> @lang('admin.toys.delete')</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        @endforeach
     </div>
-    @endsection
+    @endforeach
+</div>
+@endsection

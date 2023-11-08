@@ -30,7 +30,7 @@
                 <a class="navbar-brand" href="{{ route('home.index') }}">
                     <img decoding="async" src="{{ url('/images/Logo.svg') }}" class="logo navbar-logo">
                 </a>
-                <div class="d-flex mx-5 align-content-end">
+                <div class="d-flex mx-5">
                     @livewire('search.search')
                 </div>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -48,9 +48,6 @@
                         <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                         <li class="nav-item">
                             <a class="nav-link active nav-text" href="{{ route('cart.index') }}"> <i class="fa-solid fa-cart-shopping"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active nav-text" href="{{ route('search.index') }}"> <i class="fa-solid fa-magnifying-glass"></i></a>
                         </li>
                         <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                         @guest
@@ -93,7 +90,7 @@
     <!-- header -->
     @yield('content')
     <!-- footer -->
-    <footer @if (Request::segment(1)=='cart' or Request::segment(1)=='orders' ) class="footer" @endif>
+    <footer class="footer">
         <div class="copyright py-4 text-center text-white">
             <div class="container">
                 <small>

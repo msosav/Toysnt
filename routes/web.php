@@ -27,9 +27,6 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.ind
 //Rutas de Review.
 Route::post('/review/save/{type}/{id}', 'App\Http\Controllers\ReviewController@save')->name('review.save');
 
-//Rutas de Search.
-Route::get('/search', 'App\Http\Controllers\SearchController@index')->name('search.index');
-
 Route::middleware('auth')->group(function () {
     //Rutas de Order
     Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index');

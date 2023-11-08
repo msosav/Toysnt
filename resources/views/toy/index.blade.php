@@ -2,8 +2,8 @@
 @section('title', $viewData['title'])
 @section('content')
 <div class="container my-4">
+    @include('layouts.alerts')
     <div class="card-group">
-        @include('layouts.alerts')
         @foreach ($viewData['toys'] as $toy)
         <div class="col-md-4 col-lg-3 mb-2 mt-1">
             <div class="card index-card h-100">
