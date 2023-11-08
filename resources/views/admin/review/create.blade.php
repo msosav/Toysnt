@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
-@section('profileName', $viewData['auth_user']->getName())
 @section('content')
 <div class="container my-5">
     <div class="row justify-content-center">
@@ -22,7 +21,7 @@
                         <input type="text" class="form-control mb-2" placeholder=@lang('admin.reviews.comment') name="comment" value="{{ old('comment') }}" />
                         <select class="form-control mb-2" placeholder=@lang('admin.reviews.technique') name="technique" value="{{ old('technique') }}">
                             @foreach ($viewData['techniques'] as $technique)
-                            <option value="{{ $technique->getId() }}">{{ $technique->getModel() }}</option>
+                            <option value="{{ $technique->getId() }}">{{ $technique->getName() }}</option>
                             @endforeach
                         </select>
                         <p></p>

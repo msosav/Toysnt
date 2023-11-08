@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
-@section('profileName', $viewData['auth_user']->getName())
 @section('content')
 <div class="d-flex flex-row py3 justify-content-between">
     <h1 class="title">@lang('admin.techniques.index')</h1>
@@ -9,22 +8,14 @@
     </div>
 </div>
 <div class="row d-flex justify-content-center py-2 px-2">
-    @if (session('created'))
-    <div class="alert alert-success" role="alert">
-        {{ session('created') }}
-    </div>
-    @elseif (session('deleted'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('deleted') }}
-    </div>
-    @endif
+    @include('layouts.alerts')
     @foreach ($viewData['techniques'] as $technique)
     <div class="card-body p-2">
         <div class="card">
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
                     <div class="col-4">
-                        <h5 class="card-title">{{ $technique->getModel() }}</h5>
+                        <h5 class="card-title">{{ $technique->getName() }}</h5>
                     </div>
                     <div class="col-4">
                         <div class="d-flex justify-content-around">

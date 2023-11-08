@@ -9,76 +9,95 @@ use App\Models\Toy;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class OrderController extends Controller
 {
+    public function index(): View
+    {
+        $orders = Order::where('user_id', auth()->user()->id)->get();
+        $orders = $orders->sortByDesc('created_at');
+        $viewData = [];
+        $viewData['title'] = trans('app.orders.my_orders');
+        $viewData['orders'] = $orders;
+
+        return view('order.index')->with('viewData', $viewData);
+    }
+
     public function purchase(Request $request): RedirectResponse
     {
-        if ($request->toys == null) {
-            return redirect()->route('toy.index')->with('add_some_toys', trans('app.cart.add_some_toys'));
-        }
-        if ($request->session()->get('cart_toy_data') != []) {
+        $toysInSession = $request->session()->get('toys_in_cart');
+        $techniquesInSession = $request->session()->get('techniques_in_cart');
+
+        if ($toysInSession) {
+            $userId = auth()->user()->id;
+            $userAddress = auth()->user()->address;
             $order = new Order();
             $order->setTotal(0);
-            $order->setUserId(auth()->user()->id);
-            $order->setAddress(auth()->user()->address);
+            $order->setUserId($userId);
+            $order->setAddress($userAddress);
             $order->save();
 
-            $toys = explode('},', $request->toys);
-            $techniques = explode('},', $request->techniques);
-
-            $toys[count($toys) - 1] = str_replace('}', '', $toys[count($toys) - 1]);
-            $techniques[count($techniques) - 1] = str_replace('}', '', $techniques[count($techniques) - 1]);
-
-            for ($i = 0; $i < count($toys); $i++) {
-                $toys[$i] = $toys[$i].'}';
-            }
-            for ($j = 0; $j < count($techniques); $j++) {
-                $techniques[$j] = $techniques[$j].'}';
-            }
-
             $total = 0;
-            foreach ($toys as $toy) {
-                $toy = json_decode($toy);
+            $toysInCart = Toy::findMany(array_keys($toysInSession));
+            foreach ($toysInCart as $toy) {
+                $quantity = $toysInSession[$toy->getId()];
 
-                $id = strval($toy->id);
-                $quantity = $request->$id;
+                if ($quantity > $toy->getStock()) {
+                    $message = trans('app.cart.stock_changed').$toy->getName().'-'.$toy->getStock().trans('app.cart.stock_changed_units');
+                    $toysInSession[$toy->getId()] = $toy->getStock();
+                    $request->session()->put('toys_in_cart', $toysInSession);
+
+                    return back()->with('stock_changed', $message);
+                }
+            }
+            foreach ($toysInCart as $toy) {
+                $quantity = $toysInSession[$toy->getId()];
+
                 $item = new Item();
-                $toy = Toy::find($toy->id);
                 $item->setQuantity($quantity);
-                $item->setMethod($toy->getModel());
+                $item->setName($toy->getName());
                 $item->setPrice($toy->getPrice());
-                $total += $toy->getPrice() * $quantity;
                 $item->setOrderId($order->getId());
                 $item->setToyId($toy->getId());
                 $item->save();
-                $toy->setStock($toy->getStock() - $item->getQuantity());
-                $toy->update();
+
+                $toy->setStock($toy->getStock() - $quantity);
+                $toy->save();
+
+                $total += $toy->getPrice() * $quantity;
             }
-            if ($request->techniques != null) {
-                foreach ($techniques as $technique) {
-                    $technique = json_decode($technique);
+
+            if ($techniquesInSession) {
+                $techniquesInCart = Technique::findMany(array_keys($techniquesInSession));
+                foreach ($techniquesInCart as $technique) {
+                    $quantity = $techniquesInSession[$technique->getId()];
+
+                    if ($quantity > $toy->getStock()) {
+                        return back()->with('stock_changed', trans('app.cart.stock_changed'));
+                    }
+
                     $item = new Item();
-                    $technique = Technique::find($technique->id);
-                    $item->setQuantity('1');
-                    $item->setMethod($technique->getModel());
+                    $item->setQuantity($quantity);
+                    $item->setName($technique->getName());
                     $item->setPrice($technique->getPrice());
-                    $total += $technique->getPrice();
                     $item->setOrderId($order->getId());
                     $item->setTechniqueId($technique->getId());
                     $item->save();
+
+                    $total += $technique->getPrice() * $quantity;
                 }
             }
 
             $order->setTotal($total);
-            $order->update();
+            $order->save();
 
             $user = User::find(auth()->user()->id);
             $user->setBalance($user->getBalance() - $total);
-            $user->update();
+            $user->save();
 
-            $request->session()->forget('cart_toy_data');
-            $request->session()->forget('cart_technique_data');
+            $request->session()->forget('toys_in_cart');
+            $request->session()->forget('techniques_in_cart');
 
             return redirect()->route('toy.index')->with('purchase_successful', trans('app.cart.purchase_successful'));
         } else {

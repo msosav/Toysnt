@@ -15,9 +15,6 @@ class RedirectToLandingPage
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()?->role == 'admin') {
-            return to_route('admin.user.index');
-        }
 
         return $next($request);
     }

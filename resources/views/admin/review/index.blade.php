@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
-@section('profileName', $viewData['auth_user']->getName())
 @section('content')
 <div class="d-flex flex-row py3 justify-content-between">
     <h1 class="title">@lang('admin.reviews.index')</h1>
@@ -9,15 +8,7 @@
     </div>
 </div>
 <div class="row d-flex justify-content-center py-2 px-2">
-    @if (session('created'))
-    <div class="alert alert-success" role="alert">
-        {{ session('created') }}
-    </div>
-    @elseif (session('deleted'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('deleted') }}
-    </div>
-    @endif
+    @include('layouts.alerts')
     @foreach ($viewData['reviews'] as $review)
     <div class="card-body p-2">
         <div class="card">
@@ -25,9 +16,9 @@
                 <div class="row d-flex justify-content-between">
                     <div class="col-5">
                         @if ($review->getToyId()!=null)
-                        <h5 class="card-title">{{ $review->getToy()->getModel() }}</h5>
+                        <h5 class="card-title">{{ $review->getToy()->getName() }}</h5>
                         @elseif ($review->getTechniqueId()!==null)
-                        <h5 class="card-title">{{ $review->getTechnique()->getModel() }}</h5>
+                        <h5 class="card-title">{{ $review->getTechnique()->getName() }}</h5>
                         @endif
                     </div>
                     <div class="col-5">

@@ -15,7 +15,6 @@ class AdminUserController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.users.index');
         $viewData['users'] = User::all();
-        $viewData['auth_user'] = auth()->user();
 
         return view('admin.user.index')->with('viewData', $viewData);
     }
@@ -28,7 +27,6 @@ class AdminUserController extends Controller
             $viewData = [];
             $viewData['user'] = User::find($id);
             $viewData['title'] = $viewData['user']->getName();
-            $viewData['auth_user'] = auth()->user();
 
             return view('admin.user.show')->with('viewData', $viewData);
         }
@@ -38,7 +36,6 @@ class AdminUserController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('admin.users.create');
-        $viewData['auth_user'] = auth()->user();
 
         return view('admin.user.create')->with('viewData', $viewData);
     }
@@ -67,7 +64,6 @@ class AdminUserController extends Controller
             $viewData = [];
             $viewData['user'] = User::find($id);
             $viewData['title'] = $viewData['user']->getName();
-            $viewData['auth_user'] = auth()->user();
 
             return view('admin.user.edit')->with('viewData', $viewData);
         }

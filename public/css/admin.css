@@ -89,3 +89,7 @@ hr.h-color {
 #admin-show:hover {
     color: gray;
 }
+
+.username-navbar {
+    padding-left: 1.2em;
+}

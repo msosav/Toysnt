@@ -17,7 +17,6 @@ class AdminReviewController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.reviews.index');
         $viewData['reviews'] = Review::all();
-        $viewData['auth_user'] = auth()->user();
 
         return view('admin.review.index')->with('viewData', $viewData);
     }
@@ -34,16 +33,14 @@ class AdminReviewController extends Controller
             $technique = Technique::find($review->getTechniqueId());
             $viewData = [];
             $viewData['review'] = $review;
-            $viewData['title'] = $technique->getModel().' review';
-            $viewData['auth_user'] = auth()->user();
+            $viewData['title'] = $technique->getName().' review';
 
             return view('admin.review.show')->with('viewData', $viewData);
         } else {
             $toy = Toy::find($review->getToyId());
             $viewData = [];
             $viewData['review'] = $review;
-            $viewData['title'] = $toy->getModel().' review';
-            $viewData['auth_user'] = auth()->user();
+            $viewData['title'] = $toy->getName().' review';
 
             return view('admin.review.show')->with('viewData', $viewData);
         }
@@ -55,7 +52,6 @@ class AdminReviewController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.reviews.create');
         $viewData['techniques'] = $techniques;
-        $viewData['auth_user'] = auth()->user();
 
         return view('admin.review.create')->with('viewData', $viewData);
     }
@@ -66,6 +62,7 @@ class AdminReviewController extends Controller
         $review->setComment($request->input('comment'));
         $review->setRating($request->input('rating'));
         $review->setTechniqueId($request->input('technique'));
+        $review->setUserId(auth()->user()->id);
         $review->save();
 
         return redirect()->route('admin.review.index')->with('created', trans('admin.reviews.added'));
@@ -80,15 +77,13 @@ class AdminReviewController extends Controller
             $viewData = [];
             $viewData['review'] = Review::find($id);
             $viewData['techniques'] = $techniques;
-            $viewData['technique_name'] = $technique->getModel();
+            $viewData['technique_name'] = $technique->getName();
             $viewData['title'] = $viewData['technique_name'].' review';
-            $viewData['auth_user'] = auth()->user();
 
             return view('admin.review.edit')->with('viewData', $viewData);
         } else {
 
             return redirect()->route('admin.review.index');
-
         }
     }
 

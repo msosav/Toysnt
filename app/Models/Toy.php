@@ -12,7 +12,7 @@ class Toy extends Model
     /**
      * Toy ATTRIBUTES
      * $this->attributes['id'] - string - contains the pet primary key (id)
-     * $this->attributes['model'] - string - contains the toy model
+     * $this->attributes['name'] - string - contains the toy model
      * $this->attributes['image'] - string - contains the toy image path
      * $this->attributes['description'] - string - contains the toy description
      * $this->attributes['price'] - float - contains the toy price
@@ -22,21 +22,21 @@ class Toy extends Model
      * $this->attributes['created_at'] - string - contains when the toy was created
      * $this->attributes['updated_at'] - string - contains when the toy was updated
      */
-    protected $fillable = ['model', 'image', 'description', 'price'];
+    protected $fillable = ['name', 'image', 'description', 'price'];
 
     public function getId(): string
     {
         return $this->attributes['id'];
     }
 
-    public function getModel(): string
+    public function getName(): string
     {
-        return $this->attributes['model'];
+        return $this->attributes['name'];
     }
 
-    public function setModel(string $model): void
+    public function setName(string $name): void
     {
-        $this->attributes['model'] = $model;
+        $this->attributes['name'] = $name;
     }
 
     public function getImage(): string
@@ -160,5 +160,19 @@ class Toy extends Model
                 'stock' => 'numeric',
             ]);
         }
+    }
+
+    public static function stats(): Collection
+    {
+        $toys = Toy::all();
+        $toyStats = [];
+        foreach ($toys as $toy) {
+            $toyStats[$toy->getId()] = $toy->getItems()->count();
+        }
+        arsort($toyStats);
+        $toyStats = array_slice($toyStats, 0, 5, true);
+        $toyStats = Toy::findMany(array_keys($toyStats));
+
+        return $toyStats;
     }
 }

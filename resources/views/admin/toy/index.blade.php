@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
-@section('profileName', $viewData['auth_user']->getName())
 @section('content')
 <div class="d-flex flex-row py3 justify-content-between">
     <h1 class="title">@lang('admin.toys.index')</h1>
@@ -28,7 +27,7 @@
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
                     <div class="col-4">
-                        <h5 class="card-title">{{ $toy->getModel() }}</h5>
+                        <h5 class="card-title">{{ $toy->getName() }}</h5>
                     </div>
                     <div class="col-4">
                         <div class="d-flex justify-content-around">

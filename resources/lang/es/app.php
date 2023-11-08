@@ -13,6 +13,15 @@ return [
         'toys' => 'Juguetes',
         'techniques' => 'Técnicas',
         'logout' => 'Cerrar sesión',
+        'admin' => 'Panel de administración',
+    ],
+    'home' => [
+        'home' => 'Inicio - Toysnt',
+        'message' => 'Juega, destroza, repite: Tu tienda de diversión extrema',
+        'button' => 'Ir a la tienda',
+        'info' => 'Más información',
+        'top_toys' => 'Juguetes más vendidos',
+        'top_techniques' => 'Técnicas mejor calificadas',
     ],
     'search' => [
         'toy' => 'Buscar juguete',
@@ -57,13 +66,13 @@ return [
     ],
     'toy' => [
         'stock' => 'En inventario',
-        'cart' => 'Añadir al carrito',
         'out_of_stock' => 'Sin inventario',
     ],
     'terms_and_conditions' => 'Términos y condiciones',
     'cart' => [
         'cart' => 'Carrito de compras',
         'empty' => 'Vaciar el carrito',
+        'add' => 'Añadir al carrito',
         'technique_removed' => '¡Técnica eliminada con éxito!',
         'toy_added' => '¡Juguete añadido con éxito!',
         'technique_added' => 'Técnica añadida con éxito!',
@@ -77,9 +86,10 @@ return [
         'technique_already_added' => '¡Esta técnica ya está en el carrito!',
         'quantity' => 'Cantidad',
         'pay' => 'Pagar',
-    ],
-    'technique' => [
-        'cart' => 'Añadir al carrito',
+        'toys' => 'Volver a los juguetes',
+        'techniques' => 'Volver a las técnicas',
+        'stock_changed' => 'El inventario de los siguientes juguetes cambió: ',
+        'stock_changed_units' => ' unidades',
     ],
     'stats' => [
         'technique' => 'Técnica',
@@ -94,5 +104,17 @@ return [
         'review' => 'Reseña',
         'rating' => 'Calificación',
         'submit' => 'Enviar',
+    ],
+    'orders' => [
+        'my_orders' => 'Mis órdenes',
+        'order' => 'Orden',
+        'date' => 'Fecha',
+        'total' => 'Total',
+        'item' => 'Ítem',
+        'price' => 'Precio',
+        'quantity' => 'Cantidad',
+        'no_orders' => 'No has comprado nada en nuestra tienda, ¡qué triste! =(',
+        'toys' => 'Ver nuestros juguetes',
+        'techniques' => 'Ver nuestras técnicas',
     ],
 ];

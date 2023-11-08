@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function new(): RedirectResponse
-    {
-        return redirect()->back()->with('newComment', 1);
-    }
-
     public function save(Request $request, string $type, string $id): RedirectResponse
     {
         Review::validate($request);

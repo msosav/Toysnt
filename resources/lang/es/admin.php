@@ -8,6 +8,7 @@ return [
         'reviews' => 'Reseñas',
         'orders' => 'Pedidos',
         'logout' => 'Salir',
+        'store' => 'Tienda',
     ],
     'toys' => [
         'index' => 'Juguetes',

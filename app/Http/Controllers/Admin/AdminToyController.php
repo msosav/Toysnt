@@ -16,7 +16,6 @@ class AdminToyController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.toys.index');
         $viewData['toys'] = Toy::all();
-        $viewData['auth_user'] = auth()->user();
 
         return view('admin.toy.index')->with('viewData', $viewData);
     }
@@ -30,8 +29,7 @@ class AdminToyController extends Controller
         } else {
             $viewData = [];
             $viewData['toy'] = $toy;
-            $viewData['title'] = $viewData['toy']->getModel();
-            $viewData['auth_user'] = auth()->user();
+            $viewData['title'] = $viewData['toy']->getName();
 
             return view('admin.toy.show')->with('viewData', $viewData);
         }
@@ -41,7 +39,6 @@ class AdminToyController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('admin.toys.create');
-        $viewData['auth_user'] = auth()->user();
 
         return view('admin.toy.create')->with('viewData', $viewData);
     }
@@ -51,7 +48,7 @@ class AdminToyController extends Controller
         Toy::validate($request, [], ['toy_image']);
 
         $toy = new Toy();
-        $toy->setModel($request->input('model'));
+        $toy->setName($request->input('model'));
         $toy->setPrice($request->input('price'));
         $toy->setStock($request->input('stock'));
         $toy->setDescription($request->input('description'));
@@ -76,8 +73,7 @@ class AdminToyController extends Controller
         } else {
             $viewData = [];
             $viewData['toy'] = $toy;
-            $viewData['title'] = $viewData['toy']->getModel();
-            $viewData['auth_user'] = auth()->user();
+            $viewData['title'] = $viewData['toy']->getName();
 
             return view('admin.toy.edit')->with('viewData', $viewData);
         }
@@ -93,10 +89,10 @@ class AdminToyController extends Controller
 
         Toy::validate($request, [], ['toy_image']);
 
-        $toy->setModel($request->input('model'));
+        $toy->setName($request->input('model'));
         if ($request->input('toy_image') != null) {
             $image = app(ImageStorage::class);
-            $image->store($request, 'toy_image', $toy->getModel());
+            $image->store($request, 'toy_image', $toy->getName());
             $toy->setImage($image->getImagePath());
         }
         $toy->setPrice($request->input('price'));

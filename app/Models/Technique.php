@@ -12,28 +12,28 @@ class Technique extends Model
     /**
      * Technique ATTRIBUTES
      * $this->attributes['id'] - string - contains the technique primary key (id)
-     * $this->attributes['model'] - string - contains the technique model
+     * $this->attributes['name'] - string - contains the technique name
      * $this->attributes['image'] - string - contains the technique image path
      * $this->attributes['description'] - string - contains the technique description
      * $this->attributes['price'] - float - contains the technique price
      * $this->attributes['created_at'] - string - contains when the technique was created
      * $this->attributes['updated_at'] - string - contains when the technique was updated
      */
-    protected $fillable = ['model', 'image', 'description', 'price'];
+    protected $fillable = ['name', 'image', 'description', 'price'];
 
     public function getId(): string
     {
         return $this->attributes['id'];
     }
 
-    public function getModel(): string
+    public function getName(): string
     {
-        return $this->attributes['model'];
+        return $this->attributes['name'];
     }
 
-    public function setModel(string $model): void
+    public function setName(string $name): void
     {
-        $this->attributes['model'] = $model;
+        $this->attributes['name'] = $name;
     }
 
     public function getImage(): string
@@ -127,5 +127,19 @@ class Technique extends Model
                 'price' => 'numeric',
             ]);
         }
+    }
+
+    public static function stats(): Collection
+    {
+        $techniques = Technique::all();
+        $techniqueStats = [];
+        foreach ($techniques as $technique) {
+            $techniqueStats[$technique->getId()] = $technique->getReviews()->count();
+        }
+        arsort($techniqueStats);
+        $techniqueStats = array_slice($techniqueStats, 0, 5, true);
+        $techniqueStats = Technique::findMany(array_keys($techniqueStats));
+
+        return $techniqueStats;
     }
 }
