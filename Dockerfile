@@ -11,8 +11,6 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
-
-COPY ./sample /storage
 RUN php artisan key:generate
 RUN php artisan migrate
 RUN chmod -R 777 storage
