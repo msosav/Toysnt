@@ -1,75 +1,58 @@
-# Manual de uso
+![Logo](https://github.com/msosav/Toysnt/assets/85181687/2899530b-eedd-40e7-91a0-92e13d4c63f6)
 
-## Local
 
-### Primer uso
+# Toysnt
 
-1. [Instalar XAMPP](https://www.apachefriends.org/download.html)
+Toysnt is an e-commerce for toys that can be both delivered or destroyed by our techniques (such as dynamite or acid).
 
-2. En el directorio donde se instaló XAMPP, ir a la carpeta de xampp y luego a htdocs
+## Documentation
 
-3. En la carpeta htdocs, clonar el repositorio desde
+[Wiki](https://github.com/msosav/Toysnt/wiki)
+    
+## Run Locally
 
-    ```git
-     https://github.com/msosav/Toysnt.git
-    ```
+[Install XAMPP](https://www.apachefriends.org/download.html) or [Install LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04-es)
 
-4. En la aplicación de XAMPP:
+Start Apache and MySQL in XAMPP (or LAMP).
 
-    - Iniciar Apache
-    - Iniciar MySQL
+[Install composer](https://getcomposer.org/download/)
 
-5. Abrir la carpeta del repositorio clonado en el editor de código a utilizar (si no sabes cual usar, puedes ver [como instalar VSCode](https://code.visualstudio.com/download))
+Clone the repository
 
-6. En el editor de código, pararse en el directorio padre y crear un nuevo archivo al que se le pondrá `.env` y donde copiarás y pegaras en contenido de `.env.example`
+```bash
+git clone https://github.com/msosav/Toysnt
+```
 
-7. Luego de haber copiado el contenido debes modificar lo que dice `DB_DATABASE=laravel` a `DB_DATABASE=toysnt`
+Go to the project directory
 
-8. Abrir la consola en el directorio del proyecto y ejecutar el siguiente comando
+```bash
+  cd Toysnt
+```
 
-    ```cmd
-    php composer.phar update
-    ```
+Create a .env file and copy the information of the .env.example.
 
-    Esto instalará los paquetes necesarios para que el proyecto pueda ejecutarse con normalidad
+Install dependencies
 
-9. En la consola ejecutar el siguiente comando
+```bash
+composer update
+```
 
-    ```cmd
-    php artisan key:generate
-    ```
+Configure the project
 
-11. En la misma consola, ejecutar el siguiente comando
+```bash
+php artisan key:generate
+php artisan migrate
+php storage:link
+```
 
-    ```cmd
-    php artisan migrate
-    ```
+Run the server
 
-    Si sale un aviso que indique que la tabla toysnt no existe en la conexión mysql, lo que debes escribir es 'Si'
+```bash
+php artisan serve
+```
 
-12. Ejecutar este comando
+## Authors
 
-    ```cmd
-    php artisan storage:link
-    ```
-
-13. Por último, ejecutar el siguiente comando
-
-    ```cmd
-    php artisan serve
-    ```
-
-    Y luego dirígete a la dirección que este te indica ej. `http://127.0.0.1:8000`
-
-### Uso recurrente
-
-1. En la aplicación de XAMPP:
-
-    - Iniciar Apache
-    - Iniciar MySQL
-
-2. Ejecutar el siguiente comando
-
-    ```cmd
-    php artisan serve
-    ```
+- [@msosav](https://www.github.com/msosav)
+- [@EsteTruji](https://github.com/EsteTruji)
+- [@cpalacior](https://github.com/cpalacior)
