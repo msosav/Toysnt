@@ -3,7 +3,7 @@
 
 # Toysnt
 
-Toysnt is an e-commerce for toys that can be both delivered or destroyed by our techniques (such as dynamite or acid).
+Toysnt is an online store where you can buy toys and destroy them with different techniques that satisfy the user's desire to release their dissatisfaction with any of these toys.
 
 ## Documentation
 
