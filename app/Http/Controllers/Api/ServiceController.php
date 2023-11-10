@@ -3,11 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\View\View;
 use App\Models\Item;
-use App\Models\Toy;
 use Illuminate\Http\JsonResponse;
 
 class ServiceController extends Controller
