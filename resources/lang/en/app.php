@@ -22,6 +22,8 @@ return [
         'info' => 'More information',
         'top_toys' => 'Top toys',
         'top_techniques' => 'Top rated techniques',
+        'ip' => 'Your IP is ',
+        'from' => 'from ',
     ],
     'search' => [
         'toy' => 'Search toy',
