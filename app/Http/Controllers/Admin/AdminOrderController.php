@@ -13,7 +13,6 @@ class AdminOrderController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.orders.index');
         $viewData['orders'] = Order::all();
-        $viewData['auth_user'] = auth()->user();
 
         return view('admin.order.index')->with('viewData', $viewData);
     }

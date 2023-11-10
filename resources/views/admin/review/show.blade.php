@@ -1,12 +1,7 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
-@section('profileName', $viewData['auth_user']->getName())
 @section('content')
-@if (session('edited'))
-<div class="alert alert-warning" role="alert">
-    {{ session('edited') }}
-</div>
-@endif
+@include('layouts.alerts')
 <div class="card md-5 my-4 mx-4">
     <div class="row g-3">
         <div class="col-md-3 my-5">

@@ -15,16 +15,15 @@ class ToyController extends Controller
         $viewData = [];
         $viewData['title'] = trans('app.titles.home');
         $viewData['toys'] = Toy::all();
-        $viewData['auth_user'] = auth()->user();
 
         $items = Item::all();
         $toyStats = [];
         foreach ($items as $item) {
             if ($item->getToyId() != null) {
-                if (isset($toyStats[$item->getMethod()])) {
-                    $toyStats[$item->getMethod()] += $item->getQuantity();
+                if (isset($toyStats[$item->getName()])) {
+                    $toyStats[$item->getName()] += $item->getQuantity();
                 } else {
-                    $toyStats[$item->getMethod()] = $item->getQuantity();
+                    $toyStats[$item->getName()] = $item->getQuantity();
                 }
             }
         }
@@ -43,10 +42,9 @@ class ToyController extends Controller
         } else {
             $viewData = [];
             $viewData['toy'] = $toy;
-            $viewData['title'] = $viewData['toy']->getModel();
+            $viewData['title'] = $viewData['toy']->getName();
             $viewData['reviews'] = $viewData['toy']->reviews()->get();
             $viewData['reviewCount'] = $viewData['reviews']->count();
-            $viewData['auth_user'] = auth()->user();
 
             return view('toy.show')->with('viewData', $viewData);
         }
@@ -60,17 +58,17 @@ class ToyController extends Controller
             return redirect()->route('toy.index');
         }
 
-        return redirect()->route('toy.results', ['model' => $search]);
+        return redirect()->route('toy.results', ['name' => $search]);
     }
 
-    public function results(string $model): View|RedirectResponse
+    public function results(string $name): View|RedirectResponse
     {
-        if ($model == null) {
+        if ($name == null) {
             return redirect()->route('toy.index');
         }
 
         $toys = Toy::query()
-            ->where('model', 'LIKE', "%{$model}%")
+            ->where('name', 'LIKE', "%{$name}%")
             ->get();
 
         $viewData = [];
@@ -79,9 +77,8 @@ class ToyController extends Controller
         } else {
             $viewData['toys'] = $toys;
         }
-        $viewData['search'] = $model;
-        $viewData['title'] = $model;
-        $viewData['auth_user'] = auth()->user();
+        $viewData['search'] = $name;
+        $viewData['title'] = $name;
 
         return view('toy.results')->with('viewData', $viewData);
     }

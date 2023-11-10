@@ -1,12 +1,11 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
-@section('profileName', $viewData['auth_user']->getName())
 @section('content')
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">@lang('admin.techniques.edit'): {{ $viewData['technique']->getModel() }}</div>
+                <div class="card-header">@lang('admin.techniques.edit'): {{ $viewData['technique']->getName() }}</div>
                 <div class="card-body">
                     @if($errors->any())
                     <ul id="errors" class="alert alert-danger list-unstyled">
@@ -18,7 +17,7 @@
 
                     <form method="POST" action="{{ route('admin.technique.update', ['id' => $viewData['technique']->getId()]) }}" enctype="multipart/form-data">
                         @csrf
-                        <input type="text" class="form-control mb-2" placeholder="@lang('admin.techniques.model')" name="model" value="{{ $viewData['technique']->getModel() }}" />
+                        <input type="text" class="form-control mb-2" placeholder="@lang('admin.techniques.model')" name="model" value="{{ $viewData['technique']->getName() }}" />
                         <input type="file" name="technique_image" accept=".jpg,.png,.jpeg" class="form-control mb-2" />
                         <input type="text" class="form-control mb-2" placeholder="@lang('admin.techniques.description')" name="description" value="{{ $viewData['technique']->getDescription() }}" />
                         <input type="number" class="form-control mb-2" placeholder="@lang('admin.techniques.price')" name="price" value="{{ $viewData['technique']->getPrice() }}" />

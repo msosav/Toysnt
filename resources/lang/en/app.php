@@ -13,6 +13,17 @@ return [
         'toys' => 'Toys',
         'techniques' => 'Techniques',
         'logout' => 'Logout',
+        'admin' => 'Admin panel',
+    ],
+    'home' => [
+        'home' => 'Home - Toysnt',
+        'message' => 'Play, destroy, repeat: Your extreme fun store',
+        'button' => 'Go to the store',
+        'info' => 'More information',
+        'top_toys' => 'Top toys',
+        'top_techniques' => 'Top rated techniques',
+        'ip' => 'Your IP is ',
+        'from' => 'from ',
     ],
     'search' => [
         'toy' => 'Search toy',
@@ -57,12 +68,12 @@ return [
     ],
     'toy' => [
         'stock' => 'In stock',
-        'cart' => 'Add to cart',
         'out_of_stock' => 'Out of stock',
     ],
     'terms_and_conditions' => 'Terms and conditions',
     'cart' => [
         'cart' => 'Shopping cart',
+        'add' => 'Add to cart',
         'empty' => 'Empty shopping cart',
         'technique_removed' => 'Technique deleted successfully!',
         'toy_added' => 'Toy added successfully!',
@@ -77,9 +88,10 @@ return [
         'technique_already_added' => 'This technique is already in the shopping cart!',
         'quantity' => 'Quantity',
         'pay' => 'Pay',
-    ],
-    'technique' => [
-        'cart' => 'Add to cart',
+        'toys' => 'Go back to toys',
+        'techniques' => 'Go back to techniques',
+        'stock_changed' => 'The stock of the following toys has changed: ',
+        'stock_changed_units' => ' units',
     ],
     'stats' => [
         'technique' => 'Technique',
@@ -94,5 +106,17 @@ return [
         'review' => 'Review',
         'rating' => 'Rating',
         'submit' => 'Submit',
+    ],
+    'orders' => [
+        'my_orders' => 'My orders',
+        'order' => 'Order',
+        'date' => 'Date',
+        'total' => 'Total',
+        'item' => 'Item',
+        'price' => 'Price',
+        'quantity' => 'Quantity',
+        'no_orders' => 'You have not purchased anything in our store, so sad =(',
+        'toys' => 'See our toys',
+        'techniques' => 'See our techniques',
     ],
 ];

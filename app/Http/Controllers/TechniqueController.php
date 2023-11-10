@@ -16,11 +16,10 @@ class TechniqueController extends Controller
         $viewData['title'] = trans('app.titles.home');
         $viewData['selected'] = 'techniques';
         $viewData['techniques'] = $techniques;
-        $viewData['auth_user'] = auth()->user();
 
         $reviews = [];
         foreach ($techniques as $technique) {
-            $reviews[$technique->getModel()] = count($technique->getReviews());
+            $reviews[$technique->getName()] = count($technique->getReviews());
         }
         arsort($reviews);
         $viewData['stats'] = $reviews;
@@ -37,10 +36,9 @@ class TechniqueController extends Controller
         } else {
             $viewData = [];
             $viewData['technique'] = $technique;
-            $viewData['title'] = $viewData['technique']->getModel();
+            $viewData['title'] = $viewData['technique']->getName();
             $viewData['reviews'] = $viewData['technique']->reviews()->get();
             $viewData['reviewCount'] = $viewData['reviews']->count();
-            $viewData['auth_user'] = auth()->user();
 
             return view('technique.show')->with('viewData', $viewData);
         }
@@ -54,17 +52,17 @@ class TechniqueController extends Controller
             return redirect()->route('technique.index');
         }
 
-        return redirect()->route('technique.results', ['model' => $search]);
+        return redirect()->route('technique.results', ['name' => $search]);
     }
 
-    public function results(string $model): View|RedirectResponse
+    public function results(string $name): View|RedirectResponse
     {
-        if ($model == null) {
+        if ($name == null) {
             return redirect()->route('technique.index');
         }
 
         $techniques = Technique::query()
-            ->where('model', 'LIKE', "%{$model}%")
+            ->where('name', 'LIKE', "%{$name}%")
             ->get();
 
         $viewData = [];
@@ -73,9 +71,8 @@ class TechniqueController extends Controller
         } else {
             $viewData['techniques'] = $techniques;
         }
-        $viewData['search'] = $model;
-        $viewData['title'] = $model;
-        $viewData['auth_user'] = auth()->user();
+        $viewData['search'] = $name;
+        $viewData['title'] = $name;
 
         return view('technique.results')->with('viewData', $viewData);
     }
