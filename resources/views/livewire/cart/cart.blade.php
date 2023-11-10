@@ -65,6 +65,6 @@
             @endforeach
             @endif
         </div>
+        @endif
     </div>
-    @endif
 </div>
