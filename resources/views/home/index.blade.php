@@ -61,4 +61,10 @@
             @endforeach
         </div>
 </section>
+
+<div class="center mb-2">
+    <small>@lang('app.home.ip') <b>{{$viewData['apiIp']}}</b>, @lang('app.home.from') <b>{{$viewData['apiCity']}}, {{$viewData['apiCountry']}}.</b></small> 
+</div>
+
+
 @endsection
