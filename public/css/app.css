@@ -147,6 +147,10 @@ icon-shape {
     height: 2rem;
 }
 
+.center {
+    text-align: center;
+}
+
 /*
 =========================================
     Home

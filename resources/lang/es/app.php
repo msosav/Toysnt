@@ -22,6 +22,8 @@ return [
         'info' => 'Más información',
         'top_toys' => 'Juguetes más vendidos',
         'top_techniques' => 'Técnicas mejor calificadas',
+        'ip' => 'Tu IP es ',
+        'from' => 'de ',
     ],
     'search' => [
         'toy' => 'Buscar juguete',
