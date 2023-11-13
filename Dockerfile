@@ -22,6 +22,6 @@ ENV DB_PASSWORD=${DB_PASSWORD}
 RUN php artisan key:generate
 RUN chmod -R 777 storage
 RUN a2enmod rewrite
-COPY "entrypoint.sh" "entrypoint.sh"
-RUN chmod +x "entrypoint.sh"
-ENTRYPOINT ["entrypoint.sh"]
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
