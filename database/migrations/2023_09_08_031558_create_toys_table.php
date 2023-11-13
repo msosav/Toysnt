@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('toys', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
+            $table->string('image', 1000);
+            $table->string('storage');
             $table->string('description');
             $table->float('price');
             $table->integer('stock');
