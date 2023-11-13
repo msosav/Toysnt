@@ -8,7 +8,14 @@
     @foreach ($viewData['toys'] as $toy)
     <div class="col-4 d-flex justify-content-start">
         <div class="card me-2" id="index-card">
+            @if ($toy->getStorage() == "local")
             <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top" alt="{{ $toy->getName() }}" id="index-card-image">
+            @endif
+
+            @if ($toy->getStorage() == "gcp")
+            <img src="{{ $toy->getImage() }}" class="card-img-top" alt="{{ $toy->getName() }}" id="index-card-image">
+            @endif
+            
             <div class="card-body">
                 <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}" id="card-title">{{ $toy->getName() }}</a></h5>
                 <div class="row">

@@ -6,7 +6,13 @@
     <h1 id="show-title" class="py-1">{{ $viewData['toy']->getName() }}</h1>
     <div class="row g-5">
         <div class="col-md-7">
+            @if ($viewData['toy']->getStorage() == "local")
             <img src="{{ URL::asset('storage/'.$viewData['toy']->getImage()) }}" class="img img-fluid rounded" id="card-image">
+            @endif
+            
+            @if ($viewData['toy']->getStorage() == "gcp")
+            <img src="{{ $viewData['toy']->getImage() }}" class="img img-fluid rounded" id="card-image">
+            @endif
         </div>
         <div class="col-md-3 text-center">
             <div class="px-2 py-2 d-block">
