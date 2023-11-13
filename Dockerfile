@@ -11,7 +11,7 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
-    
+
 COPY .env.example .env
 ARG DB_HOST
 ARG DB_DATABASE
