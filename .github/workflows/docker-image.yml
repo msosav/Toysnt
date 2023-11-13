@@ -28,3 +28,8 @@ jobs:
       
     - name: Docker Push
       run: docker push msosav/toysnt
+
+    - name: Run Docker Image with Test Database
+      run: |
+        docker run -d --name test-db -e MYSQL_ROOT_PASSWORD=testpass -e MYSQL_DATABASE=testdb -e MYSQL_USER=testuser -e MYSQL_PASSWORD=testpass mysql:5.7
+        docker run -d --name app --link test-db:mysql -e DB_HOST=test-db -e DB_NAME=testdb -e DB_PASSWORD=testpass msosav/toysnt
