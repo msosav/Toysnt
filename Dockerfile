@@ -24,6 +24,7 @@ RUN chmod -R 777 storage
 RUN php artisan storage:link
 RUN a2enmod rewrite
 RUN service apache2 restart
+
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
