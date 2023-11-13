@@ -12,9 +12,6 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/cards.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/home.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/owl/owl.carousel.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/owl/owl.theme.default.css') }}" rel="stylesheet" />
 
     <!-- Livewire CSS -->
     @livewireStyles
