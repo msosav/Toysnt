@@ -22,14 +22,13 @@ jobs:
         DOCKER_PASS: ${{secrets.DOCKERHUB_PASS}}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+    - name: Build Test Database
+      run: |
+        docker run -d --name test-db -e MYSQL_ROOT_PASSWORD=testpass -e MYSQL_DATABASE=testdb -e MYSQL_USER=testuser -e MYSQL_PASSWORD=testpass mysql:5.7
         
     - name: Build the Docker Image
-      run: docker build . --file Dockerfile --tag msosav/toysnt:latest
+      run: docker run -d --name app --link test-db:mysql -e DB_HOST=test-db -e DB_NAME=testdb -e DB_PASSWORD=testpass msosav/toysnt
       
     - name: Docker Push
       run: docker push msosav/toysnt
-
-    - name: Run Docker Image with Test Database
-      run: |
-        docker run -d --name test-db -e MYSQL_ROOT_PASSWORD=testpass -e MYSQL_DATABASE=testdb -e MYSQL_USER=testuser -e MYSQL_PASSWORD=testpass mysql:5.7
-        docker run -d --name app --link test-db:mysql -e DB_HOST=test-db -e DB_NAME=testdb -e DB_PASSWORD=testpass msosav/toysnt
