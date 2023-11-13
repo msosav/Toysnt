@@ -3,8 +3,8 @@
 namespace App\Util;
 
 use App\Interfaces\ImageStorage;
-use Illuminate\Http\Request;
 use Google\Cloud\Storage\StorageClient;
+use Illuminate\Http\Request;
 
 class ImageGCPStorage implements ImageStorage
 {
@@ -16,7 +16,7 @@ class ImageGCPStorage implements ImageStorage
             $bucket = $storage->bucket(env('GCP_BUCKET'));
             $gcpstoragePath = $image_type.'_'.$id.'.jpg';
             $bucket->upload(file_get_contents($request->file($image_type)->getRealPath()), [
-            'name' => $gcpstoragePath,]);
+                'name' => $gcpstoragePath, ]);
 
         }
 
