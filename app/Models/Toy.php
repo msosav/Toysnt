@@ -14,6 +14,7 @@ class Toy extends Model
      * $this->attributes['id'] - string - contains the pet primary key (id)
      * $this->attributes['name'] - string - contains the toy model
      * $this->attributes['image'] - string - contains the toy image path
+     * $this->attributes['storage'] - string - contains the toy image storage type
      * $this->attributes['description'] - string - contains the toy description
      * $this->attributes['price'] - float - contains the toy price
      * $this->attributes['stock'] - int - contains the toy stock
@@ -22,7 +23,7 @@ class Toy extends Model
      * $this->attributes['created_at'] - string - contains when the toy was created
      * $this->attributes['updated_at'] - string - contains when the toy was updated
      */
-    protected $fillable = ['name', 'image', 'description', 'price'];
+    protected $fillable = ['name', 'image', 'description', 'price', 'storage'];
 
     public function getId(): string
     {
@@ -47,6 +48,16 @@ class Toy extends Model
     public function setImage(string $image): void
     {
         $this->attributes['image'] = $image;
+    }
+
+    public function getStorage(): string
+    {
+        return $this->attributes['storage'];
+    }
+
+    public function setStorage(string $storage): void
+    {
+        $this->attributes['storage'] = $storage;
     }
 
     public function getDescription(): string
