@@ -2,9 +2,9 @@
 @section('title', $viewData['title'])
 @section('content')
 <section id="home">
-    <div class="container py-5">
-        <div class="row py-4">
-            <div class="col-lg-7 pt-5 text-center">
+    <div class="container py-4">
+        <div class="row py-3">
+            <div class="col-lg-7 text-center">
                 <h1 class="pt-5">@lang('app.home.message')</h1>
                 <a type="button" href="{{ route('toy.index') }}" class="btn btn1 mt-3 text-center py-2">
                     @lang('app.home.button')
