@@ -11,7 +11,7 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
-
+    
 COPY .env.example .env
 ARG DB_HOST
 ARG DB_DATABASE
@@ -20,7 +20,7 @@ ENV DB_HOST=${DB_HOST}
 ENV DB_DATABASE=${DB_DATABASE}
 ENV DB_PASSWORD=${DB_PASSWORD}
 RUN php artisan key:generate
-RUN php artisan migrate
 RUN chmod -R 777 storage
 RUN a2enmod rewrite
-RUN service apache2 restart
+COPY entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["entrypoint.sh"]
