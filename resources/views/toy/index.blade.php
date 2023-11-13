@@ -7,7 +7,14 @@
         @foreach ($viewData['toys'] as $toy)
         <div class="col-md-4 col-lg-3 mb-2 mt-1">
             <div class="card index-card h-100">
-                <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top index-image" alt="{{ $toy->getName() }}">
+            @if ($toy->getStorage() == "local")
+            <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top index-image" alt="{{ $toy->getName() }}">
+            @endif
+
+            @if ($toy->getStorage() == "gcp")
+            <img src="{{ $toy->getImage() }}" class="card-img-top index-image" alt="{{ $toy->getName() }}">
+            @endif
+                
                 <div class="card-body text-center">
                     <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}" id="card-title">{{ $toy->getName() }}</a></h5>
                     <h6 class="card-subtitle card-price">${{ $toy->getPrice() }}</h6>

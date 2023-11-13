@@ -24,7 +24,14 @@
             @foreach ($viewData['toysInCart'] as $toy)
             <div class="col-md-4 col-lg-3 mb-2 mt-1" wire:key="{{'toy' . $toy->getId()}}">
                 <div class="card index-card h-100">
+                    @if ($toy->getStorage() == "local")
                     <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top index-image" alt="{{ $toy->getName() }}">
+                    @endif
+
+                    @if ($toy->getStorage() == "gcp")
+                    <img src="{{ $toy->getImage() }}" class="card-img-top index-image" alt="{{ $toy->getName() }}">
+                    @endif
+                    
                     <div class="card-body text-center">
                         <div class="row">
                             <div class="col d-block">

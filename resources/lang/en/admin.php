@@ -16,7 +16,7 @@ return [
         'edit' => 'Edit',
         'show' => 'Show',
         'delete' => 'Delete',
-        'model' => 'Model',
+        'name' => 'Name',
         'description' => 'Description',
         'price' => 'Price',
         'stock' => 'Stock',

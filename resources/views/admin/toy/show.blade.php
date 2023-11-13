@@ -5,7 +5,14 @@
 <div class="card md-5 my-4 mx-4">
     <div class="row g-3">
         <div class="col-md-7">
+            @if ($viewData['toy']->getStorage() == "local")
             <img src="{{ URL::asset('storage/'.$viewData['toy']->getImage()) }}" class="img-fluid rounded-start" id="card-image">
+            @endif
+
+            @if ($viewData['toy']->getStorage() == "gcp")
+            <img src="{{ $viewData['toy']->getImage() }}" class="img-fluid rounded-start" id="card-image">
+            @endif
+            
         </div>
         <div class="col-md-3 my-5">
             <h1 id="show-title" class="py-1">{{ $viewData['toy']->getName() }}</h1>
