@@ -8,6 +8,7 @@ use App\Models\Toy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Util\ImageURLRetriever;
 
 class AdminToyController extends Controller
 {
@@ -52,13 +53,23 @@ class AdminToyController extends Controller
         $toy->setPrice($request->input('price'));
         $toy->setStock($request->input('stock'));
         $toy->setDescription($request->input('description'));
+        $toy->setStorage($request->get('storage'));
         $toy->setImage('default');
         $toy->save();
 
         Toy::validate($request, ['toy_image'], []);
-        $image = app(ImageStorage::class);
-        $image = $image->store($request, 'toy_image', $toy->getId());
-        $toy->setImage($image);
+
+        $storage = $request->get('storage');
+
+        $storeInterface = app(Imagestorage::class, ['storage' => $storage]);
+        $imageName = $storeInterface->store($request, 'toy_image', $toy->getId());
+        if ($storage == "gcp"){
+            $URLRetriever = new ImageURLRetriever();
+            $url = $URLRetriever->getImageUrl($imageName);
+            $toy->setImage($url);
+        }else if ($storage == "local"){
+            $toy->setImage($imageName);
+        }
         $toy->update();
 
         return redirect()->route('admin.toy.index')->with('created', trans('admin.toys.added'));
