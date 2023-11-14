@@ -28,6 +28,8 @@ return [
         'top_techniques' => 'Técnicas mejor calificadas',
         'ip' => 'Tu IP es ',
         'from' => 'de ',
+        'sold' => 'unidades vendidas',
+        'sold_one' => 'unidad vendida',
     ],
     'search' => [
         'toy' => 'Buscar juguete',
@@ -77,7 +79,7 @@ return [
     'terms_and_conditions' => 'Términos y condiciones',
     'cart' => [
         'cart' => 'Carrito de compras',
-        'empty' => 'Vaciar el carrito',
+        'empty' => 'El carrito está vacío',
         'add' => 'Añadir al carrito',
         'technique_removed' => '¡Técnica eliminada con éxito!',
         'toy_added' => '¡Juguete añadido con éxito!',

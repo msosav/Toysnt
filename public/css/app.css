@@ -80,6 +80,12 @@ nav {
     background-color: var(--cuaternaryColor);
 }
 
+.toys-count {
+    font-weight: bold;
+    text-align: center;
+    font-size: x-large;
+}
+
 .flex-column {
     background-color: var(--cuaternaryColor);
 }

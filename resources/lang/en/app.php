@@ -28,6 +28,8 @@ return [
         'top_techniques' => 'Top rated techniques',
         'ip' => 'Your IP is ',
         'from' => 'from ',
+        'sold' => 'units sold',
+        'sold_one' => 'unit sold',
     ],
     'search' => [
         'toy' => 'Search toy',
@@ -78,7 +80,7 @@ return [
     'cart' => [
         'cart' => 'Shopping cart',
         'add' => 'Add to cart',
-        'empty' => 'Empty shopping cart',
+        'empty' => 'Shopping cart is empty',
         'technique_removed' => 'Technique deleted successfully!',
         'toy_added' => 'Toy added successfully!',
         'technique_added' => 'Technique added successfully!',

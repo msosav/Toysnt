@@ -172,18 +172,4 @@ class Toy extends Model
             ]);
         }
     }
-
-    public static function stats(): Collection
-    {
-        $toys = Toy::all();
-        $toyStats = [];
-        foreach ($toys as $toy) {
-            $toyStats[$toy->getId()] = $toy->getItems()->count();
-        }
-        arsort($toyStats);
-        $toyStats = array_slice($toyStats, 0, 5, true);
-        $toyStats = Toy::findMany(array_keys($toyStats));
-
-        return $toyStats;
-    }
 }

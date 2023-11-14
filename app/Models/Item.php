@@ -141,4 +141,29 @@ class Item extends Model
     {
         return $this->attributes['updated_at'];
     }
+
+    public static function stats(): array
+    {
+        $items = Item::all();
+        $toyStats = [];
+        foreach ($items as $item) {
+            if ($item->getToyId() != null) {
+                if (isset($toyStats[$item->getToyId()])) {
+                    $toyStats[$item->getToyId()] += $item->getQuantity();
+                } else {
+                    $toyStats[$item->getToyId()] = $item->getQuantity();
+                }
+            }
+        }
+
+        krsort($toyStats);
+        $toyStats = array_slice($toyStats, 0, 3, true);
+        $toysCount = $toyStats;
+        $toyStats = Toy::findMany(array_keys($toyStats));
+        $toyGroup = [];
+        $toyGroup['count'] = $toysCount;
+        $toyGroup['stats'] = $toyStats;  
+
+        return $toyGroup;
+    }
 }
