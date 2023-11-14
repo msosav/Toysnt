@@ -3,26 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Item;
+use App\Models\Toy;
 use Illuminate\Http\JsonResponse;
 
 class ServiceController extends Controller
 {
-    public function showBestSeller(): JsonResponse
+    public function showToys(): JsonResponse
     {
-        $items = Item::all();
-        $toyStats = [];
-        foreach ($items as $item) {
-            if ($item->getToyId() != null) {
-                if (isset($toyStats[$item->getMethod()])) {
-                    $toyStats[$item->getMethod()] += $item->getQuantity();
-                } else {
-                    $toyStats[$item->getMethod()] = $item->getQuantity();
-                }
-            }
-        }
-        arsort($toyStats);
+        $toys = Toy::all();
 
-        return response()->json($toyStats, 200);
+        return response()->json($toys, 200);
     }
 }

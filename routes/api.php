@@ -8,4 +8,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //Servicio web
-Route::get('/bestsellers/view', 'App\Http\Controllers\Api\ServiceController@showBestSeller')->name('service.show');
+Route::get('/bestsellers/view', 'App\Http\Controllers\Api\ServiceController@showToys')->name('service.show');
