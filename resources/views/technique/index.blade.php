@@ -9,7 +9,7 @@
     </div>
     <div class="card-group">
         @foreach ($viewData['techniques'] as $technique)
-        <div class="col-md-4 col-lg-3 mb-2 mt-1">
+        <div class="col-md-4 col-lg-4 mb-4 mt-1 ml-4">
             <div class="card index-card h-100">
                 <img src="{{ URL::asset('storage/'.$technique->getImage()) }}" class="card-img-top index-image" alt="{{ $technique->getName() }}">
                 <div class="card-body text-center">

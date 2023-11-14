@@ -5,6 +5,7 @@
     <h1 class="title">@lang('admin.orders.index')</h1>
 </div>
 <div class="row d-flex justify-content-center py-2 px-2">
+    @include('layouts.alerts')
     @foreach ($viewData['orders'] as $order)
     <div class="card-body p-2">
         <div class="card">
@@ -15,9 +16,8 @@
                     </div>
                     <div class="col-4">
                         <div class="d-flex justify-content-around">
-                            <a href="" id="admin-show"><i class="fa-solid fa-eye"></i> @lang('admin.toys.show')</a>
-                            <a href="" id="admin-edit"><i class="fa-solid fa-pen"></i> @lang('admin.toys.edit')</a>
-                            <a href="" id="admin-delete"><i class="fa-solid fa-trash"></i> @lang('admin.toys.delete')</a>
+                            <a href="{{ route('admin.order.show', ['id'=> $order['id']]) }}" id="admin-show"><i class="fa-solid fa-eye"></i> @lang('admin.toys.show')</a>
+                            <a href="{{ route('admin.order.delete', ['id'=> $order['id']]) }}" id="admin-delete"><i class="fa-solid fa-trash"></i> @lang('admin.toys.delete')</a>
                         </div>
                     </div>
                 </div>
