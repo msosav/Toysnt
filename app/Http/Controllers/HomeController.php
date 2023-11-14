@@ -17,9 +17,10 @@ class HomeController extends Controller
         $apiResponse = $apiInstance->retrieveInfo('http://ipwho.is/');
         $apiResponse = json_decode($apiResponse);
         $viewData = [];
-        $toysGroup = [];
         $viewData['title'] = trans('app.home.home');
-        $viewData['toys'] = Toy::stats();
+        $toysGroup = Toy::stats();
+        $viewData['toys'] = $toysGroup['stats'];
+        $viewData['count'] = $toysGroup['count'];
         $viewData['techniques'] = Technique::stats();
         $viewData['apiIp'] = $apiResponse->ip;
         $viewData['apiCountry'] = $apiResponse->country;
