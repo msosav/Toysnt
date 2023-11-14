@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Technique;
 use App\Models\Toy;
 use App\Util\ThirdPartyApi;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
@@ -16,6 +17,7 @@ class HomeController extends Controller
         $apiResponse = $apiInstance->retrieveInfo('http://ipwho.is/');
         $apiResponse = json_decode($apiResponse);
         $viewData = [];
+        $toysGroup = [];
         $viewData['title'] = trans('app.home.home');
         $viewData['toys'] = Toy::stats();
         $viewData['techniques'] = Technique::stats();
@@ -26,7 +28,7 @@ class HomeController extends Controller
         return view('home.index')->with('viewData', $viewData);
     }
 
-    public function changeLocale($locale)
+    public function changeLocale($locale): RedirectResponse
     {
         Session::put('locale', $locale);
 
