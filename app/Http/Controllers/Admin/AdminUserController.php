@@ -81,6 +81,9 @@ class AdminUserController extends Controller
         $user->setName($request->input('name'));
         $user->setEmail($request->input('email'));
         $user->setAddress($request->input('address'));
+        if ($request->input('password') != '') {
+            $user->setPassword($request->input('password'));
+        }
         $user->setRole($request->input('role'));
         $user->setBalance($request->input('balance'));
         $user->update();
