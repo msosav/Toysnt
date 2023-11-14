@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Interfaces\ImageStorage;
 use App\Models\Toy;
+use App\Util\ImageURLRetriever;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Util\ImageURLRetriever;
 
 class AdminToyController extends Controller
 {
@@ -63,11 +63,11 @@ class AdminToyController extends Controller
 
         $storeInterface = app(Imagestorage::class, ['storage' => $storage]);
         $imageName = $storeInterface->store($request, 'toy_image', $toy->getId());
-        if ($storage == "gcp"){
+        if ($storage == 'gcp') {
             $URLRetriever = new ImageURLRetriever();
             $url = $URLRetriever->getImageUrl($imageName);
             $toy->setImage($url);
-        }else if ($storage == "local"){
+        } elseif ($storage == 'local') {
             $toy->setImage($imageName);
         }
         $toy->update();

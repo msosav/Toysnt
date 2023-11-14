@@ -12,8 +12,8 @@ class ImageURLRetriever
         $bucket = $storage->bucket('images-toysnt');
 
         $object = $bucket->object($imageName);
-        $url = $object->signedUrl(new \DateTime('+10 years')); 
-        
+        $url = $object->signedUrl(new \DateTime('+10 years'));
+
         return $url;
     }
 }

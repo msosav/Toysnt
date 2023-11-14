@@ -11,7 +11,7 @@ class ThirdPartyApi
         if ($response !== false) {
             return $response;
         } else {
-            return "Failed to retrieve data from the API.";
+            return 'Failed to retrieve data from the API.';
         }
     }
 }
