@@ -17,7 +17,7 @@
 
                     <form method="POST" action="{{ route('admin.review.save') }}" enctype="multipart/form-data">
                         @csrf
-                        <input type="text" class="form-control mb-2" placeholder=@lang('admin.reviews.rating') name="rating" value="{{ old('rating') }}" />
+                        <input type="number" class="form-control mb-2" placeholder=@lang('admin.reviews.rating') min="0" max="5" name="rating" value="{{ old('rating') }}" />
                         <input type="text" class="form-control mb-2" placeholder=@lang('admin.reviews.comment') name="comment" value="{{ old('comment') }}" />
                         <select class="form-control mb-2" placeholder=@lang('admin.reviews.technique') name="technique" value="{{ old('technique') }}">
                             @foreach ($viewData['techniques'] as $technique)
