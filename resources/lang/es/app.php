@@ -28,6 +28,8 @@ return [
         'top_techniques' => 'Técnicas mejor calificadas',
         'ip' => 'Tu IP es ',
         'from' => 'de ',
+        'sold' => 'unidades vendidas',
+        'sold_one' => 'unidad vendida',
     ],
     'search' => [
         'toy' => 'Buscar juguete',

@@ -28,6 +28,8 @@ return [
         'top_techniques' => 'Top rated techniques',
         'ip' => 'Your IP is ',
         'from' => 'from ',
+        'sold' => 'units sold',
+        'sold_one' => 'unit sold',
     ],
     'search' => [
         'toy' => 'Search toy',
