@@ -27,10 +27,10 @@
     <div class="mt-5 mb-4">
         <h1 class="text-center">@lang('app.home.top_toys')</h1>
     </div>
-    <div class="d-flex justify-content-center mb-4">
+    <div class="d-flex justify-content-center  mb-4">
         <div class="row">
             @foreach ($viewData['toys'] as $toy)
-            <div class="col-md-4 col-lg-4 mb-4 mt-3 ml-4">
+            <div class="col-md-4 col-lg-4 mb-4 mt-3 ps-5 ml-4">
                 <div class="card index-card">
                     @if ($toy->getStorage() == "local")
                     <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top index-image" alt="{{ $toy->getName() }}">
@@ -45,7 +45,16 @@
                     </div>
                 </div>
             </div>
-
+            @endforeach
+            
+            @foreach ($viewData['count'] as $key => $value)
+            <div class="col-md-4 col-lg-4 mb-4 ml-3 toys-count">
+                @if ($value == 1)
+                <p>{{$value}} @lang('app.home.sold_one')</p>
+                @else
+                <p>{{$value}} @lang('app.home.sold')</p>
+                @endif
+            </div>
             @endforeach
         </div>
     </div>
