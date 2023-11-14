@@ -75,5 +75,6 @@ Route::middleware('admin')->group(function () {
 
     //Rutas de AdminOrder
     Route::get('/admin/orders', 'App\Http\Controllers\Admin\AdminOrderController@index')->name('admin.order.index');
-    Route::get('/admin/orders/show', 'App\Http\Controllers\Admin\AdminOrderController@show')->name('admin.order.show');
+    Route::get('/admin/orders/{id}', 'App\Http\Controllers\Admin\AdminOrderController@show')->name('admin.order.show');
+    Route::get('/admin/orders/delete/{id}', 'App\Http\Controllers\Admin\AdminOrderController@delete')->name('admin.order.delete');
 });
