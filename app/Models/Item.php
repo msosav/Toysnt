@@ -156,9 +156,11 @@ class Item extends Model
             }
         }
 
-        krsort($toyStats);
+        arsort($toyStats);
         $toyStats = array_slice($toyStats, 0, 3, true);
         $toysCount = $toyStats;
+        ksort($toysCount);
+        krsort($toyStats);
         $toyStats = Toy::findMany(array_keys($toyStats));
         $toyGroup = [];
         $toyGroup['count'] = $toysCount;
