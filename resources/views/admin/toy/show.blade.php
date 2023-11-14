@@ -12,7 +12,6 @@
             @if ($viewData['toy']->getStorage() == "gcp")
             <img src="{{ $viewData['toy']->getImage() }}" class="img-fluid rounded-start" id="card-image">
             @endif
-            
         </div>
         <div class="col-md-3 my-5">
             <h1 id="show-title" class="py-1">{{ $viewData['toy']->getName() }}</h1>
