@@ -173,7 +173,7 @@ class Toy extends Model
         }
     }
 
-    public static function stats(): Collection
+    public static function stats(): array
     {
         $toys = Toy::all();
         $toyStats = [];
@@ -181,9 +181,13 @@ class Toy extends Model
             $toyStats[$toy->getId()] = $toy->getItems()->count();
         }
         arsort($toyStats);
-        $toyStats = array_slice($toyStats, 0, 5, true);
+        $toyStats = array_slice($toyStats, 0, 3, true);
+        $toysCount = $toyStats;
         $toyStats = Toy::findMany(array_keys($toyStats));
+        $toyGroup = [];
+        $toyGroup['count'] = $toysCount;
+        $toyGroup['stats'] = $toyStats;  
 
-        return $toyStats;
+        return $toyGroup;
     }
 }
