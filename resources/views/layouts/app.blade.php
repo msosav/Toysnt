@@ -132,7 +132,9 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Livewire JS -->
+    <script src="/public/livewire/livewire.js?id=c4077c56" data-csrf="MF5QGrKC0IEdAU9ceXeBwxXgQkhP9Jy7gBn6G3eK" data-uri="/public/livewire/update" data-navigate-once="true"></script>
     @livewireScripts
+    
 </body>
 
 </html>
