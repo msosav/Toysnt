@@ -22,7 +22,7 @@
         <div class="card-group">
             @if (isset($viewData['toysInCart']))
             @foreach ($viewData['toysInCart'] as $toy)
-            <div class="col-md-4 col-lg-3 mb-2 mt-1" wire:key="{{'toy' . $toy->getId()}}">
+            <div class="col-md-4 col-lg-4 mb-4 mt-1 ml-4" wire:key="{{'toy' . $toy->getId()}}">
                 <div class="card index-card h-100">
                     @if ($toy->getStorage() == "local")
                     <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top index-image" alt="{{ $toy->getName() }}">
