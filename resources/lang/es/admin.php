@@ -82,5 +82,7 @@ return [
     'orders' => [
         'index' => 'Pedidos',
         'show' => 'Mostrar',
+        'user' => 'Usuario',
+        'deleted' => '¡Orden eliminada con éxito!',
     ],
 ];
