@@ -56,7 +56,7 @@
                         </li>
                         @else
                         <ul class="navbar-nav mb-2 mb-lg-0">
-                            <li class="nav-item dropdown px-4">
+                            <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" aria-current="page" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-user"></i> {{ auth()->user()->getName() }}
                                 </a>
@@ -75,6 +75,22 @@
                                         <li><a class="dropdown-item d-flex justify-content-between" onclick="document.getElementById('logout').submit();">@lang('admin.navbar.logout') <i class="fa-solid fa-right-from-bracket mt-1"></i></a></li>
                                         @csrf
                                     </form>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" aria-current="page" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    @if(Session::has('locale'))
+                                    {{ strtoupper(Session::get('locale')) }}
+                                    @else
+                                    EN
+                                    @endif
+                                </a>
+                                <ul class="dropdown-menu md-5">
+
+                                    <a class="dropdown-item" style="color: black !important; font-size: 16px;" href="{{ route('changeLocale', ['locale'=> 'en']) }}"><b>EN -</b> @lang('app.navbar.en')</a>
+                                    <a class="dropdown-item" style="color: black !important; font-size: 16px;" href="{{ route('changeLocale', ['locale'=> 'es']) }}"><b>ES -</b> @lang('app.navbar.es')</a>
+
                                 </ul>
                             </li>
                         </ul>

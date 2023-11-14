@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Technique;
 use App\Models\Toy;
 use App\Util\ThirdPartyApi;
+use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
+
 
 class HomeController extends Controller
 {
@@ -23,5 +25,11 @@ class HomeController extends Controller
         $viewData['apiCity'] = $apiResponse->city;
 
         return view('home.index')->with('viewData', $viewData);
+    }
+
+    public function changeLocale($locale)
+    {
+        Session::put('locale', $locale);
+        return redirect()->back();
     }
 }

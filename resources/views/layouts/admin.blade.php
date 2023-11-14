@@ -52,6 +52,22 @@
                                 </form>
                             </ul>
                         </li>
+
+                        <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" aria-current="page" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    @if(Session::has('locale'))
+                                    {{ strtoupper(Session::get('locale')) }}
+                                    @else
+                                    EN
+                                    @endif
+                                </a>
+                                <ul class="dropdown-menu md-5">
+
+                                    <a class="dropdown-item" style="color: black !important; font-size: 16px;" href="{{ route('changeLocale', ['locale'=> 'en']) }}"><b>EN -</b> @lang('admin.navbar.en')</a>
+                                    <a class="dropdown-item" style="color: black !important; font-size: 16px;" href="{{ route('changeLocale', ['locale'=> 'es']) }}"><b>ES -</b> @lang('admin.navbar.es')</a>
+
+                                </ul>
+                            </li>
                     </ul>
                 </div>
             </nav>

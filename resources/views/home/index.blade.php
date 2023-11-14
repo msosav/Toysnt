@@ -24,32 +24,41 @@
     </div>
 </section>
 <section class="container" id="top-toys">
-    <div class="row">
-        <div class="mt-4 mb-4">
-            <h1 class="text-center">@lang('app.home.top_toys')</h1>
-        </div>
-        <div class="d-flex justify-content-center mb-4">
+    <div class="mt-5 mb-4">
+        <h1 class="text-center">@lang('app.home.top_toys')</h1>
+    </div>
+    <div class="d-flex justify-content-center mb-4">
+        <div class="row">
             @foreach ($viewData['toys'] as $toy)
-            <div class="col-md-4 col-lg-3 mb-2">
+            <div class="col-md-4 col-lg-4 mb-4 mt-3 ml-4">
                 <div class="card index-card">
+                    @if ($toy->getStorage() == "local")
                     <img src="{{ URL::asset('storage/'.$toy->getImage()) }}" class="card-img-top index-image" alt="{{ $toy->getName() }}">
+                    @endif
+
+                    @if ($toy->getStorage() == "gcp")
+                    <img src="{{ $toy->getImage() }}" class="card-img-top index-image" alt="{{ $toy->getName() }}">
+                    @endif
                     <div class="card-body text-center">
                         <h5 class="card-title"><a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}" id="card-title">{{ $toy->getName() }}</a></h5>
                         <h6 class="card-subtitle card-price">${{ $toy->getPrice() }}</h6>
                     </div>
                 </div>
             </div>
+
             @endforeach
         </div>
+    </div>
 </section>
 <section class="container" id="top-techniques">
-    <div class="row">
-        <div class="mt-4 mb-4">
-            <h1 class="text-center">@lang('app.home.top_techniques')</h1>
-        </div>
-        <div class="d-flex justify-content-center mb-4">
+
+    <div class="mt-4 mb-4">
+        <h1 class="text-center">@lang('app.home.top_techniques')</h1>
+    </div>
+    <div class="d-flex justify-content-center mb-4">
+        <div class="row">
             @foreach ($viewData['techniques'] as $technique)
-            <div class="col-md-4 col-lg-3 mb-2">
+            <div class="col-md-4 col-lg-4 mb-4 mt-3 ml-4">
                 <div class="card index-card">
                     <img src="{{ URL::asset('storage/'.$technique->getImage()) }}" class="card-img-top index-image" alt="{{ $technique->getName() }}">
                     <div class="card-body text-center">
@@ -60,10 +69,11 @@
             </div>
             @endforeach
         </div>
+
 </section>
 
 <div class="center mb-2">
-    <small>@lang('app.home.ip') <b>{{$viewData['apiIp']}}</b>, @lang('app.home.from') <b>{{$viewData['apiCity']}}, {{$viewData['apiCountry']}}.</b></small> 
+    <small>@lang('app.home.ip') <b>{{$viewData['apiIp']}}</b>, @lang('app.home.from') <b>{{$viewData['apiCity']}}, {{$viewData['apiCountry']}}.</b></small>
 </div>
 
 

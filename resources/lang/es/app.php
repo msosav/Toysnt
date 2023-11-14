@@ -14,9 +14,13 @@ return [
         'techniques' => 'Técnicas',
         'logout' => 'Cerrar sesión',
         'admin' => 'Panel de administración',
+        'es' => 'Español',
+        'en' => 'Inglés',
     ],
     'home' => [
         'home' => 'Inicio - Toysnt',
+        'toys_section' => 'Sección - Juguetes',
+        'techniques_section' => 'Sección - Técnicas',
         'message' => 'Juega, destroza, repite: Tu tienda de diversión extrema',
         'button' => 'Ir a la tienda',
         'info' => 'Más información',

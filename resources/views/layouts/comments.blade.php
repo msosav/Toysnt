@@ -20,7 +20,7 @@
                     <div class="card-body d-flex justify-content-between">
                         <div class="row">
                             <textarea class="mx-3" name="comment" id="comment-text" cols="30" rows="10" placeholder="@lang('app.reviews.review')" required></textarea>
-                            <input name="rating" class="mx-3" type="text" placeholder="@lang('app.reviews.rating')" id="rating-text" required>
+                            <input name="rating" class="mx-3" type="number" placeholder="@lang('app.reviews.rating')" min="0" max="5" id="rating-text" required>
                             <div class="my-3" id="review-submit">
                                 <button class="btn btn-outline" type="submit">@lang('app.reviews.submit')</button>
                             </div>

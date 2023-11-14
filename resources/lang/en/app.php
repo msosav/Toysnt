@@ -14,9 +14,13 @@ return [
         'techniques' => 'Techniques',
         'logout' => 'Logout',
         'admin' => 'Admin panel',
+        'es' => 'Spanish',
+        'en' => 'English',
     ],
     'home' => [
         'home' => 'Home - Toysnt',
+        'toys_section' => 'Section - Toys',
+        'techniques_section' => 'Section - Techniques',
         'message' => 'Play, destroy, repeat: Your extreme fun store',
         'button' => 'Go to the store',
         'info' => 'More information',

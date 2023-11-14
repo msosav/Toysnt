@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
 //Rutas de Auth.
 Auth::routes();
+
+Route::get('locale/{locale}', 'App\Http\Controllers\HomeController@changeLocale')->name('changeLocale');
 
 //Rutas de Home.
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')->middleware('landing.page');

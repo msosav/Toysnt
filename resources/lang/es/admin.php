@@ -9,6 +9,8 @@ return [
         'orders' => 'Pedidos',
         'logout' => 'Salir',
         'store' => 'Tienda',
+        'es' => 'Español',
+        'en' => 'Inglés',
     ],
     'toys' => [
         'index' => 'Juguetes',

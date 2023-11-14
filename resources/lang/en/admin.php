@@ -9,6 +9,8 @@ return [
         'orders' => 'Orders',
         'logout' => 'Logout',
         'store' => 'Store',
+        'es' => 'Spanish',
+        'en' => 'English',
     ],
     'toys' => [
         'index' => 'Toys',
