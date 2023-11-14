@@ -52,8 +52,8 @@ class AdminTechniqueController extends Controller
         $technique->save();
 
         Technique::validate($request, ['technique_image'], []);
-        $image = app(ImageStorage::class);
-        $image = $image->store($request, 'technique_image', $technique->getId());
+        $storeInterface = app(Imagestorage::class, ['storage' => 'local']);
+        $image = $storeInterface->store($request, 'technique_image', $technique->getId());
         $technique->setImage($image);
         $technique->update();
 
@@ -101,7 +101,7 @@ class AdminTechniqueController extends Controller
     {
         $technique = Technique::find($id);
         if ($technique !== null) {
-            $image = app(ImageStorage::class);
+            $image = app(Imagestorage::class, ['storage' => 'local']);
             $image = $image->delete('technique_image', $technique->getName());
             Technique::destroy($id);
         }
