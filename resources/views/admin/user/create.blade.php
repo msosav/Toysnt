@@ -29,7 +29,7 @@
                         <input type="address" class="form-control mb-2" placeholder=@lang('admin.users.address') name="address" value="{{ old('address') }}" required />
                         <p></p>
                         <div class="text-center">
-                            <input type="submit" class="btn btn-danger" value=@lang('admin.users.add') />
+                            <input type="submit" class="btn btn-danger" value=@lang('admin.users.add') required/>
                         </div>
                     </form>
                 </div>
