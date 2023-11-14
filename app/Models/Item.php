@@ -142,7 +142,6 @@ class Item extends Model
         return $this->attributes['updated_at'];
     }
 
-
     public static function stats(): array
     {
         $items = Item::all();
@@ -167,5 +166,4 @@ class Item extends Model
 
         return $toyGroup;
     }
-    
 }
