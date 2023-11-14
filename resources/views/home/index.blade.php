@@ -67,7 +67,7 @@
     <div class="d-flex justify-content-center mb-4">
         <div class="row">
             @foreach ($viewData['techniques'] as $technique)
-            <div class="col-md-4 col-lg-4 mb-4 mt-3 ml-4">
+            <div class="col-md-4 col-lg-4 mb-4 mt-3 ps-5 ml-4">
                 <div class="card index-card">
                     <img src="{{ URL::asset('storage/'.$technique->getImage()) }}" class="card-img-top index-image" alt="{{ $technique->getName() }}">
                     <div class="card-body text-center">
