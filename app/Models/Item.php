@@ -162,7 +162,7 @@ class Item extends Model
         $toyStats = Toy::findMany(array_keys($toyStats));
         $toyGroup = [];
         $toyGroup['count'] = $toysCount;
-        $toyGroup['stats'] = $toyStats;  
+        $toyGroup['stats'] = $toyStats;
 
         return $toyGroup;
     }
