@@ -8,7 +8,6 @@ use App\Util\ThirdPartyApi;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
-
 class HomeController extends Controller
 {
     public function index(): View
@@ -30,6 +29,7 @@ class HomeController extends Controller
     public function changeLocale($locale)
     {
         Session::put('locale', $locale);
+
         return redirect()->back();
     }
 }
