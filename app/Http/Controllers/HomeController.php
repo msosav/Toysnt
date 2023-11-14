@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Technique;
-use App\Models\Toy;
+use App\Models\Item;
 use App\Util\ThirdPartyApi;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
@@ -18,7 +18,7 @@ class HomeController extends Controller
         $apiResponse = json_decode($apiResponse);
         $viewData = [];
         $viewData['title'] = trans('app.home.home');
-        $toysGroup = Toy::stats();
+        $toysGroup = Item::stats();
         $viewData['toys'] = $toysGroup['stats'];
         $viewData['count'] = $toysGroup['count'];
         $viewData['techniques'] = Technique::stats();
