@@ -29,6 +29,7 @@
                             <option selected value="admin">@lang('admin.users.admin')</option>
                             @endif
                         </select>
+                        <input type="password" class="form-control mb-2" placeholder=@lang('admin.users.password') name="password" value="{{ old('password') }}" />
                         <input type="number" class="form-control mb-2" placeholder=@lang('admin.users.balance') name="balance" value="{{ $viewData['user']->getBalance() }}" required />
                         <input type="address" class="form-control mb-2" placeholder=@lang('admin.users.address') name="address" value="{{ $viewData['user']->getAddress() }}" required />
                         <p></p>
