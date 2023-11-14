@@ -136,17 +136,17 @@ class Technique extends Model
         $count = 0;
         $temp = 0;
         foreach ($techniques as $technique) {
-                foreach ($technique->getReviews() as $review) {
-                    $temp += $review->getRating();
-                    $count += 1;
-                }
-                if ($count > 0) {
-                    $techniqueStats[$technique->getId()] = $temp/$count;
-                } else {
-                    $techniqueStats[$technique->getId()] = 0;
-                }
-                $count = 0;
-                $temp = 0;
+            foreach ($technique->getReviews() as $review) {
+                $temp += $review->getRating();
+                $count += 1;
+            }
+            if ($count > 0) {
+                $techniqueStats[$technique->getId()] = $temp / $count;
+            } else {
+                $techniqueStats[$technique->getId()] = 0;
+            }
+            $count = 0;
+            $temp = 0;
         }
         arsort($techniqueStats);
         $techniqueStats = array_slice($techniqueStats, 0, 3, true);
@@ -156,7 +156,7 @@ class Technique extends Model
         $techniqueStats = Technique::findMany(array_keys($techniqueStats));
         $techniqueGroup = [];
         $techniqueGroup['rating'] = $techniquesRating;
-        $techniqueGroup['stats'] = $techniqueStats;  
+        $techniqueGroup['stats'] = $techniqueStats;
 
         return $techniqueGroup;
     }
