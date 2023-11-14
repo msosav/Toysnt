@@ -21,7 +21,9 @@ class HomeController extends Controller
         $toysGroup = Item::stats();
         $viewData['toys'] = $toysGroup['stats'];
         $viewData['count'] = $toysGroup['count'];
-        $viewData['techniques'] = Technique::stats();
+        $techniquesStats = Technique::stats();
+        $viewData['techniques'] = $techniquesStats['stats'];
+        $viewData['rating'] = $techniquesStats['rating'];
         $viewData['apiIp'] = $apiResponse->ip;
         $viewData['apiCountry'] = $apiResponse->country;
         $viewData['apiCity'] = $apiResponse->city;
