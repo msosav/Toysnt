@@ -129,17 +129,35 @@ class Technique extends Model
         }
     }
 
-    public static function stats(): Collection
+    public static function stats(): array
     {
         $techniques = Technique::all();
         $techniqueStats = [];
+        $count = 0;
+        $temp = 0;
         foreach ($techniques as $technique) {
-            $techniqueStats[$technique->getId()] = $technique->getReviews()->count();
+                foreach ($technique->getReviews() as $review) {
+                    $temp += $review->getRating();
+                    $count += 1;
+                }
+                if ($count > 0) {
+                    $techniqueStats[$technique->getId()] = $temp/$count;
+                } else {
+                    $techniqueStats[$technique->getId()] = 0;
+                }
+                $count = 0;
+                $temp = 0;
         }
         arsort($techniqueStats);
-        $techniqueStats = array_slice($techniqueStats, 0, 5, true);
+        $techniqueStats = array_slice($techniqueStats, 0, 3, true);
+        $techniquesRating = $techniqueStats;
+        ksort($techniquesRating);
+        krsort($techniqueStats);
         $techniqueStats = Technique::findMany(array_keys($techniqueStats));
+        $techniqueGroup = [];
+        $techniqueGroup['rating'] = $techniquesRating;
+        $techniqueGroup['stats'] = $techniqueStats;  
 
-        return $techniqueStats;
+        return $techniqueGroup;
     }
 }
