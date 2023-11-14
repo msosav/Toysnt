@@ -77,8 +77,13 @@
                 </div>
             </div>
             @endforeach
-        </div>
 
+            @foreach ($viewData['rating'] as $key => $value)
+            <div class="col-md-4 col-lg-4 mb-4 ml-3 toys-count">
+                <p>{{$value}} <i class="fa-solid fa-star"></i></p>
+            </div>
+            @endforeach
+        </div>
 </section>
 
 <div class="center mb-2">
