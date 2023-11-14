@@ -17,14 +17,14 @@
 
                     <form method="POST" action="{{ route('admin.toy.update', ['id' => $viewData['toy']->getId()]) }}" enctype="multipart/form-data">
                         @csrf
-                        <input type="text" class="form-control mb-2" placeholder=@lang('admin.toys.model') name="model" value="{{ $viewData['toy']->getName() }}" />
-                        <input type="file" name="toy_image" accept=".jpg,.png,.jpeg" class="form-control mb-2" />
-                        <input type="text" class="form-control mb-2" placeholder=@lang('admin.toys.description') name="description" value="{{ $viewData['toy']->getDescription() }}" />
-                        <input type="number" class="form-control mb-2" placeholder=@lang('admin.toys.price') name="price" value="{{ $viewData['toy']->getPrice() }}" />
-                        <input type="number" class="form-control mb-2" placeholder=@lang('admin.toys.stock') name="stock" value="{{ $viewData['toy']->getStock() }}" />
+                        <input type="text" class="form-control mb-2" placeholder=@lang('admin.toys.model') name="model" value="{{ $viewData['toy']->getName() }}" required/>
+                        <input type="file" name="toy_image" accept=".jpg,.png,.jpeg" class="form-control mb-2" required/>
+                        <input type="text" class="form-control mb-2" placeholder=@lang('admin.toys.description') name="description" value="{{ $viewData['toy']->getDescription() }}" required/>
+                        <input type="number" class="form-control mb-2" placeholder=@lang('admin.toys.price') name="price" value="{{ $viewData['toy']->getPrice() }}" required/>
+                        <input type="number" class="form-control mb-2" placeholder=@lang('admin.toys.stock') name="stock" value="{{ $viewData['toy']->getStock() }}" required/>
                         <p></p>
                         <div class="text-center">
-                            <input type="submit" class="btn btn-danger" value=@lang('admin.toys.edit') />
+                            <input type="submit" class="btn btn-danger" value=@lang('admin.toys.edit') required/>
                         </div>
                     </form>
                 </div>

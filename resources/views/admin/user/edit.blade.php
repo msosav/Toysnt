@@ -33,7 +33,7 @@
                         <input type="address" class="form-control mb-2" placeholder=@lang('admin.users.address') name="address" value="{{ $viewData['user']->getAddress() }}" required />
                         <p></p>
                         <div class="text-center">
-                            <input type="submit" class="btn btn-danger" value=@lang('admin.users.edit') />
+                            <input type="submit" class="btn btn-danger" value=@lang('admin.users.edit') required/>
                         </div>
                     </form>
                 </div>

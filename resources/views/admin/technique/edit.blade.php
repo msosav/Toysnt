@@ -17,13 +17,13 @@
 
                     <form method="POST" action="{{ route('admin.technique.update', ['id' => $viewData['technique']->getId()]) }}" enctype="multipart/form-data">
                         @csrf
-                        <input type="text" class="form-control mb-2" placeholder="@lang('admin.techniques.model')" name="model" value="{{ $viewData['technique']->getName() }}" />
-                        <input type="file" name="technique_image" accept=".jpg,.png,.jpeg" class="form-control mb-2" />
-                        <input type="text" class="form-control mb-2" placeholder="@lang('admin.techniques.description')" name="description" value="{{ $viewData['technique']->getDescription() }}" />
-                        <input type="number" class="form-control mb-2" placeholder="@lang('admin.techniques.price')" name="price" value="{{ $viewData['technique']->getPrice() }}" />
+                        <input type="text" class="form-control mb-2" placeholder="@lang('admin.techniques.model')" name="model" value="{{ $viewData['technique']->getName() }}" required/>
+                        <input type="file" name="technique_image" accept=".jpg,.png,.jpeg" class="form-control mb-2" required/>
+                        <input type="text" class="form-control mb-2" placeholder="@lang('admin.techniques.description')" name="description" value="{{ $viewData['technique']->getDescription() }}" required/>
+                        <input type="number" class="form-control mb-2" placeholder="@lang('admin.techniques.price')" name="price" value="{{ $viewData['technique']->getPrice() }}" required/>
                         <p></p>
                         <div class="text-center">
-                            <input type="submit" class="btn btn-danger" value=@lang('admin.techniques.edit') />
+                            <input type="submit" class="btn btn-danger" value=@lang('admin.techniques.edit') required/>
                         </div>
                     </form>
                 </div>

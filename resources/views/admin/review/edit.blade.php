@@ -17,16 +17,16 @@
 
                     <form method="POST" action="{{ route('admin.review.update', ['id' => $viewData['review']->getId()]) }}" enctype="multipart/form-data">
                         @csrf
-                        <input type="text" class="form-control mb-2" placeholder="@lang('admin.reviews.comment')" name="comment" value="{{ $viewData['review']->getComment() }}" />
-                        <input type="text" class="form-control mb-2" placeholder="@lang('admin.reviews.rating')" name="rating" value="{{ $viewData['review']->getRating() }}" />
-                        <select class="form-control mb-2" placeholder="@lang('admin.reviews.technique')" name="technique" value="{{ $viewData['review']->getTechniqueId() }}">
+                        <input type="text" class="form-control mb-2" placeholder="@lang('admin.reviews.comment')" name="comment" value="{{ $viewData['review']->getComment() }}" required/>
+                        <input type="text" class="form-control mb-2" placeholder="@lang('admin.reviews.rating')" name="rating" value="{{ $viewData['review']->getRating() }}" required/>
+                        <select class="form-control mb-2" placeholder="@lang('admin.reviews.technique')" name="technique" value="{{ $viewData['review']->getTechniqueId() }}"required>
                             @foreach ($viewData['techniques'] as $technique)
                             <option value="{{ $technique->getId() }}">{{ $technique->getName() }}</option>
                             @endforeach
                         </select>
                         <p></p>
                         <div class="text-center">
-                            <input type="submit" class="btn btn-danger" value="@lang('admin.reviews.edit')" />
+                            <input type="submit" class="btn btn-danger" value="@lang('admin.reviews.edit')" required/>
                         </div>
                     </form>
                 </div>
