@@ -77,7 +77,7 @@ return [
     'terms_and_conditions' => 'Términos y condiciones',
     'cart' => [
         'cart' => 'Carrito de compras',
-        'empty' => 'Vaciar el carrito',
+        'empty' => 'El carrito está vacío',
         'add' => 'Añadir al carrito',
         'technique_removed' => '¡Técnica eliminada con éxito!',
         'toy_added' => '¡Juguete añadido con éxito!',

@@ -78,7 +78,7 @@ return [
     'cart' => [
         'cart' => 'Shopping cart',
         'add' => 'Add to cart',
-        'empty' => 'Empty shopping cart',
+        'empty' => 'Shopping cart is empty',
         'technique_removed' => 'Technique deleted successfully!',
         'toy_added' => 'Toy added successfully!',
         'technique_added' => 'Technique added successfully!',
