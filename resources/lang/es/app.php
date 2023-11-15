@@ -128,9 +128,9 @@ return [
     'associate' => [
         'a_sec' => '¡Un momento!',
         'r_u_billio' => '¿Eres acaso un multimillonario cansado de no saber en qué gastar su fortuna?',
-        'right_place' => "Pues si ese es tu caso, acabas de llegar al lugar correcto.",
+        'right_place' => 'Pues si ese es tu caso, acabas de llegar al lugar correcto.',
         'introduction' => 'Te presentamos Miguapa Mundi, un sitio donde podrás gastar tu dinero no en yates, ni mansiones, ¡sino en paises!',
-        'awesome' => "¿No es íncreible?",
+        'awesome' => '¿No es íncreible?',
         'table' => 'A continuación te mostramos los países disponibles con toda su información.',
         'id' => 'ID',
         'name' => 'Nombre',
