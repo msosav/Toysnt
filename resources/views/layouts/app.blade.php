@@ -103,6 +103,12 @@
     <!-- header -->
     @yield('content')
     <!-- footer -->
+    <div class="cont-btn">
+        <a href="{{ route('associate.index') }}" class="btn-wsp">
+            <img class="btn-2" src="https://i.postimg.cc/wTWMsNRX/Logo-Miguapa-Mundi.png" alt="logo_miguapamundi">
+        </a>
+    </div>
+
     <footer class="footer">
         <div class="copyright py-4 text-center text-white">
             <div class="container">

@@ -29,6 +29,9 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.ind
 //Rutas de Review.
 Route::post('/review/save/{type}/{id}', 'App\Http\Controllers\ReviewController@save')->name('review.save');
 
+//Rutas de Associate Api
+Route::get('/associate-product', 'App\Http\Controllers\AssociateAPIController@index')->name('associate.index');
+
 Route::middleware('auth')->group(function () {
     //Rutas de Order
     Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index');
