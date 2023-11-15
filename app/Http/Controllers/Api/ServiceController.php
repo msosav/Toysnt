@@ -10,7 +10,7 @@ class ServiceController extends Controller
 {
     public function showToys(): JsonResponse
     {
-        $toys = Toy::all();
+        $toys = Toy::all()->pluck('stock', 'id');
 
         return response()->json($toys, 200);
     }
